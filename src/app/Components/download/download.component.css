@@ -1,0 +1,47 @@
+.finalSection
+{
+    background-image: url("../../../assets/images/app-downloads-bg.8f9545d33a5cdc32720a.png");
+    background-repeat: no-repeat;
+    background-position-x: 140px ;
+    background-position-y: 0;
+    background-size: cover;
+}
+
+.logoimg
+{
+    width: 60px;
+    border-radius: 50%;
+}
+
+h3
+{
+    margin-block: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+p
+{
+    margin-block: 10px;
+    width: 400px;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 200;
+    font-family: "Open Sans";
+    color: #001818cf;
+}
+
+.androidApp
+{
+    display: inline-block;
+}
+
+.downloadButtons{
+    margin-top: 20px;
+}
+
+.iosApp
+{
+    margin-left: 20px;
+    display: inline-block;
+}

@@ -1,0 +1,56 @@
+.main-div,.bar{
+    background-color: #EBEBEB;
+}
+
+h2{
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    padding-top: 10px;
+}
+
+.Content{
+    user-select: none;
+    text-transform: capitalize;
+    padding: 40px 50px;
+    border-radius: 10px;
+}
+
+.bar .icon{
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.bar .title{
+    text-align: center;
+}
+
+h5{
+    color: rgba(0, 0, 0, 0.447);
+}
+
+p{
+    font-size: 14px;
+    font-weight: 500;
+    text-align: start;
+}
+
+.lcontetn{
+    line-height: 25px;
+    padding-top: 10px;
+    width: 77%;
+    font-size: 16;
+}
+
+
+@media screen  and (max-width: 992px) { 
+    .bar .title{
+        width: 100%;
+    }
+}
+
+@media screen  and (max-width: 768px) { 
+    h5{
+        color: black;
+    }
+}

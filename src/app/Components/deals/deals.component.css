@@ -1,0 +1,47 @@
+.first-div{
+    background-color: #EBD5D5;
+
+}
+
+.tilte{
+    /* margin: auto; */
+    text-align: center;
+    background-image: url("../../../assets/Images/delas-bg-shape.42bb932e108d21cf250c.png");
+    background-repeat: no-repeat;
+    background-position-x: 0;
+    background-position-y: -11px;
+    background-size: 100%;
+    padding-top: 20px;
+}
+
+h2{
+    color: white;
+    font-size: 20px;
+    font-family: Open Sans;
+}
+
+.viewAll-1{
+    padding-top: 20px;
+}
+
+.viewAll{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.viewAll:hover{
+    color: rgba(0, 0, 0, 0.432);
+}
+
+.icon{
+    background-color: rgba(0, 0, 0, 0.755);
+    padding: 3px 10px;
+    border-radius: 50%;
+    color: white;
+}
+
+.viewAll:hover .icon{
+    background-color: rgba(0, 0, 0, 0.432);
+
+}
