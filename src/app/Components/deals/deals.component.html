@@ -7,7 +7,7 @@
                 <h2>EXCLUSIVE DEALS</h2>
             </div>
             <div class="col-4 text-end viewAll-1">
-                <a class="viewAll" routerLink="/viewAll">View ALL
+                <a class="viewAll" routerLink="/pizza">View ALL
                    <div class="d-inline icon">
                     <i class="fa-solid fa-greater-than fa-xs"></i>
                    </div>
@@ -15,16 +15,19 @@
             </div>
         </div>
         <!-- --------------------Ahmed----------------------------------->
-        <div class="coponents my-3">
-            <div class="container row">
-                <div class="card col-12 my-2 " style="width: 18rem;">
+        <div class="my-3 row py-3">
+            <div class="col-3">
+                <!-- here -->
+                <app-product-card [user]="oneproduct"></app-product-card>
+                <!-- here -->
+                <!-- <div class="card col-12 my-2 " style="width: 18rem;">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
-                  </div>
+                  </div> -->
             </div>
         </div>
     </div>

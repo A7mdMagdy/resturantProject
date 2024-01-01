@@ -1,0 +1,34 @@
+<div class="container my-5 rounded-5 w-50">
+  
+<!-- ********* -->
+<form (ngSubmit)="Add()" class="mx-auto text-light fs-4" [formGroup]="addProductForm">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" formControlName="Name" aria-describedby="emailHelp">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Description</label>
+    <input type="text" class="form-control" formControlName="Description">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Sizes</label>
+    <input type="text" class="form-control" formControlName="Sizes">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Price</label>
+    <input type="text" class="form-control"  formControlName="Price">
+  </div>
+
+  <div class="mb-3">
+    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+    <input type="file" class="form-control w-50" formControlName="Image">
+  </div>
+
+  <button type="submit" class="btn btn-primary text-center">Add Item</button>
+</form>
+
+
+</div>
