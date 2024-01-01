@@ -1,0 +1,28 @@
+<div class="row mt-5">
+    <div class="col-4"></div>
+<div class="d-flex justify-content-center col-4">
+<div class="box">
+    <input type="checkbox" id="check">
+    <div class="search-box">
+      <input type="text" placeholder="Type here..." [(ngModel)]="searchText">
+      <label for="check" class="icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="col-4"></div>
+</div>
+<div class="text-center container-fluid py-5">
+    <div class="row justify-content-around">
+     <div class="col-8 d-flex flex-wrap justify-content-evenly">
+      @for (pizza of allPizzProducts|filter:searchText; track pizza.ID) {
+     <app-product-card [user]="pizza" class="col-lg-3 col-md-5 mb-4 mx-2"></app-product-card>
+      }
+     </div>
+     <div class="col-sm-12 col-lg-4">
+       <app-product-card></app-product-card>
+     </div>
+    </div>
+     </div>

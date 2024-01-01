@@ -1,0 +1,8 @@
+.child
+{
+transition: all 1.1s;
+}
+.parent:hover .child
+{
+    transform: scale(1.2);
+}
