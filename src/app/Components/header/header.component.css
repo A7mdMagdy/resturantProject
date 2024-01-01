@@ -1,0 +1,117 @@
+
+
+@media (min-width: 992px){
+    .tabs-nav-head {
+        height: 60px;
+    }
+}
+
+.menu-container {
+    width: 100%;
+    height: 60px;
+}
+[flex]{
+    display: flex;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+* {
+    font-family: var(--ion-font-family);
+}
+.single-menu-item {
+    font-size: 16px;
+    font-weight: 400;
+    width: auto;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-transition: .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.single-menu-item a {
+    width: 100%;
+    /* display: -webkit-box; */
+    display: flex;
+    /* -webkit-box-align: center; */
+    align-items: center;
+    /* -webkit-box-pack: center; */
+    justify-content: center;
+    height: 100%;
+    width: 100px;
+    color: white!important;
+    font-weight: 700;
+}
+[dir=ltr] .single-menu-item a {
+    font-family: var(--ion-font-family)!important;
+    margin-right: 50px;
+}
+div{
+    display: block;
+}
+.ion-text-center, [text-center] {
+    text-align: center!important;
+}
+.single-menu-item.selected {
+    background: red;
+    color: lightcoral;
+}
+.single-menu-item:hover {
+    background: red;
+    color: lightcoral;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    color: lightcoral;
+     
+}
+.more-option {
+    font-family: var(--ion-font-family)!important;
+    background-color: transparent;
+    color: #fff;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;  
+}
+.more-option .icon-more {
+    /* background: url(assets/chevron-down.svg) 0 0/100% no-repeat; */
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.dropdown-content li {
+    color: var(--ion-color-secondary-dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
