@@ -1,12 +1,12 @@
-
-<div class="row m-auto">
+<div class="row">
     <div class="col-12">
+        <!-- Appear at large screens only -->
         <div class="d-none d-lg-block">
             <app-carousel></app-carousel>
         </div>
-        <!-- At medium to small screens -->
-        <div class="d-block  d-lg-none">
-            <h1>Hellllllllo</h1>
+        <!-- Appear at medium to small screens -->
+        <div class="d-block d-lg-none">
+            <app-menu></app-menu>
         </div>
     </div>
     <!-- Appear at large screens only -->
@@ -16,9 +16,15 @@
     <div class="col-12">
         <app-products></app-products>
     </div>
-    <!-- Appear at large screens only -->
-    <div class="col-12 d-none d-lg-block">
-        <app-download></app-download>
+    <div class="col-12">
+        <!-- Appear at large screens only -->
+        <div class="d-none d-lg-block">
+            <app-download></app-download>~
+        </div>
+        <!-- Appear at medium to small screens -->
+        <div class="d-block d-lg-none">
+            <app-button></app-button>
+        </div>
     </div>
 </div>
 

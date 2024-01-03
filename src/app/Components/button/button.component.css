@@ -1,0 +1,20 @@
+.bt{
+    background-color: #EBEBEB;
+}
+
+.button{
+    margin-block: 20px;
+    width: 100%;
+    background-color: #71A400;
+    padding-block: 15px;
+    color: white;
+}
+
+.button:hover{
+    background-color: #89B22F;
+}
+
+.button i{
+    padding-top: 28px;
+    padding-left: 10px;
+}

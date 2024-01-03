@@ -8,7 +8,7 @@
     background-image: url("../../../assets/Images/pizzas-bg-shape.9ffeb48cea8081705eac.png");
     background-repeat: no-repeat;
     background-position-x: 0;
-    background-position-y: -11px;
+    background-position-y:0;
     background-size: 100%;
     padding-top: 20px;
 }
@@ -19,6 +19,10 @@ h2{
     font-family: Open Sans;
 }
 
+.h2{
+    font-size: 25px;
+    font-weight: 700;
+}
 
 .viewAll-1{
     padding-top: 10px;
@@ -46,8 +50,10 @@ h2{
 
 }
 
+.product{
+    padding: 20px 20px;
+}
 
-/* products hover */
 
 .child
 {

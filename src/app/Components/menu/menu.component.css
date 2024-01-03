@@ -1,0 +1,58 @@
+.main{
+    padding: 40px 20px;
+    background-color:#EBEBEB ;
+}
+
+.viewall a{
+    font-size: 20px;
+    text-decoration: none;
+    color: red;
+}
+
+.viewall a:hover{
+    text-decoration: none;
+    color: rgba(255, 0, 0, 0.548);
+}
+.viewall a i{
+    color: red;
+}
+
+.viewall a:hover i{
+    color: rgba(255, 0, 0, 0.548);
+}
+
+.img1,.img2,.img3,.img4{
+    background-image: url(../../../assets/Images/deals-cat.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y:-20px;
+    padding: 25px 30px;
+    color: white;
+    border-radius: 5px;
+}
+
+.img2{
+    background-image: url(../../../assets/Images/pizza-cat.png);
+}
+
+.img3{
+    background-image: url(../../../assets/Images/sides-cat.png);
+}
+
+.img4{
+    background-image: url(../../../assets/Images/salad-cat.png);
+}
+
+.img1,.img2,.img3,.img4:hover{
+    cursor: pointer
+}
+
+.spanimg{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.span{
+    font-size: 25px;
+    font-weight: 700;
+}

@@ -7,6 +7,10 @@
     background-size: cover;
 }
 
+.pizzaHutLogo{
+    padding-block: 20px;
+}
+
 .logoimg
 {
     width: 60px;
@@ -38,6 +42,7 @@ p
 
 .downloadButtons{
     margin-top: 20px;
+    padding: 20px 0px;
 }
 
 .iosApp
