@@ -7,3 +7,6 @@
 h6>.text-white:hover{
     background-color: red;
 }
+.text-white{
+    text-decoration: none;
+}

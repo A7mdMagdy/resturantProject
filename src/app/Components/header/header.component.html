@@ -1,72 +1,61 @@
 
 
-<div class="site-header-bottom container-style2 bg-dark w-100 center-align">
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-#393838">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/" class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/students" class="nav-link" href="#">Student</a>
-            </li>
-            <li class="nav-item">
-                <a routerLinkActive="active" routerLink="/students/10" class="nav-link" href="#">StudentDetails</a>
-              </li>
-              <li class="nav-item">
-                <a routerLinkActive="active" routerLink="/profile" class="nav-link" href="#">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a routerLinkActive="active" routerLink="/afaojlaflna" class="nav-link" href="#">Error</a>
-              </li>
-          </ul>
-          
-        </div>
-      </nav> -->
-      <div class="tabs-nav-head ">
-        <div class="menu-container container" flex="" id="showcase">
-          <div class="ion-text-center single-menu-item melts">
-            <a class="a-tags" routerLink="/home">Home</a>
-          </div>
-          <div class="ion-text-center single-menu-item melts">
-            <a class="a-tags">Melts</a>
-          </div>
-          <div class="ion-text-center single-menu-item deals">
-            <a class="a-tags">Deals</a>
-          </div>
-          <div class="ion-text-center single-menu-item pizza selected">
-            <a routerLink="/pizza" class="a-tags">Pizza</a>
-          </div>
-          <div class="ion-text-center single-menu-item starters">
-            <a class="a-tags">Starters</a>
-          </div>
-          <div class="dropdown">
-            <div class="ion-text-center single-menu-item more-option"> More <div class="icon-more"> </div>
-          </div>
-          <ul class="dropdown-content">
-            <li>
-              <div class="user-menu-title ion-text-capitalize">Salads</div>
-            </li>
-            <li>
-              <div class="user-menu-title ion-text-capitalize">Desserts</div>
-            </li>
-            <li>
-              <div class="user-menu-title ion-text-capitalize">Drinks</div>
-            </li>
-            <li>
-              <div class="user-menu-title ion-text-capitalize">Everyday Pizza</div>
-            </li>
-            <li>
-              <div class="user-menu-title ion-text-capitalize">Pasta</div>
-            </li>
-          </ul>
-        </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
+  <!-- <div class="container-fluid "> -->
+    
+    <button appDirective class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- <button *ngIf="isSidebarOpen" class="btn btn-secondary menu-button" (click)="toggleSidebar()">X</button> -->
+    <!-- <div [ngClass]="{
+      'collapse': !isSidebarOpen,
+      'navbar-collapse': !isSidebarOpen,
+      'tabs-nav-head': !isSidebarOpen,
+      'sidebar': isSidebarOpen
+    }" flex="" id="navbarNav"> -->
+    <div class=" collapse navbar-collapse tabs-nav-head sidebar" flex="" id="navbarNav">
+      <button class="btn btn-secondary d-lg-none menu-button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">X </button>
+      <div class="ion-text-center single-menu-item melts"> 
+        <a class="a-tags" routerLink="/home" routerLinkActive="selected">Home</a>
       </div>
-    </div>
-</div>
+      <div class="ion-text-center single-menu-item melts">
+        <a class="a-tags">Melts</a>
+      </div>
+      <div class="ion-text-center single-menu-item deals">
+        <a class="a-tags">Deals</a>
+      </div>
+      <div class="ion-text-center single-menu-item pizza">
+        <a routerLink="/pizza" class="a-tags" routerLinkActive="selected">Pizza</a>
+      </div>
+      <div class="ion-text-center single-menu-item starters">
+        <a class="a-tags">Starters</a>
+      </div>
+      <div class="dropdown">
+        <div class="ion-text-center single-menu-item more-option"> <a class="icon-more" href="#"> More <i class="fa fa-fw fa-angle-double-down"></i></a>
+      </div>
+      <ul class="dropdown-content">
+        <li>
+          <div class="user-menu-title ion-text-capitalize">Salads</div>
+        </li>
+        <li>
+          <div class="user-menu-title ion-text-capitalize">Desserts</div>
+        </li>
+        <li>
+          <div class="user-menu-title ion-text-capitalize">Drinks</div>
+        </li>
+        <li>
+          <div class="user-menu-title ion-text-capitalize">Everyday Pizza</div>
+        </li>
+        <li>
+          <div class="user-menu-title ion-text-capitalize">Pasta</div>
+        </li>
+      </ul>
+      </div>
+  </div>
+  
+  <!-- </div> -->
+</nav>
+
 
