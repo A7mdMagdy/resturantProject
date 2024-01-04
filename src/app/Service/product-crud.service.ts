@@ -28,4 +28,9 @@ export class ProductCRUDService {
   filtersizepizza(s:string){
     return this.http.get(this.DB_URL+"/"+s);
   }
+
+  updatePizza(id:number,obj:any)
+  {
+    return this.http.patch(this.DB_URL+'/'+id,obj);
+  }
 }

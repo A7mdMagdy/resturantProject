@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
 .first-div{
  background-color: #EBEBEB;
 }
@@ -72,3 +71,17 @@ body{
   width: 150%;
 }
 
+/* Filter + searchbox */
+.dropdown{
+  margin: 0 50px 0 0!important;
+}
+/* Header */
+.header {
+  width: 90%;
+  margin: 55px auto 15px auto;
+  padding: 15px;
+  /* border: 3px solid #393838; */
+  border-radius: 15px;
+  background-color: beige;
+  box-shadow: -3px 4px 5px rgba(0, 0, 0, 0.45);
+}

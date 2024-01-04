@@ -1,0 +1,39 @@
+<div class=" bg-img">
+  <div class="overlay">
+    <!-- ********* -->
+    <form (ngSubmit)="Update(Name.value,Description.value,Sizes.value,Price.value,Image.value)" class="mx-auto text-light fs-4" > 
+      <fieldset>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" class="form-control" aria-describedby="emailHelp" #Name name="Name" [ngModel]="pizza.Name">
+      </div>
+    
+      
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Description</label>
+        <input type="text" class="form-control" #Description name="Description" [ngModel]="pizza.Description">
+      </div>
+      
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Sizes</label>
+        <input type="text" class="form-control" #Sizes name="Sizes" [ngModel]="pizza.Sizes">
+      </div>
+    
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Price</label>
+        <input type="text" class="form-control"  #Price name="Price" [ngModel]="pizza.Price">
+      </div>
+    
+      <div class="mb-3">
+        <input type="file" class="form-control w-50 mx-auto mt-4" #Image>
+      </div>
+    
+      <button type="submit" class="btn btn-primary mx-auto">Update</button>
+
+    </fieldset>  
+    </form>
+    
+  </div>
+    </div>
+    

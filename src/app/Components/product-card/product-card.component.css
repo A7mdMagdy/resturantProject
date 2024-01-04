@@ -11,3 +11,9 @@ transition: all 1.1s;
 {
     transform: scale(1.2);
 }
+
+
+.model-btn{
+    background-color: transparent;
+    border: none;
+}

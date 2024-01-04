@@ -1,65 +1,105 @@
 <div class="first-div">
   <div class="main">
-    <div class="row mt-5">
-      <!-- Add Left -->
-      <div class="col-4 d-flex">
-        <button class="btn btn-primary w-25 mx-3" routerLink="/pizza/addpizza">Add Item</button>
-      </div>
-      <!--  -->
-    
-    <div class="d-flex justify-content-center col-4">
-    <div class="box">
-      <input type="checkbox" id="check">
-      <div class="search-box">
-        <input type="text" placeholder="Type here..." [(ngModel)]="searchText">
-        <label for="check" class="icon">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </label>
-      </div>
-    </div>
-    </div>
-    
-    
-    <!-- Right -->
-    <div class="col-4 d-flex justify-content-end">
-    
-       <!-- Filter DropDown -->
-       <div class="dropdown mx-5">
-        <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Sort
+
+<!-- Filter + searchbox -->
+<div class="row justify-content-between header">
+  <!-- sticky-top -->
+    <!-- Left -->
+    <div class="left col-lg-7 col-sm-12 d-flex justify-content-lg-start justify-content-sm-between align-items-center">
+      <!-- Admin DropDown Menu -->
+      <div class="dropdown mx-5 col-4" style="width: fit-content;">
+        <button title="Admin Operation" class="dropdown-toggle" style="border: 0; background: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-gear" viewBox="0 0 16 16">
+            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+          </svg>
         </button>
         <ul class="dropdown-menu text-center">
-    
-          <li><button class="dropdown-item" (click)="sortId()">Default</button></li>
-    
-          <li><button class="dropdown-item" (click)="sortHToL()">Price High-Low</button></li>
-    
-          <li><button class="dropdown-item" (click)="sortLToH()">Price Low-High</button></li>
-    
+  
+          <li><button title="Add Item" class="dropdown-item" routerLink="/pizza/addpizza"><i class="bi bi-database-fill-add"></i></button>
+          </li>
+  
+          <!-- <li><button class="dropdown-item" routerLink="/pizza/updatepizza/{{1}}"><i class="bi bi-pencil-square"></i></button></li> -->
         </ul>
       </div>
-    
-      <div class="dropdown mx-5">
-        <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Size
+  
+  
+      <div class="dropdown mx-5 col-4" style="width: fit-content;">
+        <button  class="dropdown-toggle" style="border: 0; background: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-funnel" viewBox="0 0 16 16">
+            <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+          </svg>
         </button>
         <ul class="dropdown-menu text-center">
-    
-          <li><button class="dropdown-item" (click)="Default()">Default</button></li>
-    
-          <li><button class="dropdown-item" (click)="Large()">Large</button></li>
-    
-          <li><button class="dropdown-item" (click)="Medium()">Medium</button></li>
-    
-          <li><button class="dropdown-item" (click)="Small()">Small</button></li>
-    
+  
+          <li><button title="Default Price" class="dropdown-item" (click)="sortId()"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-filter-square-fill" viewBox="0 0 16 16">
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1M4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/>
+          </svg></button></li>
+  
+          <li>
+            <button title="Price From High To Low" class="dropdown-item" (click)="sortHToL()"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-sort-down" viewBox="0 0 16 16">
+            <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+          </svg>
+        </button>
+      </li>
+  
+          <li>
+          <button title="Price From Low To High" class="dropdown-item" (click)="sortLToH()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-sort-down-alt" viewBox="0 0 16 16">
+              <path d="M3.5 3.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 12.293zm4 .5a.5.5 0 0 1 0-1h1a.5.5 0 0 1 0 1zm0 3a.5.5 0 0 1 0-1h3a.5.5 0 0 1 0 1zm0 3a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1zM7 12.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5"/>
+            </svg>
+          </button>
+        </li>
+  
         </ul>
       </div>
+      <!-- End Admin DropDown Menu -->
+      <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+      <!-- Filter -->
+      <div class="col-8 d-flex justify-content-start fw-bold align-items-center" style="font-family: cursive;">
+        
+        <div class="SizeFilter col-8 fs-5">    <!--form-check-inline-->
+          <div class="form-check form-check-inline">
+            <input class="form-check-input " type="checkbox" id="Large" value="Large" (change)="FilteredBySize($event)">
+            <label class="form-check-label" for="Large">Large</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="Medium" value="Medium" (change)="FilteredBySize($event)">
+            <label class="form-check-label" for="Medium">Medium</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="Small" value="Small" (change)="FilteredBySize($event)">
+            <label class="form-check-label" for="Small">Small</label>
+          </div>
+        </div>
+      </div>
+      <!-- End Filter -->
     </div>
-    <!--  -->
-    
-    
+    <!-- End Left -->
+  
+    <!-- Search Box -->
+    <div class="d-flex col-lg-5 col-sm-12 justify-content-lg-end justify-content-sm-center">
+      <div class="box">
+        <input type="checkbox" id="check">
+        <div class="search-box">
+          <input type="text" placeholder="Type here..." [(ngModel)]="searchText">
+          <label for="check" class="icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+        </div>
+      </div>
     </div>
+  
+  
+  
+  </div>
+<!-- Filter + searchbox -->
+
+
+
+
+
+    <!-- Content -->
     <div class="text-center container-fluid py-5">
       <div class="row justify-content-around">
        <div class="col-8 d-flex flex-wrap justify-content-evenly">
@@ -72,5 +112,10 @@
        </div>
       </div>
        </div>
+
+<!-- Content -->
+
+
+
   </div>
 </div>
