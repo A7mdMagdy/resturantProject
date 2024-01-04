@@ -1,10 +1,12 @@
 .finalSection
 {
-    background-image: url("../../../assets/images/app-downloads-bg.8f9545d33a5cdc32720a.png");
+    background-image: url("../../../assets/images/romas_pizza_and_italian_restaurant_cover.jpeg");
     background-repeat: no-repeat;
-    background-position-x: 140px ;
+    background-position-x: 0px ;
     background-position-y: 0;
     background-size: cover;
+    color: white;
+    padding-left: 40px;
 }
 
 .pizzaHutLogo{
@@ -32,7 +34,6 @@ p
     line-height: 25px;
     font-weight: 200;
     font-family: "Open Sans";
-    color: #001818cf;
 }
 
 .androidApp

@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+.first-div{
+ background-color: #EBEBEB;
+}
+
+ .main{
+  padding-top: 50px;
+ }
+ 
 body{
   height: 100vh;
   width: 100%;
@@ -8,6 +16,7 @@ body{
   align-items: center;
   justify-content: center;
 }
+
 .box{
   max-width: 400px;
   width: 100%;

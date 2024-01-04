@@ -4,9 +4,10 @@
     overflow: hidden;
     
 }
-h6>.text-white:hover{
-    background-color: red;
-}
 .text-white{
     text-decoration: none;
 }
+
+/* h6>.text-white:hover{
+    color: #F1373D;
+} */

@@ -1,3 +1,8 @@
+nav{
+  background-color: #393838;
+
+}
+
 @media (max-width:989px) {
     body {
       margin: 0;
@@ -179,12 +184,12 @@
     }
   
     .selected {
-      background: red;
+      background: #F1373D;
       color: lightcoral;
     }
   
     .single-menu-item>a:hover {
-      background: red;
+      background: #F1373D;
       color: lightcoral;
     }
   

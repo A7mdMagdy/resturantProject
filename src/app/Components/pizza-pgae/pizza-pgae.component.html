@@ -1,72 +1,76 @@
-<div class="row mt-5">
-  <!-- Add Left -->
-  <div class="col-4 d-flex">
-    <button class="btn btn-primary w-25 mx-3" routerLink="/pizza/addpizza">Add Item</button>
-  </div>
-  <!--  -->
-
-<div class="d-flex justify-content-center col-4">
-<div class="box">
-  <input type="checkbox" id="check">
-  <div class="search-box">
-    <input type="text" placeholder="Type here..." [(ngModel)]="searchText">
-    <label for="check" class="icon">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </label>
+<div class="first-div">
+  <div class="main">
+    <div class="row mt-5">
+      <!-- Add Left -->
+      <div class="col-4 d-flex">
+        <button class="btn btn-primary w-25 mx-3" routerLink="/pizza/addpizza">Add Item</button>
+      </div>
+      <!--  -->
+    
+    <div class="d-flex justify-content-center col-4">
+    <div class="box">
+      <input type="checkbox" id="check">
+      <div class="search-box">
+        <input type="text" placeholder="Type here..." [(ngModel)]="searchText">
+        <label for="check" class="icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+      </div>
+    </div>
+    </div>
+    
+    
+    <!-- Right -->
+    <div class="col-4 d-flex justify-content-end">
+    
+       <!-- Filter DropDown -->
+       <div class="dropdown mx-5">
+        <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sort
+        </button>
+        <ul class="dropdown-menu text-center">
+    
+          <li><button class="dropdown-item" (click)="sortId()">Default</button></li>
+    
+          <li><button class="dropdown-item" (click)="sortHToL()">Price High-Low</button></li>
+    
+          <li><button class="dropdown-item" (click)="sortLToH()">Price Low-High</button></li>
+    
+        </ul>
+      </div>
+    
+      <div class="dropdown mx-5">
+        <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Size
+        </button>
+        <ul class="dropdown-menu text-center">
+    
+          <li><button class="dropdown-item" (click)="Default()">Default</button></li>
+    
+          <li><button class="dropdown-item" (click)="Large()">Large</button></li>
+    
+          <li><button class="dropdown-item" (click)="Medium()">Medium</button></li>
+    
+          <li><button class="dropdown-item" (click)="Small()">Small</button></li>
+    
+        </ul>
+      </div>
+    </div>
+    <!--  -->
+    
+    
+    </div>
+    <div class="text-center container-fluid py-5">
+      <div class="row justify-content-around">
+       <div class="col-8 d-flex flex-wrap justify-content-evenly">
+        @for (pizza of allPizzProducts|filter:searchText; track pizza.id) {
+       <app-product-card [user]="pizza" class="col-lg-3 col-md-5 mb-4 mx-2"></app-product-card>
+        }
+       </div>
+       <div class="col-sm-12 col-lg-4">
+         <app-product-card></app-product-card>
+       </div>
+      </div>
+       </div>
   </div>
 </div>
-</div>
-
-
-<!-- Right -->
-<div class="col-4 d-flex justify-content-end">
-
-   <!-- Filter DropDown -->
-   <div class="dropdown mx-5">
-    <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Sort
-    </button>
-    <ul class="dropdown-menu text-center">
-
-      <li><button class="dropdown-item" (click)="sortId()">Default</button></li>
-
-      <li><button class="dropdown-item" (click)="sortHToL()">Price High-Low</button></li>
-
-      <li><button class="dropdown-item" (click)="sortLToH()">Price Low-High</button></li>
-
-    </ul>
-  </div>
-
-  <div class="dropdown mx-5">
-    <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Size
-    </button>
-    <ul class="dropdown-menu text-center">
-
-      <li><button class="dropdown-item" (click)="Default()">Default</button></li>
-
-      <li><button class="dropdown-item" (click)="Large()">Large</button></li>
-
-      <li><button class="dropdown-item" (click)="Medium()">Medium</button></li>
-
-      <li><button class="dropdown-item" (click)="Small()">Small</button></li>
-
-    </ul>
-  </div>
-</div>
-<!--  -->
-
-
-</div>
-<div class="text-center container-fluid py-5">
-  <div class="row justify-content-around">
-   <div class="col-8 d-flex flex-wrap justify-content-evenly">
-    @for (pizza of allPizzProducts|filter:searchText; track pizza.id) {
-   <app-product-card [user]="pizza" class="col-lg-3 col-md-5 mb-4 mx-2"></app-product-card>
-    }
-   </div>
-   <div class="col-sm-12 col-lg-4">
-     <app-product-card></app-product-card>
-   </div>
-  </div>
-   </div>

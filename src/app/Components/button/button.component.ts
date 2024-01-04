@@ -13,7 +13,7 @@ export class ButtonComponent {
   constructor(private router:Router){}
 
   fullmenu(){
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/pizza']);
   }
   
 }

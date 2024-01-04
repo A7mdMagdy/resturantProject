@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
+<nav class="navbar navbar-expand-lg position-fixed z-3 w-100">
   <!-- <div class="container-fluid "> -->
     
     <button appDirective class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
       'tabs-nav-head': !isSidebarOpen,
       'sidebar': isSidebarOpen
     }" flex="" id="navbarNav"> -->
-    <div class=" collapse navbar-collapse tabs-nav-head sidebar" flex="" id="navbarNav">
+  <div class=" collapse navbar-collapse tabs-nav-head sidebar" flex="" id="navbarNav">
       <button class="btn btn-secondary d-lg-none menu-button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">X </button>
       <div class="ion-text-center single-menu-item melts"> 
         <a class="a-tags" routerLink="/home" routerLinkActive="selected">Home</a>
@@ -32,9 +32,10 @@
       <div class="ion-text-center single-menu-item starters">
         <a class="a-tags">Starters</a>
       </div>
-      <div class="dropdown">
-        <div class="ion-text-center single-menu-item more-option"> <a class="icon-more" href="#"> More <i class="fa fa-fw fa-angle-double-down"></i></a>
-      </div>
+    <div class="dropdown">
+        <!-- <div class="ion-text-center single-menu-item more-option"> 
+          <a class="icon-more" href="#"> More <i class="fa fa-fw fa-angle-double-down"></i></a> -->
+      <!-- </div> -->
       <ul class="dropdown-content">
         <li>
           <div class="user-menu-title ion-text-capitalize">Salads</div>
@@ -52,7 +53,7 @@
           <div class="user-menu-title ion-text-capitalize">Pasta</div>
         </li>
       </ul>
-      </div>
+    </div>
   </div>
   
   <!-- </div> -->

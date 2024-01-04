@@ -1,0 +1,9 @@
+.caro{
+    margin-top: 75px;
+}
+
+@media screen  and (max-width: 992px) { 
+    .caro{
+        margin-top: 0px;
+    }
+} 
