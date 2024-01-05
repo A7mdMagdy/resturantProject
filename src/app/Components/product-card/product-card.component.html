@@ -1,42 +1,7 @@
-
-<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="background-color: rgb(31, 32, 68)!important;">
-      <div class="modal-header" style="font-family: cursive; background-color: rgb(247, 203, 146) !important;">
-        <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel">{{user?.Name}}</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-dialog modal-dialog-scrollable d-flex justify-content-center" style="background-color: rgb(31, 32, 68)!important; width: 100%;">
-        <!-- Here -->
-        
-        <div class="card border-0" style="width: 18rem;">
-          <img src="{{user?.Image}}" class="card-img-top">
-          <div class="card-body" style="font-family: cursive;">
-            <h5 class="card-title">{{user?.Name}}</h5>
-            <p class="card-text">{{user?.Description}}</p>
-            <p class="card-text fw-bolder">{{user?.Sizes}}</p>
-            <p class="card-text"><span class="bg-success rounded text-white p-2">{{user?.Price}}</span></p>
-          </div>
-        </div>
-
-        <!--  Here -->
-      </div>
-      <div class="modal-footer" style="background-color:rgb(247, 203, 146) !important;">
-        <button class="dropdown-item" routerLink="/pizza/updatepizza/{{1}}"><i class="bi bi-pencil-square"></i></button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>
-    </div>
-  </div>
-</div>
-<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
-
-
-
-
+<!-- Item Cards -->
+<!-- Item Cards -->
+<!-- Item Cards -->
+<!-- Item Cards -->
 <div class="mycard card">
     <div class="parent text-center">  <!-- Added text-center -->
       <img src="{{user?.Image}}" class="w-75 child" />
@@ -47,7 +12,7 @@
         </div>
     </div>
     <div class="card-body">
-    <button type="button" class="model-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button mat-raised-button (click)="openDialog()" class="border-0  bg-transparent">
         <h5 class="card-title mb-3 text-reset">{{user?.Name}}</h5>
         <p class="text-reset">{{user?.Description}}</p>
       <h5>{{user?.Sizes}}</h5>
