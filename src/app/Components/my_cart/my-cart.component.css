@@ -1,0 +1,187 @@
+.btn-custom {
+  background-color: #70a400c5; /* Your desired background color */
+  color: #ffffff; /* Your desired text color */
+  border-radius: 15px; /* Your desired border-radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Your desired box shadow */
+  width:38%;
+  border:none;
+  font-size: x-large;
+  font-weight: bolder;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+.btn-custom:hover {
+  background-color: #71A400; /* Change background color on hover */
+  /* You can add more hover styles here if needed */
+}
+.demo{
+  background-color: #EBEBEB;
+  color: black;
+}
+.demo:hover {
+  background-color: #EBEBEB;
+  color: black;
+}
+.modal-title {
+  width: 70%; 
+  border: none;
+  margin-left: 30px;
+  
+
+}
+.total-price {
+  background-color: white;
+  padding: 10px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-around; /* Space out the elements inside */
+  align-items: center; /* Center vertically */
+}
+
+
+/* Style the text within the total price container */
+.total-price span {
+  font-size: 18px; /* Adjust the font size */
+}
+
+/* Style the price specifically */
+.price {
+  font-weight: bold; /* Make the price bold */
+  color: black; /* Blue color for the price */
+  font-size: large; 
+}
+#sizeForm {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+/* Style for radio buttons */
+#sizeForm input[type="radio"] {
+  margin-right: 13px; /* Add some space between radio button and label */
+  padding: 8px 16px;
+  transition: background-color 0.3s;
+}
+#sizeForm input[type="radio"]:checked{
+  background-color: #007bff; /* Change the background color when the radio button is checked */
+  color: #fff;
+}
+#sizeForm input[type="radio"]:hover{
+  cursor: pointer;
+
+}
+
+/* Style for labels */
+#sizeForm label {
+  display: inline-block;
+  margin-right: 15px; /* Add space between labels */
+  font-size: 16px;
+  color: black; /* Text color for labels */
+  font-weight: bold;
+}
+
+/* Style for labels when hovering over */
+#sizeForm label:hover {
+  cursor: pointer;
+
+}
+/**/
+
+/* Container styles */
+.container {
+  margin-top: 20px;
+  
+}
+.main{
+  background-color: #EBEBEB;
+}
+/* Custom container styles */
+.custom-container {
+  background-color: #EBEBEB;
+  border:none;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+.heading {
+  color: black;
+
+}
+
+/* Cart item styles */
+.cart-item {
+  background-color: #fff;
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Quantity controls styles */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Quantity button styles */
+.quantity-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Quantity styles */
+.quantity {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Cart container styles */
+.cart {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right */
+}
+
+.quantity-button {
+  background-color: #70a400c5; /* Orange color */
+  color: #fff; /* Text color */
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+  border-radius: 10px;
+  padding: 15px 20px;
+  height: 70%;
+  
+
+}
+
+.quantity-button:hover {
+  background-color: #71A400; /* Darker orange on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.quantity {
+  margin: 0 10px; /* Add spacing around the quantity text */
+  font-weight: bold;
+  color: #333;
+}
+

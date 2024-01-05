@@ -1,0 +1,120 @@
+/* Add your custom styles for the cart components here */
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, #FFA500, #ffffff);
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  width: 100%;
+}
+
+.cart-header {
+  margin-bottom: 10px;
+
+}
+
+.cart-items {
+  max-height: 200px; /* Adjust the maximum height as needed */
+  overflow-y: auto;
+}
+
+.scrollable {
+  overflow-y: auto;
+}
+
+.cart-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-details img {
+  width: 90px; /* Adjust the image size as needed */
+  height: 90px;
+  margin-right: 10px;
+}
+
+.counter-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.counter-buttons button {
+  margin: 0 5px;
+}
+
+.total-amount {
+  margin-top: 10px;
+}
+.addbutton{
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  cursor: pointer;
+  position: relative;
+  
+}
+
+.plus {
+  font-weight: bold;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.continue-button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.counter-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #4CAF50; /* Circle background color */
+  color: white;
+  border-radius: 50%; /* Make it a circle */
+  margin-right: 10px; /* Adjust the margin as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-image {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-left: 100px;
+}
+.circularimg{
+  border-radius: 50%;
+  width: 150px; 
+  height: 150px; 
+  object-fit: cover; 
+  display: block;
+}

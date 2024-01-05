@@ -1,0 +1,145 @@
+<div  class="container">
+  <div class="row">
+    <div class=" mx-auto custom-container "  >
+      <h3 class="heading col-12" style="margin-top: 50px;">MY CART</h3>
+      @for (item of orderItems; track item.id)
+      {
+        <div class="col-12">
+          <div class="cart-item col-12">
+            <div class="row">
+              <div class="col-3">
+                <img class="modal-title fs-5 text-center" style="width: 45%;" id="staticBackdropLabel"
+                  src="{{item.Image}}" alt="Pizza Image">
+              </div>
+              <div class="col-8">
+                <div class="row">
+                  <div class="col-5">
+                    <h3 class="text-left" style="color:black;">{{item.Name}}</h3>
+                  </div>
+                  <div class="col-6" >
+                    <p class="text-right" style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-end;text-align: end;font-size: 20px; font-weight: bold;">{{ item.price | currency:
+                      'EGP' }}</p>
+                  </div>
+                </div>
+                <p style="margin-bottom: 10px; margin-left: 2px;font-size: medium;"><strong>Size:</strong> {{item.size}}</p>
+                <div>
+                  <div class="col-md-6" >
+                    <button type="button" (click)="customizeItem(item.id)" class="btn btn-success btn-custom demo" style="font-size: medium;"
+                      data-bs-toggle="modal" data-bs-target="#customizeModal">
+                      Customize
+                    </button>
+                    <div class="modal fade" id="customizeModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content" style="background-color: #f2f2f2;">
+                          <div class="modal-header" style="border: none;">
+                            <div class="row justify-content-between">
+                              <div class="col-5"  *ngIf="selectedItem" >
+                                <img class="modal-title fs-5 text-center" style="width: 100%;" id="staticBackdropLabel"
+                                  src="{{selectedItem.Image}}" alt="Pizza Image">
+                              </div>
+                              <div class="col-5 text-start">
+                                <h3  style="color: black;margin-bottom: 20px;">{{selectedItem.Name }}</h3>
+                                <p style="margin-bottom: 10px;"><strong>Price:</strong> {{selectedItem.price}}</p>
+                                <p style="margin-bottom: 10px; "><strong>Size:</strong> {{selectedItem.size}}</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-body" >
+                            <label
+                              style="color: black; font-size: 25px;font-weight: bold; margin-left: 15px;">Size : </label>
+                              <form id="sizeForm" class="text-center py-3"  style="border-radius: 10px;"  (change)="updateSizeAndPrice()" >
+                               @if (selectedItem.smallPrice){
+                                 <input id="s" [(ngModel)]="selectedradio"   type="radio" name="size" value="small"> 
+                                 <label for="s" >Small</label>
+                                }
+                                @if (selectedItem.mediumPrice){
+                                  <input  id="m" [(ngModel)]="selectedradio" type="radio" name="size" value="medium"> 
+                                  <label for="m">Medium</label>
+                                }
+                                @if (selectedItem.largePrice){
+                                  <input id="l" [(ngModel)]="selectedradio" type="radio" name="size" value="large"> 
+                                  <label for="l">Large</label> 
+                                }
+                            
+                              </form>
+                            <div class="total-price" >
+                              <span style="color: black; font-size: large; font-weight: bold;">Price:</span>
+                              
+                                @if (selectedradio=="small"){
+                                <span class="price"> {{selectedItem.smallPrice}}</span>
+                                }
+                                @if (selectedradio=="medium"){
+                                  <span class="price"> {{selectedItem.mediumPrice}}</span>
+                                }
+                                @if (selectedradio=="large"){
+                                    <span class="price"> {{selectedItem.largePrice}}</span>
+                                }
+                                @else{
+                                  <span class="price"> {{selectedItem.price  | currency:'EGP' }}</span>
+                                }
+                            </div>
+                          </div>
+                          <div class="modal-footer" style="border: none;">
+                            <button type="button" class="btn btn-success btn-custom " style="width: 18%; font-size:large;"
+                              data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="quantity-controls">
+                <!-- <button class="quantity-button" (click)="toggleQuantity(item)">
+                  {{ item.quantity > 1 ? '-' : 'Delete' }}
+                </button> -->
+                <button class="btn btn-danger" (click)="toggleQuantity(item)">
+                  
+                    <i class="fa-solid fa-trash-can"></i>
+                
+                 </button>
+                <div class="quantity"> {{ item.quantity }} </div>
+                   <!-- <button class="quantity-button" (click)="incrementItem(item)" style="font-weight: bold; font-size: 25px; padding: 0px 15px;">
+                  <span style="display: inline-block; width: 100%;">+</span>
+                   </button> -->
+                   <button class="btn btn-success" (click)="incrementItem(item)"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      }
+
+        <div class="col-md-6">
+          <button type="button" class="btn btn-success btn-custom " data-bs-toggle="modal"
+            data-bs-target="#foodDeliveryModal" >
+            Check_Out
+          </button>
+
+          <div class="modal fade" id="foodDeliveryModal" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="foodDeliveryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content ">
+                <div class="modal-header text-center" style="border: none;">
+                  <img class="modal-title fs-5" id="staticBackdropLabel" src="assets\Images\cart-icon-10.png">
+                </div>
+                <div class="modal-body" >
+                  <h3 class="text-center " style="color: black;">Estimated delivery time 60 min</h3>
+                  <div class="total-price">
+                    <span style="color: black; font-size: large; font-weight: bold;">Total Price:</span>
+                    <span class="price" style="color: red;"> {{ totalAmount| currency: 'EGP' }}</span>
+                  </div>
+                </div>
+                <div class="modal-footer" style="border: none;">
+                  <button type="button" class="btn btn-success btn-custom " style="width: 18%; font-size:large;"
+                    data-bs-dismiss="modal"  (click)="closeAndNavigateHome()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

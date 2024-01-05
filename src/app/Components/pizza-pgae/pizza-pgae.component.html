@@ -9,7 +9,7 @@
       <!-- Admin DropDown Menu -->
       <div class="dropdown mx-5 col-4" style="width: fit-content;">
         <button title="Admin Operation" class="dropdown-toggle" style="border: 0; background: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-gear" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-gear" viewBox="0 0 16 16">
             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
             <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
           </svg>
@@ -26,7 +26,7 @@
   
       <div class="dropdown mx-5 col-4" style="width: fit-content;">
         <button  class="dropdown-toggle" style="border: 0; background: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-funnel" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-funnel" viewBox="0 0 16 16">
             <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
           </svg>
         </button>
@@ -61,15 +61,15 @@
         <div class="SizeFilter col-8 fs-5">    <!--form-check-inline-->
           <div class="form-check form-check-inline">
             <input class="form-check-input " type="checkbox" id="Large" value="Large" (change)="FilteredBySize($event)">
-            <label class="form-check-label" for="Large">Large</label>
+            <label class="form-check-label txt" for="Large">Large</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="Medium" value="Medium" (change)="FilteredBySize($event)">
-            <label class="form-check-label" for="Medium">Medium</label>
+            <label class="form-check-label txt" for="Medium">Medium</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="Small" value="Small" (change)="FilteredBySize($event)">
-            <label class="form-check-label" for="Small">Small</label>
+            <label class="form-check-label txt" for="Small">Small</label>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@
         }
        </div>
        <div class="col-sm-12 col-lg-4">
-         <app-product-card></app-product-card>
+         <app-small-cart></app-small-cart>
        </div>
       </div>
        </div>

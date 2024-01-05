@@ -7,11 +7,12 @@ import { FilterPipe } from '../../Pipes/filter.pipe';
 import { PizzaService } from '../../Service/pizza.service';
 import { IPizza } from '../../Interface/ipizza';
 import { RouterModule } from '@angular/router';
+import { SmallCartComponent } from '../small-cart/small-cart.component';
 
 @Component({
   selector: 'app-pizza-pgae',
   standalone: true,
-  imports: [ProductCardComponent,HttpClientModule,FormsModule,CommonModule,FilterPipe,RouterModule],
+  imports: [ProductCardComponent,HttpClientModule,FormsModule,CommonModule,FilterPipe,RouterModule,SmallCartComponent],
   providers:[PizzaService],
   templateUrl: './pizza-pgae.component.html',
   styleUrl: './pizza-pgae.component.css'
@@ -102,6 +103,8 @@ FilteredBySize(e:any){
   }
 
 }
+
+
 
 
 }

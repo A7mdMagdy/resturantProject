@@ -82,6 +82,11 @@ body{
   padding: 15px;
   /* border: 3px solid #393838; */
   border-radius: 15px;
-  background-color: beige;
+  background-color: #19283f;
   box-shadow: -3px 4px 5px rgba(0, 0, 0, 0.45);
+}
+
+.txt
+{
+  color: wheat;
 }

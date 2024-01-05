@@ -1,17 +1,72 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { PizzaService } from '../../Service/pizza.service';
 import { Router, RouterModule } from '@angular/router';
+import { CartService } from '../../Service/cart.service';
+import { Cart } from '../../Interface/cart';
+
+
+
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
   imports: [HttpClientModule,RouterModule],
-  providers:[PizzaService],
+  providers:[CartService],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit {
 @Input() user?:any
+itemQuantity:number=0;
+item:Cart
+constructor(private cartService:CartService)
+{
+this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""}
+}
+  ngOnInit(): void {
+    this.cartService.getItemById(this.user.id).subscribe(
+      {
+        next:(data:Cart)=>
+        {
+          this.item=data
+          this.itemQuantity=this.item.quantity;
+        }
+  
+      }
+    )
+    // this.dataService.fetchData();
 
+  }
+
+Increament()
+{
+  this.itemQuantity++;
+  if(this.itemQuantity==1){
+    let size=""
+    if(this.user.smallPrice) size="Small"
+    else if(this.user.mediumPrice) size="Medium"
+    else size="Large"
+    this.cartService.saveCartItems({...this.user,size,quantity:this.itemQuantity}).subscribe()
+    // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
+  }
+  else{
+     this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
+    //  this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
+  }
+}
+Decreament()
+{
+  if(this.itemQuantity>1)
+  {
+    console.log(this.itemQuantity)
+    this.itemQuantity--;
+    this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
+    // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
+  }
+  else if(this.itemQuantity==1) {
+  this.itemQuantity--;
+  this.cartService.removeItemFromOrder(this.item.id).subscribe()
+  // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
+  }
+}
 }

@@ -1,0 +1,59 @@
+
+<div class="cart-container">
+    <div class="cart-card" *ngIf="isEmpty()">
+        <!-- Cart is empty -->
+        <img class="circular-image" src="assets\Images\cartEmpty.png" alt="Empty Cart" />
+        <p style="font-weight: bold;" class="text-center mt-1">Your cart is empty.</p>
+        <p style="font-weight:lighter;" class="text-center">Please add some item from the menue to place an order.</p>
+      </div>
+      
+    <!-- Rest of your cart content -->
+    <div class="cart-card" *ngIf="!isEmpty()">
+      <!-- Cart with items content -->
+      <div class="cart-header">
+        <h2 class="ion-text-uppercase ion-text-center  " style="margin-left: 95px;">Your Cart</h2>
+        <hr>
+
+      </div>
+  
+      <div class="cart-items" [ngClass]="{'scrollable': cartItems.length > 1}">
+        <div *ngFor="let item of cartItems" class="cart-item">
+          <!-- Individual item content -->
+          <div class="item-details">
+            <img class="circularimg" src="{{ item.Image}}" alt="Product Image">
+            <div class="item-info">
+              <h4>{{ item.Name }}</h4>
+              <p>{{ item.price | currency: 'EGP' }}</p>
+              <p>{{ item.size }}</p>
+            </div>
+          </div>
+          
+          <!-- Counter and buttons -->
+          <div class="counter-buttons">
+            <button (click)="toggleButton(item)">
+              {{ item.quantity > 1 ? 'Sub' : 'delete'  }}
+            </button>
+            <div class="quantity">{{ item.quantity }}</div>
+            <button (click)="incrementItem(item)" class="addbutton"  ><span class="plus">+</span></button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Total amount display -->
+      <div class="row">
+        <div class="counter-circle col-4">
+        <div class="shape flex ion-align-items-center ion-justify-content-center">{{ calculateTotalQuantity() }}</div>
+        </div>
+        <div class="total-amount col-8">
+          <p>Total Amount: {{totalAmount}}</p>
+        </div>
+      </div>
+
+  
+      <!-- Continue button -->
+      <button class="continue-button" (click)="continueShopping()" routerLink="/mycart">Continue</button>    
+    </div>
+  </div>
+ 
+  
+  
