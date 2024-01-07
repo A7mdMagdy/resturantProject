@@ -14,7 +14,7 @@ import { PizzaService } from '../../Service/pizza.service';
 export class DealsComponent {
   oneproduct:IPizza;
   constructor(private service:PizzaService){
-   this.oneproduct = { id:0, Name: "", Description: "", Sizes: "", Price: "", Image: "" };
+   this.oneproduct = { id:0, Name: "", Description: "", Sizes: "", price: 0, Image: "" };
   }
    ngOnInit(): void {
      this.service.getPizzaByID(5).subscribe({

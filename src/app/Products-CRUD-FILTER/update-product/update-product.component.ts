@@ -22,7 +22,7 @@ export class UpdateProductComponent {
 
   constructor(private service:ProductCRUDService ,private nav:Router,private URL:ActivatedRoute){
     this.ID = this.URL.snapshot.params["id"]
-    this.pizza={ id:0, Name: "", Description: "", Sizes: "", Price: "", Image: "" };
+    this.pizza={ id:0, Name: "", Description: "", Sizes: "", price: 0, Image: "" };
     // console.log(this.pizza)
     // this.updateProductForm = new FormGroup({
       //   Name:new FormControl(this.pizza["Name"],Validators.pattern('^[a-zA-Z ]{3,}$')),
@@ -44,12 +44,12 @@ export class UpdateProductComponent {
   // }
 
 
-  Update(n:string,d:string,s:string,p:string,i:string){
+  Update(n:string,d:string,s:string,p:number,i:string){
     console.log(this.pizza);      
       this.pizza["Name"]        = n;
       this.pizza["Description"] = d;
       this.pizza["Sizes"]       = s;
-      this.pizza["Price"]       = p;
+      this.pizza["price"]       = p;
       if(i!=''){
         this.pizza["Image"]       = 'assets/Images/Pizza/'+i.substring(12,);
       }

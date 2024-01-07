@@ -1,0 +1,16 @@
+<div class="card text-center" style="border:0 !important; border-radius: 10px !important; ">
+    <div class="card-header text-dark fs-3 fw-bolder" style="padding:0.7em 0 0.7em 0!important;font-family: cursive;background-color: rgba(248, 161, 0, 0.683);">{{selectedItem?.Name}}</div>
+    <div class="card-body mx-auto" style="line-height: 1.9em;">
+        <img src="{{selectedItem?.Image}}">
+        <div class="card-body rounded-4" style="font-family: cursive; background-color: rgb(247, 203, 146) !important;">
+            <p class="card-text fs-4">{{selectedItem?.Description}}</p>
+            <p class="card-text fw-bolder">{{selectedItem?.Sizes}}</p>
+            <p class="card-text"><span class="bg-success rounded text-white p-2">{{selectedItem?.price | currency :'EGP '}}</span></p>
+        </div>
+    </div>
+    <div class="card-footer border-0 bg-transparent mt-3">
+        <button type="button" (click)="close()" class="btn btn-primary">Close</button>
+    </div>
+</div>
+
+<!--  background-color: rgb(31, 32, 68) !important -->

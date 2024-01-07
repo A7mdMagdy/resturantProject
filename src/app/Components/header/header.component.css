@@ -49,8 +49,7 @@ nav{
     .content {
       margin-left: 0;
       padding: 20px;
-      transition: margin-left 0.0s ease;
-      
+      transition: margin-left 0.0s ease;   
     }
   
     .sidebar-open {

@@ -1,7 +1,7 @@
 <div class=" bg-img">
   <div class="overlay">
     <!-- ********* -->
-    <form (ngSubmit)="Update(Name.value,Description.value,Sizes.value,Price.value,Image.value)" class="mx-auto text-light fs-4" > 
+    <form (ngSubmit)="Update(Name.value,Description.value,Sizes.value,+price.value,Image.value)" class="mx-auto text-light fs-4" > 
       <fieldset>
 
       <div class="mb-3">
@@ -22,7 +22,7 @@
     
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Price</label>
-        <input type="text" class="form-control"  #Price name="Price" [ngModel]="pizza.Price">
+        <input type="text" class="form-control"  #price name="Price" [ngModel]="pizza.price">
       </div>
     
       <div class="mb-3">

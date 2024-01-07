@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CartService } from '../../Service/cart.service';
 import { Cart } from '../../Interface/cart';
 
@@ -12,7 +12,7 @@ import { Cart } from '../../Interface/cart';
 @Component({
   selector: 'app-my-cart',
   standalone: true,
-  imports: [CommonModule,HttpClientModule, FormsModule,],
+  imports: [CommonModule,HttpClientModule, FormsModule,RouterModule],
   providers:[CartService],
   templateUrl: './my-cart.component.html',
   styleUrl: './my-cart.component.css'
@@ -140,7 +140,7 @@ export class MyCartComponent implements OnInit {
       {
         this.orderService.removeItemFromOrder(this.orderItems[i].id).subscribe();
       }
-      this.navigateToHome();
+      // this.navigateToHome();
     }
   
     deleteItems(id: number[]): void {

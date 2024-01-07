@@ -3,6 +3,6 @@ export interface IPizza {
     Name:string,
     Description:string,
     Sizes:string,
-    Price:string,
+    price:number,
     Image:string
 }

@@ -19,7 +19,7 @@ export class AddProductComponent{
   pizza:IPizza;
   // Constructor
   constructor(private service:ProductCRUDService ,private nav:Router){
-    this.pizza={ id:0, Name: "", Description: "", Sizes: "", Price: "", Image: "" };
+    this.pizza={ id:0, Name: "", Description: "", Sizes: "", price: 0, Image: "" };
 
     this.addProductForm = new FormGroup({
       Name:new FormControl("",Validators.pattern('^[a-zA-Z ]{3,}$')),
@@ -49,7 +49,7 @@ export class AddProductComponent{
       this.pizza["Name"]        = this.addProductForm.value['Name'];
       this.pizza["Description"] = this.addProductForm.value['Description'];
       this.pizza["Sizes"]       = this.addProductForm.value['Sizes'];
-      this.pizza["Price"]       = " EGP "+this.addProductForm.value['Price']+" ";
+      this.pizza["price"]       = this.addProductForm.value['Price'];
       this.pizza["Image"]       = 'assets/Images/Pizza/'+this.addProductForm.value["Image"].substring(12,);
             
       this.service.addpizza(this.pizza).subscribe({

@@ -49,18 +49,26 @@ sortId() {
 }
 
 sortHToL() {
-  this.allPizzProducts.sort((a, b) => {
-    let price1 = Number(a.Price.replace("EGP", "").trim());
-    let price2 = Number(b.Price.replace("EGP", "").trim());
-    return price2 - price1;
-  })
+  // sort based on price is string 
+  // this.allPizzProducts.sort((a, b) => {
+  //   let price1 = Number(a.Price.replace("EGP", "").trim());
+  //   let price2 = Number(b.Price.replace("EGP", "").trim());
+  //   return price2 - price1;
+  // })
+  // sort based on price is number
+  this.allPizzProducts.sort((a,b)=>{return b.price - a.price})
+
+
 }
 sortLToH() {
-  this.allPizzProducts.sort((a, b) => {
-    let price1 = Number(a.Price.replace("EGP", "").trim());
-    let price2 = Number(b.Price.replace("EGP", "").trim());
-    return price1 - price2;
-  })
+  // sort based on price is string
+  // this.allPizzProducts.sort((a, b) => {
+  //   let price1 = Number(a.Price.replace("EGP", "").trim());
+  //   let price2 = Number(b.Price.replace("EGP", "").trim());
+  //   return price1 - price2;
+  // })
+  // sort based on price is number
+  this.allPizzProducts.sort((a,b)=>{return a.price - b.price})
 }
 
 // <<<<<<< (Filter Based on Size) >>>>>>>>>

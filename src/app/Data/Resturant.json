@@ -289,6 +289,18 @@
     }
   ],
   "cartItems": [
-    
+    {
+      "id": "3",
+      "Name": "Chicken BBQ",
+      "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
+      "Sizes": "Small | Large",
+      "price": "",
+      "smallPrice": "EGP 154.00",
+      "mediumPrice": "",
+      "largePrice": "EGP 200.00 ",
+      "Image": "assets/Images/Pizza/Chicken BBQ.png",
+      "size": "small",
+      "quantity": 1
+    }
   ]
 }

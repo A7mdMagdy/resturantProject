@@ -3,25 +3,30 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { Router, RouterModule } from '@angular/router';
 import { CartService } from '../../Service/cart.service';
 import { Cart } from '../../Interface/cart';
-
+import { CommonModule } from '@angular/common';
+import { IPizza } from '../../Interface/ipizza';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [HttpClientModule,RouterModule],
+  imports: [HttpClientModule,RouterModule,CommonModule,ProductDetailsComponent],
   providers:[CartService],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent implements OnInit {
 @Input() user?:any
+selectedItem?:IPizza
 itemQuantity:number=0;
 item:Cart
-constructor(private cartService:CartService)
+
+constructor(private cartService:CartService , private dialog:MatDialog)
 {
-this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""}
+this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""};
 }
   ngOnInit(): void {
     this.cartService.getItemById(this.user.id).subscribe(
@@ -35,9 +40,21 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
       }
     )
     // this.dataService.fetchData();
-
   }
 
+// <<<<<<<  Card Details >>>>>>>> 
+// <<<<<<<  Card Details >>>>>>>> 
+ItemDetails(){
+  this.dialog.open(ProductDetailsComponent,{
+    width:'500px',
+    data:this.user,
+    disableClose: true,
+  });
+}
+
+
+// <<<<<<<  Card Buttons >>>>>>>> 
+// <<<<<<<  Card Buttons >>>>>>>> 
 Increament()
 {
   this.itemQuantity++;

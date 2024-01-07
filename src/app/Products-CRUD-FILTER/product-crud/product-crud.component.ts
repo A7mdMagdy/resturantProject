@@ -7,12 +7,13 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { IPizza } from '../../Interface/ipizza';
 import { filter } from 'rxjs';
+import { PizzaService } from '../../Service/pizza.service';
 
 @Component({
   selector: 'app-product-crud',
   standalone: true,
   imports: [HttpClientModule, FormsModule, ReactiveFormsModule, CommonModule, ProductDetailsComponent, RouterModule],
-  providers: [ProductCRUDService],
+  providers: [PizzaService],
   templateUrl: './product-crud.component.html',
   styleUrl: './product-crud.component.css'
 })
@@ -20,13 +21,13 @@ export class ProductCrudComponent implements OnInit {
 
   pizza: IPizza[];
   filteredpizza: IPizza[];
-  constructor(private service: ProductCRUDService, private nav: Router) {
+  constructor(private service: PizzaService, private nav: Router) {
     this.pizza = [];
     this.filteredpizza = [];
   }
 
   ngOnInit(): void {
-    this.service.getallpizza().subscribe({
+    this.service.getAllPizza().subscribe({
       next: (data) => {
         this.pizza = data as IPizza[];
         this.filteredpizza = data as IPizza[];
@@ -43,18 +44,24 @@ export class ProductCrudComponent implements OnInit {
   }
 
   sortHToL() {
-    this.pizza.sort((a, b) => {
-      let price1 = Number(a.Price.replace("EGP", "").trim());
-      let price2 = Number(b.Price.replace("EGP", "").trim());
-      return price2 - price1;
-    })
+    // Sort Based on price is string
+    // this.pizza.sort((a, b) => {
+    //   let price1 = Number(a.Price.replace("EGP", "").trim());
+    //   let price2 = Number(b.Price.replace("EGP", "").trim());
+    //   return price2 - price1;
+    // })
+    // Sort Based on price is number
+    this.pizza.sort((a,b)=>{return b.price - a.price});
   }
   sortLToH() {
-    this.pizza.sort((a, b) => {
-      let price1 = Number(a.Price.replace("EGP", "").trim());
-      let price2 = Number(b.Price.replace("EGP", "").trim());
-      return price1 - price2;
-    })
+    // Sort Based on price is string
+    // this.pizza.sort((a, b) => {
+    //   let price1 = Number(a.Price.replace("EGP", "").trim());
+    //   let price2 = Number(b.Price.replace("EGP", "").trim());
+    //   return price1 - price2;
+    // })
+    // Sort Based on price is number
+    this.pizza.sort((a,b)=>{return a.price - b.price});
   }
   // <<<<<<< (Filter Based on Size) >>>>>>>>>
   Default() {

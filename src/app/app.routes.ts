@@ -6,6 +6,8 @@ import { PizzaPgaeComponent } from './Components/pizza-pgae/pizza-pgae.component
 import { AddProductComponent } from './Products-CRUD-FILTER/add-product/add-product.component';
 import { UpdateProductComponent } from './Products-CRUD-FILTER/update-product/update-product.component';
 import { MyCartComponent } from './Components/my_cart/my-cart.component';
+import { ProductDetailsComponent } from './Products-CRUD-FILTER/product-details/product-details.component';
+import { ProductCrudComponent } from './Products-CRUD-FILTER/product-crud/product-crud.component';
 
 export const routes: Routes = 
 [
@@ -17,5 +19,7 @@ export const routes: Routes =
     {path:'pizza',component:PizzaPgaeComponent},
     {path:'pizza/addpizza',component:AddProductComponent},
     {path:'pizza/updatepizza/:id',component:UpdateProductComponent},
-    {path:'mycart',component:MyCartComponent}
+    {path:'mycart',component:MyCartComponent},
+    {path:'admin',component:ProductCrudComponent}    // Admin product details
+
 ];
