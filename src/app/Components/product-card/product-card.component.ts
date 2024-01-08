@@ -8,11 +8,12 @@ import { Observable, async } from 'rxjs';
 import { OperationService } from '../../Service/operation.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [HttpClientModule,RouterModule],
+  imports: [HttpClientModule,RouterModule,CommonModule],
   providers:[CartService],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'

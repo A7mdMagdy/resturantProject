@@ -14,7 +14,8 @@
       <p class="card-title fs-5 fw-medium">{{user?.Name}}</p>
       <!-- <p class="text-reset">{{user?.Description}}</p> -->
       <p class="fs-6">{{user?.Sizes}}</p>
-      @if (user.smallPrice) {
+      <p class="mb-3">{{user?.price | currency:'EGP'}}</p>
+      <!-- @if (user.smallPrice) {
       <p class="mb-3">{{user?.smallPrice}}</p>
       }
       @else if (user.mediumPrice) {
@@ -22,7 +23,7 @@
       }
       @else {
       <p class="mb-3">{{user?.largePrice}}</p>
-      } 
+      }  -->
     </button>
     <!-- Card Buttons -->
     <div class="d-flex justify-content-around">

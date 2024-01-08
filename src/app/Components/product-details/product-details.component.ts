@@ -13,8 +13,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-  selectedItem?: IPizza;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IPizza ,private dialogref:MatDialogRef<ProductDetailsComponent>) {
+  selectedItem?: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any ,private dialogref:MatDialogRef<ProductDetailsComponent>) {
     this.selectedItem = data;
     console.log(this.selectedItem);
   }

@@ -31,7 +31,7 @@ export class ProductDetailsComponent implements OnInit {
   DeletePizza(Id:number){
     if(confirm("Sure?") == true){
       this.service.deletePizzaByID(Id).subscribe({
-        complete:()=>{this.nav.navigate(['/'])}
+        complete:()=>{this.nav.navigate(['/admin'])}
       })
     }
   }

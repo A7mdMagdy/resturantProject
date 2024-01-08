@@ -42,7 +42,11 @@ export class ProductCrudComponent implements OnInit {
   DeletePizza(Id:number){
     if(confirm("Sure?") == true){
       this.service.deletePizzaByID(Id).subscribe({
-        complete:()=>{this.nav.navigate(['/'])}
+        complete:()=>{
+          let arr = this.pizza.filter((pizza:any) => pizza.id != Id);
+          this.pizza.length = 0; 
+          Array.prototype.push.apply(this.pizza, arr);
+        }
       })
     }
   }

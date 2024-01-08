@@ -24,8 +24,8 @@ export class PizzaPgaeComponent implements OnInit{
   console.log(quan.quantity+"  from getQuantity new")
   this.getUpdateQuantity=quan
 }
-allPizzProducts:IPizza[];
-filteredpizza: IPizza[];
+allPizzProducts:any[];
+filteredpizza: any[];
 searchText: string = '';
 listCheckBox:string[];
 constructor(private myApis:PizzaService){
@@ -37,8 +37,8 @@ constructor(private myApis:PizzaService){
     this.myApis.getAllPizza().subscribe(
       {
         next:(data)=> {
-          this.allPizzProducts= data as IPizza[];
-          this.filteredpizza=data as IPizza[];
+          this.allPizzProducts= data as any[];
+          this.filteredpizza=data as any[];
         },
         error:()=>console.log('Something went wrong')
       }
@@ -62,7 +62,6 @@ sortHToL() {
   // })
   // sort based on price is number
   this.allPizzProducts.sort((a,b)=>{return b.price - a.price})
-
 
 }
 sortLToH() {

@@ -5,7 +5,9 @@
         <div class="card-body rounded-4" style="font-family: cursive; background-color: rgb(247, 203, 146) !important;">
             <p class="card-text fs-4">{{selectedItem?.Description}}</p>
             <p class="card-text fw-bolder">{{selectedItem?.Sizes}}</p>
-            <p class="card-text"><span class="bg-success rounded text-white p-2">{{selectedItem?.price | currency :'EGP '}}</span></p>
+            @if(selectedItem?.smallPrice){<p class="card-text"><span class="bg-success rounded text-white p-2">Small = {{selectedItem?.smallPrice}}</span></p>}
+            @if(selectedItem?.mediumPrice){<p class="card-text"><span class="bg-success rounded text-white p-2">Medium = {{selectedItem?.mediumPrice}}</span></p>}
+            @if(selectedItem?.largePrice){<p class="card-text"><span class="bg-success rounded text-white p-2">Large = {{selectedItem?.largePrice}}</span></p>}
         </div>
     </div>
     <div class="card-footer border-0 bg-transparent mt-3">
