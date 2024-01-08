@@ -289,6 +289,31 @@
     }
   ],
   "cartItems": [
-    
+    {
+      "id": "3",
+      "Name": "Chicken BBQ",
+      "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
+      "Sizes": "Small | Large",
+      "price": 154,
+      "smallPrice": "EGP 154.00",
+      "mediumPrice": "",
+      "largePrice": "EGP 200.00 ",
+      "Image": "assets/Images/Pizza/Chicken BBQ.png",
+      "size": "Small",
+      "quantity": 2
+    },
+    {
+      "id": "2",
+      "Name": " Vegetarian",
+      "Description": "Green Pepper, Fresh Tomato, Onions Loaded On",
+      "Sizes": "Medium | Large",
+      "price": 195,
+      "smallPrice": "",
+      "mediumPrice": "EGP 195.00 ",
+      "largePrice": "EGP 210.00 ",
+      "Image": "assets/Images/Pizza/Vegetarian.png",
+      "size": "Medium",
+      "quantity": 1
+    }
   ]
 }

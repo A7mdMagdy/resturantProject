@@ -3,55 +3,53 @@
     <div class="cart-card" *ngIf="isEmpty()">
         <!-- Cart is empty -->
         <img class="circular-image" src="assets\Images\cartEmpty.png" alt="Empty Cart" />
-        <p style="font-weight: bold;" class="text-center mt-1">Your cart is empty.</p>
-        <p style="font-weight:lighter;" class="text-center">Please add some item from the menue to place an order.</p>
+        <h3 style="font-weight: bolder; color: #8A9091;" class="text-center mt-1">Your cart is empty.</h3>
+        <h5 style="font-weight:normal ; color: #BBC1CD;" class="text-center">Please add some item from the menu to place an order.</h5>
       </div>
       
     <!-- Rest of your cart content -->
     <div class="cart-card" *ngIf="!isEmpty()">
       <!-- Cart with items content -->
       <div class="cart-header">
-        <h2 class="ion-text-uppercase ion-text-center  " style="margin-left: 95px;">Your Cart</h2>
+        <h2 class="ion-text-uppercase ion-text-center" style="margin-left: 20px; ">Your Cart</h2>
         <hr>
 
       </div>
   
       <div class="cart-items" [ngClass]="{'scrollable': cartItems.length > 1}">
-        <div *ngFor="let item of cartItems" class="cart-item">
-          <!-- Individual item content -->
+        <div *ngFor="let item of cartItems" class="cart-item" style="border: none;">
           <div class="item-details">
             <img class="circularimg" src="{{ item.Image}}" alt="Product Image">
-            <div class="item-info">
+            <div >
               <h4>{{ item.Name }}</h4>
-              <p>{{ item.price | currency: 'EGP' }}</p>
-              <p>{{ item.size }}</p>
+              <pre style="font-size: larger; font-weight: bolder;">{{item.size }}    {{item.price | currency: 'EGP ' }}</pre>
             </div>
           </div>
           
           <!-- Counter and buttons -->
           <div class="counter-buttons">
-            <button (click)="toggleButton(item)">
-              {{ item.quantity > 1 ? 'Sub' : 'delete'  }}
+            <button class="btn btn-danger" (click)="toggleButton(item)">
+              <i class="fa-solid fa-trash-can"></i>
             </button>
-            <div class="quantity">{{ item.quantity }}</div>
-            <button (click)="incrementItem(item)" class="addbutton"  ><span class="plus">+</span></button>
+            <div class="quantity" style="font-size: large; font-weight:500;">{{ item.quantity }}</div>
+            <button class="btn btn-success"  (click)="incrementItem(item)" ><i class="fa-solid fa-plus"></i></button>
           </div>
         </div>
       </div>
   
       <!-- Total amount display -->
-      <div class="row">
-        <div class="counter-circle col-4">
-        <div class="shape flex ion-align-items-center ion-justify-content-center">{{ calculateTotalQuantity() }}</div>
+      <div class="row" style="margin-left: 20px;">
+        <div class="counter-circle col-3 bg-success">
+        <div class="shape flex ion-align-items-center ion-justify-content-center" style="font-size: large; font-weight: bolder;">{{ calculateTotalQuantity() }}</div>
         </div>
-        <div class="total-amount col-8">
-          <p>Total Amount: {{totalAmount}}</p>
+        <div class="total-amount col-9">
+          <h6  style="font-size: large;">Total Amount: {{totalAmount| currency: 'EGP '}}</h6>
         </div>
       </div>
 
   
       <!-- Continue button -->
-      <button class="continue-button" (click)="continueShopping()" routerLink="/mycart">Continue</button>    
+      <button class="continue-button  btn btn-success" (click)="continueShopping()" routerLink="/mycart">Continue</button>    
     </div>
   </div>
  

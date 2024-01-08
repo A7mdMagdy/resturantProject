@@ -10,7 +10,8 @@
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(to bottom, #FFA500, #ffffff);
+  /*background: linear-gradient(to bottom, #FFA500, #ffffff);*/
+  background:  #ffffff;
   padding: 20px;
   margin: 20px;
   max-width: 400px; /* Adjust the maximum width as needed */
@@ -30,6 +31,27 @@
 .scrollable {
   overflow-y: auto;
 }
+/* WebKit Scrollbar */
+.scrollable::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+/* WebKit Scrollbar Track */
+.scrollable::-webkit-scrollbar-track {
+  background-color: #f5f5f5; /* Set the background color of the track */
+}
+
+/* WebKit Scrollbar Handle/Thumb */
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the thumb */
+  border-radius: 6px; /* Set the border radius of the thumb */
+}
+
+/* WebKit Scrollbar Handle on Hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Set the color of the thumb on hover */
+}
+
 
 .cart-item {
   border-bottom: 1px solid #ccc;
@@ -72,21 +94,16 @@
   
 }
 
-.plus {
-  font-weight: bold;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .continue-button {
   margin-top: 20px;
   padding: 10px;
-  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  width: 50%;
 }
 .row {
   display: flex;
@@ -107,9 +124,10 @@
 
 .circular-image {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  margin-left: 100px;
+  width: 250px;
+  height: 250px;
+  margin-left: 20px;
+  background-color: #FCF8F2;
 }
 .circularimg{
   border-radius: 50%;
@@ -117,4 +135,5 @@
   height: 150px; 
   object-fit: cover; 
   display: block;
+  
 }
