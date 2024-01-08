@@ -53,7 +53,7 @@ export class AddProductComponent{
       this.pizza["Image"]       = 'assets/Images/Pizza/'+this.addProductForm.value["Image"].substring(12,);
             
       this.service.addpizza(this.pizza).subscribe({
-        complete:()=> {this.nav.navigate(['/pizza'])}
+        complete:()=> {this.nav.navigate(['/admin'])}
       })
     }
   }

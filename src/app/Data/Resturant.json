@@ -5,7 +5,7 @@
       "Name": "Original Chicken Ranch",
       "Description": "Ranch base sauce with grilled chicken, mushro",
       "Sizes": "Medium | Small",
-      "price": 175,
+      "price": 145,
       "smallPrice": "EGP 175.00 ",
       "mediumPrice": "EGP 195.00 ",
       "largePrice": "",
@@ -300,6 +300,19 @@
       "largePrice": "EGP 200.00 ",
       "Image": "assets/Images/Pizza/Chicken BBQ.png",
       "size": "small",
+      "quantity": 1
+    },
+    {
+      "id": "5",
+      "Name": "Meat Lover",
+      "Description": "Pepperoni, Beef With Tomato Base & Melting Mo",
+      "Sizes": "Small | Large",
+      "price": 154,
+      "smallPrice": "EGP 154.00",
+      "mediumPrice": "",
+      "largePrice": "EGP 200.00 ",
+      "Image": "assets/Images/Pizza/Meat Lover.png",
+      "size": "Small",
       "quantity": 1
     }
   ]

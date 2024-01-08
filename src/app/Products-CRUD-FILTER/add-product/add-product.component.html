@@ -1,7 +1,8 @@
-<div class="container my-5 rounded-5 w-50">
-  
+<!-- <div class="container my-5 rounded-5 w-50"> -->
+  <div class="container-fluid h-100 mt-5 p-0">
+    <div class="overlay w-100 h-100 pt-5">
 <!-- ********* -->
-<form (ngSubmit)="Add()" class="mx-auto text-light fs-4" [formGroup]="addProductForm">
+<form (ngSubmit)="Add()" class="col-lg-6 mx-lg-auto col-md-10 col-sm-11 p-4 rounded-5 text-light fs-4" [formGroup]="addProductForm">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
     <input type="text" class="form-control" formControlName="Name" aria-describedby="emailHelp">
@@ -23,12 +24,13 @@
   </div>
 
   <div class="mb-3">
-    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-    <input type="file" class="form-control w-50" formControlName="Image">
+    <input type="file" class="form-control w-50 mx-lg-auto mt-4" formControlName="Image">
   </div>
 
-  <button type="submit" class="btn btn-primary text-center">Add Item</button>
+  <button type="submit" class="btn btn-primary mx-auto">Add Item</button>
 </form>
 
-
+<!-- ********* -->
 </div>
+</div>
+

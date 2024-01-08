@@ -35,9 +35,19 @@ export class ProductCrudComponent implements OnInit {
       error(err) { },
       complete() { }
     });
-    // &&&&&&&&&&&&&&&&&&&&&&&&&&
-
   }
+  
+  // &&&&&&&&&&&&&&&&&&&&&&&&&&
+  // &&&&&&&&&&&&&&&&&&&&&&&&&&
+  DeletePizza(Id:number){
+    if(confirm("Sure?") == true){
+      this.service.deletePizzaByID(Id).subscribe({
+        complete:()=>{this.nav.navigate(['/'])}
+      })
+    }
+  }
+  // &&&&&&&&&&&&&&&&&&&&&&&&&&
+  // &&&&&&&&&&&&&&&&&&&&&&&&&&
   // <<<<<<< (Sorting) >>>>>>>>>
   sortId() {
     this.pizza.sort((a, b) => { return a.id - b.id })

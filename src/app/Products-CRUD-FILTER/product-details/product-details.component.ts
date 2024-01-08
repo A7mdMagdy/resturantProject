@@ -4,27 +4,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { IPizza } from '../../Interface/ipizza';
 import { PizzaService } from '../../Service/pizza.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [HttpClientModule,RouterModule],
+  imports: [HttpClientModule,RouterModule,CommonModule],
   providers:[PizzaService],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
-  onePizza:IPizza;
+  onePizza?:any;
   Id:number;
   
   constructor(private service:PizzaService,private URL:ActivatedRoute,private nav:Router){
-    this.onePizza={ id:0, Name: "", Description: "", Sizes: "", price: 0, Image: "" };
     this.Id = URL.snapshot.params['id'];
   }
   
   ngOnInit(): void {
     this.service.getPizzaByID(this.Id).subscribe({
-      next:(data)=>{this.onePizza = data as IPizza; console.log(this.onePizza)}
+      next:(data)=>{this.onePizza = data; console.log(this.onePizza)}
     })
   }
 

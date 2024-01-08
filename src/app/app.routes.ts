@@ -20,6 +20,6 @@ export const routes: Routes =
     {path:'pizza/addpizza',component:AddProductComponent},
     {path:'pizza/updatepizza/:id',component:UpdateProductComponent},
     {path:'mycart',component:MyCartComponent},
-    {path:'admin',component:ProductCrudComponent}    // Admin product details
-
+    {path:'admin',component:ProductCrudComponent},    // Admin product details
+    {path:'admin/ProductDetails/:id',component:ProductDetailsComponent} // Admin Product Details
 ];

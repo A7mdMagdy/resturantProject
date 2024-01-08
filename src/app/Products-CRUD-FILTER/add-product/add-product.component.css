@@ -1,7 +1,20 @@
-div{
-    background-color: rgb(9, 129, 65);
+.container-fluid{
+    background-image:url("/assets/Images/form.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-form{
-    padding: 20px;
+.overlay {
+    background-color: rgba(139, 139, 139, 0.6);
 }
+
+
+form{
+    background-color: rgb(22, 27, 69,0.7);
+}
+
+input{
+    font-size: large;
+}
+

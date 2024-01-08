@@ -43,7 +43,7 @@
 
   <div class="col-8">
     <table class="table table-striped text-center">
-      <thead>
+      <thead class="table-dark">
         <tr class="fs-3">
           <th scope="col">Id</th>
           <th scope="col">Name</th>
@@ -56,7 +56,7 @@
         <tr class="text-center">
           <td>{{prd.id}}</td>
           <td>{{prd.Name}}</td>
-          <td>{{prd.price}}</td>
+          <td>{{prd.price | currency:'EGP '}}</td>
           <td>
             <div class="dropdown">
               <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +64,7 @@
               </button>
               <ul class="dropdown-menu text-center">
                 <!-- <<<<<<< Details >>>>>>> -->
-                <li><a class="dropdown-item" routerLink="/pizza/{{prd.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                <li><a class="dropdown-item" routerLink="/admin/ProductDetails/{{prd.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                   fill="green" class="bi bi-eye-fill" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
                   <path
@@ -84,7 +84,7 @@
     
                 <!-- <<<<<<< Delete >>>>>>> -->
                 <li>
-                    <button class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg"
+                    <button class="dropdown-item" (click)="DeletePizza(prd.id)"><svg xmlns="http://www.w3.org/2000/svg"
                         width="25" height="25" fill="red" class="bi bi-trash3-fill"
                         viewBox="0 0 16 16">
                         <path

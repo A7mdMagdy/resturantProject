@@ -1,7 +1,6 @@
-<div class=" bg-img">
-  <div class="overlay">
-    <!-- ********* -->
-    <form (ngSubmit)="Update(Name.value,Description.value,Sizes.value,+price.value,Image.value)" class="mx-auto text-light fs-4" > 
+<!-- <div class="container-fluid h-100 mt-5 p-0">
+  <div class="overlay w-100 h-100 pt-5">
+    <form (ngSubmit)="Update(Name.value,Description.value,Sizes.value,+price.value,Image.value)" class="col-lg-6 mx-lg-auto col-md-10 col-sm-11 p-4 rounded-5 text-light fs-4" > 
       <fieldset>
 
       <div class="mb-3">
@@ -26,7 +25,7 @@
       </div>
     
       <div class="mb-3">
-        <input type="file" class="form-control w-50 mx-auto mt-4" #Image>
+        <input type="file" class="form-control w-50 mx-lg-auto mt-4" #Image>
       </div>
     
       <button type="submit" class="btn btn-primary mx-auto">Update</button>
@@ -35,5 +34,48 @@
     </form>
     
   </div>
-    </div>
-    
+    </div> -->
+
+
+<!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* -->
+<!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* -->
+<!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* -->
+<!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* -->
+<!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* --><!-- ********* -->
+
+<div class="container-fluid h-100 mt-5 p-0">
+  <div class="overlay w-100 h-100 pt-5">
+    <!-- <h3></h3> -->
+    <!-- ********* -->
+    <form [formGroup]="productForm" (ngSubmit)="update(Image.value)" class="col-lg-6 mx-lg-auto col-md-10 col-sm-11 p-4 rounded-5 text-light fs-4">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control"  formControlName="Name">
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" class="form-control" formControlName="Description">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Sizes</label>
+          <input type="text" class="form-control" formControlName="Sizes">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Price</label>
+          <input type="text" class="form-control" formControlName="price">
+        </div>
+
+        <div class="mb-3">
+          <input type="file" class="form-control w-50 mx-lg-auto mt-4" #Image>
+        </div>
+
+        <button type="submit" class="btn btn-primary mx-auto">Update</button>
+
+    </form>
+
+  </div>
+</div>
