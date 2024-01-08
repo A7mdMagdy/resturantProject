@@ -19,8 +19,8 @@ import { PizzaService } from '../../Service/pizza.service';
 })
 export class ProductCrudComponent implements OnInit {
 
-  pizza: IPizza[];
-  filteredpizza: IPizza[];
+  pizza: any[];
+  filteredpizza: any[];
   constructor(private service: PizzaService, private nav: Router) {
     this.pizza = [];
     this.filteredpizza = [];
@@ -29,8 +29,8 @@ export class ProductCrudComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAllPizza().subscribe({
       next: (data) => {
-        this.pizza = data as IPizza[];
-        this.filteredpizza = data as IPizza[];
+        this.pizza = data as any[];
+        this.filteredpizza = data as any[];
       },
       error(err) { },
       complete() { }
@@ -98,10 +98,6 @@ export class ProductCrudComponent implements OnInit {
     this.pizza.length = 0;
     Array.prototype.push.apply(this.pizza, arr);
   }
-
-
-
-
 
 }
 

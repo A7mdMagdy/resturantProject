@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AddProductComponent{
   addProductForm:FormGroup;
-  pizza:IPizza;
+  pizza?:any;
   // Constructor
   constructor(private service:ProductCRUDService ,private nav:Router){
     this.pizza={ id:0, Name: "", Description: "", Sizes: "", price: 0, Image: "" };
@@ -25,7 +25,10 @@ export class AddProductComponent{
       Name:new FormControl("",Validators.pattern('^[a-zA-Z ]{3,}$')),
       Description:new FormControl(""),
       Sizes:new FormControl(""),
-      Price:new FormControl(""),
+      price:new FormControl(""),
+      smallPrice:new FormControl(""),
+      mediumPrice:new FormControl(""),
+      largePrice:new FormControl(""),
       Image:new FormControl()
     })
   }
@@ -40,16 +43,20 @@ export class AddProductComponent{
     return this.addProductForm.controls['Sizes'].valid;
   }
   get validPrice(){
-    return this.addProductForm.controls['Price'].valid;
+    return this.addProductForm.controls['price'].valid;
   }
 
 
   Add(){
+    console.log(this.addProductForm.value['price']);
     if(this.validName){
       this.pizza["Name"]        = this.addProductForm.value['Name'];
       this.pizza["Description"] = this.addProductForm.value['Description'];
       this.pizza["Sizes"]       = this.addProductForm.value['Sizes'];
-      this.pizza["price"]       = this.addProductForm.value['Price'];
+      this.pizza["price"]       = Number(this.addProductForm.value['smallPrice']);
+      this.pizza["smallPrice"]       ="EGP "+ this.addProductForm.value['smallPrice'];
+      this.pizza["mediumPrice"]       ="EGP "+ this.addProductForm.value['mediumPrice'];
+      this.pizza["largePrice"]       ="EGP "+ this.addProductForm.value['largePrice'];
       this.pizza["Image"]       = 'assets/Images/Pizza/'+this.addProductForm.value["Image"].substring(12,);
             
       this.service.addpizza(this.pizza).subscribe({

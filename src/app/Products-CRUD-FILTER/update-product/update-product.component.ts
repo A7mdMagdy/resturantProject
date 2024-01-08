@@ -28,6 +28,9 @@ export class UpdateProductComponent {
         Description:new FormControl("",Validators.required),
         Sizes:new FormControl("",Validators.required),
         price:new FormControl("",Validators.required),
+        smallPrice:new FormControl("",Validators.required),
+        mediumPrice:new FormControl("",Validators.required),
+        largePrice:new FormControl("",Validators.required),
         Image:new FormControl("",Validators.required)
     })
     }
@@ -60,7 +63,10 @@ export class UpdateProductComponent {
     this.pizza["Name"]        = this.productForm.value['Name'];
     this.pizza["Description"] = this.productForm.value['Description'];
     this.pizza["Sizes"]       = this.productForm.value['Sizes'];
-    this.pizza["price"]       = Number(this.productForm.value['price']);
+    this.pizza["price"]       = Number(this.productForm.value['smallPrice']);
+    this.pizza["smallPrice"]       =this.productForm.value['smallPrice'];
+    this.pizza["mediumPrice"]       =this.productForm.value['mediumPrice'];
+    this.pizza["largePrice"]       =this.productForm.value['largePrice'];
     if(Image != ""){
       this.pizza["Image"]       = 'assets/Images/Pizza/'+Image.substring(12,);
     }

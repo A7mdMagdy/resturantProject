@@ -1,4 +1,45 @@
+.main{
+    background-color: #ebebeb98;
+}
+
 .container{
     padding: 120px 0px 50px 0px;
 }
 
+table th{
+    background-color: #393838;
+    color: white;
+    padding-block: 20px;
+}
+
+.add{
+    width: 150px;
+    /* background-color: rgba(21, 115, 71, 0.787); */
+    background-color: #157347;
+    color: white;
+    font-size: 18px;
+}
+
+.add:hover{
+    /* background-color: #157347; */
+    background-color: rgba(21, 115, 71, 0.787);
+}
+
+.add2{
+    background-color: #157347;
+    color: white;
+}
+
+span{
+    padding: 0px 3px;
+    color: #157347;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.add3{
+    background-color: #393838;
+    color: white;
+}

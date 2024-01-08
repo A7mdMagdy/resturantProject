@@ -20,7 +20,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ProductCardComponent implements OnInit {
 @Input() user?:any
-selectedItem?:IPizza
+selectedItem?:any
 itemQuantity:number=0;
 item:Cart
 

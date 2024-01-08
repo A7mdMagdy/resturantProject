@@ -49,9 +49,12 @@
   </table>
 </div>  -->
 
-<div class="container-fluid h-75" style="background-color:rgb(97, 97, 97);"><!--style="margin: 7rem 0px;"-->
+<div class="container-fluid h-75 pt-3" style="background-color:rgb(97, 97, 97);"><!--style="margin: 7rem 0px;"-->
 
 <div class="card w-50 border-0 mx-auto text-center rounded-4" style="margin-top: 100px;">
+
+  <a class="dropdown-item text-start mx-4 mt-3 " routerLink="/admin"><i class="fa-solid fa-less-than fa-2xl" style="color: #01040993;"></i></a>
+
   <img src="{{onePizza?.Image}}" class="card-img-top w-25 mx-auto">
   <div class="card-body rounded-5  mx-auto mb-5 p-4 w-75" style="background-color:bisque;">
     <p class="card-title fs-2" style="font-family: cursive;">{{onePizza?.Name}}</p>
@@ -59,7 +62,10 @@
   
   <ul class="list-group-flush">
     <li class="list-group-item fs-5">{{onePizza?.Sizes}}</li>
-    <li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">{{onePizza?.price | currency:'EGP '}}</li>
+    @if(onePizza?.smallPrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Small = {{onePizza?.smallPrice}}</li>}
+    @if(onePizza?.mediumPrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Medium = {{onePizza?.mediumPrice}}</li>}
+    @if(onePizza?.largePrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Large = {{onePizza?.largePrice}}</li>}
+
     <!-- <li class="list-group-item">{{onePizza.}}</li> -->
   </ul>
   <!-- <P class="m-0 bg-dark text-white mx-auto p-2 rounded-2 " style="width: fit-content;">Actions</P>
