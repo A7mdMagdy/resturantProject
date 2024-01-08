@@ -5,6 +5,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { HomeComponent } from './Components/home/home.component';
+import { OperationService } from './Service/operation.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { HomeComponent } from './Components/home/home.component';
       HeaderComponent,
       FooterComponent
   ],
+  providers:[OperationService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

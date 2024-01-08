@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,11 @@ import { SmallCartComponent } from '../small-cart/small-cart.component';
 })
 export class PizzaPgaeComponent implements OnInit{
 // allPizzProducts:any
+@Input()getUpdateQuantity:any
+@Input() getQuantity(quan:any){
+  console.log(quan.quantity+"  from getQuantity new")
+  this.getUpdateQuantity=quan
+}
 allPizzProducts:IPizza[];
 filteredpizza: IPizza[];
 searchText: string = '';
