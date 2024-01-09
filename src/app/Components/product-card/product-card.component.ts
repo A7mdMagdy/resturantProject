@@ -37,33 +37,32 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
 
 }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.updateQuantity+"from on Change in product card")
+    // console.log(this.updateQuantity+"from on Change in product card")
     if(this.updateQuantity?.quantity==0){
       this.itemQuantity=0;
     }
-    this.cartService.getItemById(this.user.id).subscribe(
-      {
-        next:(data:Cart)=>
-        {
-          this.item=data
-          this.itemQuantity=this.item.quantity;
-          // console.log(this.item+"from on Change in product card"+this.itemQuantity)
-        }
+    // this.cartService.getItemById(this.user.id).subscribe(
+    //   {
+    //     next:(data:Cart)=>
+    //     {
+    //       this.item=data
+    //       this.itemQuantity=this.item.quantity;
+    //       // console.log(this.item+"from on Change in product card"+this.itemQuantity)
+    //     }
   
-      }
-    )
+    //   }
+    // )
   }
   ngOnInit(): void {
 
     this.cartService.getItemById(this.user.id).subscribe(
-      {
-        next:(data:Cart)=>
+      data=>
         {
+          if(!data) return;
           this.item=data
           this.itemQuantity=this.item.quantity;
         }
-  
-      }
+      
     )
     // this.dataService.fetchData();
   }
@@ -81,7 +80,7 @@ Increament()
     
     this.cartService.getItems().subscribe({
       next:(data)=>{this.qunatity=data
-        console.log(this.qunatity[0].quantity)
+        // console.log(this.qunatity[0].quantity)
         this.qunatityArr.emit(this.qunatity[0])
       }
     })
@@ -90,19 +89,19 @@ Increament()
   else{
      this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
     //  this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
-    console.log(this.cartService.getItems().subscribe({
+    this.cartService.getItems().subscribe({
       next:(data)=>{this.qunatity=data
         // console.log(this.qunatity[0].quantity)
         this.qunatityArr.emit(this.qunatity[0])
       }
-    }));
+    });
   }
 }
 Decreament()
 {
   if(this.itemQuantity>1)
   {
-    console.log(this.itemQuantity)
+    // console.log(this.itemQuantity)
     this.itemQuantity--;
     this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
     // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
@@ -114,13 +113,15 @@ Decreament()
     })
   }
   else if(this.itemQuantity==1) {
+    this.itemQuantity--;
+    this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
     this.cartService.getItems().subscribe({
       next:(data)=>{this.qunatity=data
-        console.log(this.qunatity[0].quantity)
+        // console.log(this.qunatity[0].quantity)
         this.qunatityArr.emit(this.qunatity[0])
       }
     })
-  this.itemQuantity--;
+  
   this.cartService.removeItemFromOrder(this.item.id).subscribe()
   // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
 

@@ -5,12 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartService } from '../../Service/cart.service';
 import { Cart } from '../../Interface/cart';
 import { OperationService } from '../../Service/operation.service';
+import { CartItemComponent } from '../cart-item/cart-item.component';
 
 
 @Component({
   selector: 'app-small-cart',
   standalone: true,
-  imports: [CommonModule,RouterOutlet,  HttpClientModule,RouterModule], 
+  imports: [CommonModule,RouterOutlet,  HttpClientModule,RouterModule,CartItemComponent], 
   providers:[CartService],
   templateUrl: './small-cart.component.html',
   styleUrl: './small-cart.component.css'
@@ -54,7 +55,8 @@ export class SmallCartComponent implements OnInit,OnChanges{
         {
           this.cartItems=data
           this.calculateTotalAmount();
-        }
+        },
+        error:()=>{console.log("0");}
       }
     )
   }
@@ -98,7 +100,7 @@ export class SmallCartComponent implements OnInit,OnChanges{
       this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
       this.cartService.getItems().subscribe({
         next:(data)=>{this.updateQuantityEmit=data
-          console.log(this.updateQuantityEmit[0].quantity+"from item.quantity==1 and decrementItem")
+          // console.log(this.updateQuantityEmit[0].quantity+"from item.quantity==1 and decrementItem")
           this.qunatityArr.emit(this.updateQuantityEmit[0])
           // console.log(this.updateQuantityEmit[0].quantity+"from item.quantity==1 and decrementItem")
         }

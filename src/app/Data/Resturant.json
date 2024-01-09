@@ -133,7 +133,7 @@
       "Image": "assets/Images/Pizza/Vegetarian Supreme.png"
     },
     {
-      "id": "13",
+      "id": 13,
       "Name": "Spicy Chicken Ranch",
       "Description": "Grilled chicken, tomatoes, mushrooms, and jal",
       "Sizes": "Medium | Small",
@@ -142,6 +142,17 @@
       "mediumPrice": "EGP 195.00 ",
       "largePrice": "",
       "Image": "assets/Images/Pizza/Spicy Chicken Ranch.png"
+    },
+    {
+      "id": 14,
+      "Name": "aaaaaaaaaaaaaaaaa",
+      "Description": "asdasd",
+      "Sizes": "small",
+      "price": 127,
+      "Image": "assets/Images/Pizza/Pepperoni Supreme.png",
+      "smallPrice": "127",
+      "mediumPrice": "137",
+      "largePrice": "157"
     }
   ],
   "Deals": [
@@ -288,5 +299,19 @@
       "Image": "assets/Images/Starters/Trio.jpg"
     }
   ],
-  "cartItems": []
+  "cartItems": [
+    {
+      "id": "3",
+      "Name": "Chicken BBQ",
+      "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
+      "Sizes": "Small | Large",
+      "price": 154,
+      "smallPrice": "EGP 154.00",
+      "mediumPrice": "",
+      "largePrice": "EGP 200.00 ",
+      "Image": "assets/Images/Pizza/Chicken BBQ.png",
+      "size": "Small",
+      "quantity": 2
+    }
+  ]
 }

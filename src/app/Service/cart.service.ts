@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
+import { PizzaService } from './pizza.service';
+import { ProductCRUDService } from './product-crud.service';
+import { Cart } from '../Interface/cart';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +11,7 @@ export class CartService {
 
   private apiUrl = 'http://localhost:3000/cartItems';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private pizzaService:ProductCRUDService) { }
   
   private cartItems: any[] = [];
 
@@ -27,9 +30,14 @@ export class CartService {
 getItems(){
   return this.http.get(this.apiUrl);
 }
-getItemById(itemId: number): Observable<any> {
+getItemById(itemId: number) {
   const url = `${this.apiUrl}/${itemId}`;
-  return this.http.get(url);
+
+  return this.http.get<Cart>(url).pipe(switchMap(cartdata=>{
+    return this.pizzaService.getonepizza(itemId).pipe(map(data=>{
+      return {...data,...cartdata}
+    }))
+  }));
 }
 // saveOrder() {
 //   // Assume you have a backend API to save the order to

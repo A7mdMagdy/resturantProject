@@ -18,22 +18,7 @@
 
     <div class="cart-items" [ngClass]="{'scrollable': cartItems.length > 1}">
       <div *ngFor="let item of cartItems" class="cart-item" style="border: none;">
-        <div class="item-details">
-          <img class="circularimg" src="{{ item.Image}}" alt="Product Image">
-          <div >
-            <h4>{{ item.Name }}</h4>
-            <pre style="font-size: larger; font-weight: bolder;">{{item.size }}    {{item.price | currency: 'EGP ' }}</pre>
-          </div>
-        </div>
-        
-        <!-- Counter and buttons -->
-        <div class="counter-buttons">
-          <button class="btn btn-danger" (click)="toggleButton(item)">
-            <i class="fa-solid fa-trash-can"></i>
-          </button>
-          <div class="quantity" style="font-size: large; font-weight:500;">{{ item.quantity }}</div>
-          <button class="btn btn-success"  (click)="incrementItem(item)" ><i class="fa-solid fa-plus"></i></button>
-        </div>
+        <app-cart-item [itemId]="item.id"></app-cart-item>
       </div>
     </div>
 
