@@ -27,10 +27,10 @@ export class UpdateProductComponent {
         Name:new FormControl("",Validators.required),
         Description:new FormControl("",Validators.required),
         Sizes:new FormControl("",Validators.required),
-        price:new FormControl("",Validators.required),
+        price:new FormControl(""),
         smallPrice:new FormControl("",Validators.required),
-        mediumPrice:new FormControl("",Validators.required),
-        largePrice:new FormControl("",Validators.required),
+        mediumPrice:new FormControl(""),
+        largePrice:new FormControl(""),
         Image:new FormControl("",Validators.required)
     })
     }

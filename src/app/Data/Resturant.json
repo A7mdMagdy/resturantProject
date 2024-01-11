@@ -5,9 +5,9 @@
       "Name": "Original Chicken Ranch",
       "Description": "Ranch base sauce with grilled chicken, mushro",
       "Sizes": "Medium | Small",
-      "price": 145,
-      "smallPrice": "EGP 175.00 ",
-      "mediumPrice": "EGP 190.00 ",
+      "price": 155,
+      "smallPrice": "155",
+      "mediumPrice": "180",
       "largePrice": "",
       "Image": "assets/Images/Pizza/Original Chicken.png"
     },
@@ -16,10 +16,10 @@
       "Name": " Vegetarian",
       "Description": "Green Pepper, Fresh Tomato, Onions Loaded On",
       "Sizes": "Medium | Large",
-      "price": 195,
+      "price": 200,
       "smallPrice": "",
-      "mediumPrice": "EGP 195.00 ",
-      "largePrice": "EGP 210.00 ",
+      "mediumPrice": "195 ",
+      "largePrice": "200 ",
       "Image": "assets/Images/Pizza/Vegetarian.png"
     },
     {
@@ -28,9 +28,9 @@
       "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
       "Sizes": "Small | Large",
       "price": 154,
-      "smallPrice": "EGP 154.00",
+      "smallPrice": "154",
       "mediumPrice": "",
-      "largePrice": "EGP 200.00 ",
+      "largePrice": "200 ",
       "Image": "assets/Images/Pizza/Chicken BBQ.png"
     },
     {
@@ -39,8 +39,8 @@
       "Description": "One Of Our All-time Specialties. A Meaty Feas",
       "Sizes": "Medium | Small",
       "price": 175,
-      "smallPrice": "EGP 175.00 ",
-      "mediumPrice": "EGP 195.00 ",
+      "smallPrice": "175 ",
+      "mediumPrice": "195",
       "largePrice": "",
       "Image": "/assets/Images/Pizza/Pepperoni Supreme.png"
     },
@@ -82,10 +82,10 @@
       "Name": "Super Supreme",
       "Description": "Our famous combination of Beef Pepperoni, jui",
       "Sizes": "Small | Large",
-      "price": 154,
-      "smallPrice": "EGP 154.00",
+      "price": 120,
+      "smallPrice": "120",
       "mediumPrice": "",
-      "largePrice": "EGP 200.00 ",
+      "largePrice": "200.00 ",
       "Image": "assets/Images/Pizza/Super Supreme.png"
     },
     {
@@ -141,6 +141,8 @@
       "smallPrice": "EGP 175.00 ",
       "mediumPrice": "EGP 195.00 ",
       "largePrice": "",
+      "Deallarge": "",
+      "largeDeal": "",
       "Image": "assets/Images/Pizza/Spicy Chicken Ranch.png"
     }
   ],
@@ -288,5 +290,19 @@
       "Image": "assets/Images/Starters/Trio.jpg"
     }
   ],
-  "cartItems": []
+  "cartItems": [
+    {
+      "id": "2",
+      "Name": " Vegetarian",
+      "Description": "Green Pepper, Fresh Tomato, Onions Loaded On",
+      "Sizes": "Medium | Large",
+      "price": 200,
+      "smallPrice": "",
+      "mediumPrice": "195 ",
+      "largePrice": "200 ",
+      "Image": "assets/Images/Pizza/Vegetarian.png",
+      "size": "Medium",
+      "quantity": 1
+    }
+  ]
 }

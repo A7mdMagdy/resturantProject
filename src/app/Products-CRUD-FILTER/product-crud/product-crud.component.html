@@ -52,6 +52,8 @@
               <th scope="col">Id</th>
               <th scope="col">Name</th>
               <th scope="col">Price</th>
+              <th scope="col">Discount</th>
+              <th scope="col">Deal</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -61,6 +63,23 @@
               <td>{{prd.id}}</td>
               <td>{{prd.Name}}</td>
               <td>{{prd.price | currency:'EGP '}}</td>
+              <td><input type="checkbox" (change)="check($event,prd.id)"></td>
+              <td style="width: 100px; background-color: bisque;">
+                <div class="deal" style="display: none;" id="{{prd.id}}">
+                <div class="dropdown col-3">
+                  <button class="btn add3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Size
+                  </button>
+                  <ul class="dropdown-menu text-center">
+                    <li><button class="dropdown-item" (click)="setDiscountedSize($event,prd.id)">Default</button></li>
+            @if(prd.largePrice){<li><button class="dropdown-item" id="{{prd.id}}" name="largePrice" (click)="setDiscountedSize($event,prd.id)">Large</button></li>}
+            @if(prd.mediumPrice){<li><button class="dropdown-item" id="{{prd.id}}" name="mediumPrice" (click)="setDiscountedSize($event,prd.id)">Medium</button></li>}
+            @if(prd.smallPrice){<li><button class="dropdown-item" id="{{prd.id}}" name="smallPrice" (click)="setDiscountedSize($event,prd.id)">Small</button></li>}
+                  </ul>
+                </div>
+                <input [(ngModel)]="DiscountedPrice" style="display: none;" id="DiscountInput+{{prd.id}}" (change)="setDiscountedPrice(prd.id)" type="text" class="mt-2 border-0 rounded-2 p-1 w-100">
+              </div>
+              </td>
               <td>
                 <div class="dropdown">
                   <button class="btn dropdown-toggle add2" type="button" data-bs-toggle="dropdown" aria-expanded="false">

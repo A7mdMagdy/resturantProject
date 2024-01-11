@@ -4,10 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { IPizza } from '../../Interface/ipizza';
-import { filter } from 'rxjs';
+import { Router, RouterModule } from '@angular/router';
 import { PizzaService } from '../../Service/pizza.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-product-crud',
@@ -21,9 +20,16 @@ export class ProductCrudComponent implements OnInit {
 
   pizza: any[];
   filteredpizza: any[];
+  DiscountedPizza?: any;
+  DiscountedPrice: string;
+  DiscountedSize: string;
+  OldPrice: number;
   constructor(private service: PizzaService, private nav: Router) {
     this.pizza = [];
     this.filteredpizza = [];
+    this.DiscountedPrice = '';
+    this.DiscountedSize = '';
+    this.OldPrice = 0;
   }
 
   ngOnInit(): void {
@@ -36,19 +42,63 @@ export class ProductCrudComponent implements OnInit {
       complete() { }
     });
   }
-  
+
   // &&&&&&&&&&&&&&&&&&&&&&&&&&
   // &&&&&&&&&&&&&&&&&&&&&&&&&&
-  DeletePizza(Id:number){
-    if(confirm("Sure?") == true){
+  DeletePizza(Id: number) {
+    if (confirm("Sure?") == true) {
       this.service.deletePizzaByID(Id).subscribe({
-        complete:()=>{
-          let arr = this.pizza.filter((pizza:any) => pizza.id != Id);
-          this.pizza.length = 0; 
+        complete: () => {
+          let arr = this.pizza.filter((pizza: any) => pizza.id != Id);
+          this.pizza.length = 0;
           Array.prototype.push.apply(this.pizza, arr);
         }
       })
     }
+  }
+  // &&&&&&&&&&&&&&&&&&&&&&&&&&
+  // &&&&&&&&&&&&&&&&&&&&&&&&&&
+  check(e: any, id: string) {
+    if (e.target.checked) {
+      e.target.defaultValue = id;
+      // console.log("checked with id:"+id);
+      document.getElementById(id)?.setAttribute('style', 'display:block;')
+    }
+    else {
+      // console.log("UNchecked with id:"+id)
+      document.getElementById(id)?.setAttribute('style', 'display:none;')
+    }
+  }
+// ******************
+  setDiscountedSize(e: any, id: string) {
+    if (e.target.name) {
+      document.getElementById("DiscountInput+"+id)?.setAttribute('style', 'display:block')
+      this.DiscountedSize = e.target.name;
+      let selectedPizza = this.pizza.find((pizza: any) => pizza.id == id);
+      this.DiscountedPrice = selectedPizza[this.DiscountedSize];
+    }
+    else {
+      document.getElementById("DiscountInput+"+id)?.setAttribute('style', 'display:none')
+    }
+  }
+// ******************
+  setDiscountedPrice(id: number) {
+    this.DiscountedPizza = this.pizza.find((pizza: any) => pizza.id == id);
+    this.OldPrice = this.DiscountedPizza['price'];
+    this.DiscountedPizza[this.DiscountedSize] = this.DiscountedPrice;
+    if (this.DiscountedPizza['smallPrice']) {
+      this.DiscountedPizza['price'] = +this.DiscountedPizza['smallPrice'];
+    }
+    else if (this.DiscountedPizza['MediumPrice']) {
+      this.DiscountedPizza['price'] = +this.DiscountedPizza['mediumPrice'];
+    }
+    else {
+      this.DiscountedPizza['price'] = +this.DiscountedPizza['largePrice'];
+    }
+    // console.log(this.DiscountedPizza);
+    this.service.updatePizza(id, this.DiscountedPizza).subscribe({
+      complete: () => { }
+    })
   }
   // &&&&&&&&&&&&&&&&&&&&&&&&&&
   // &&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -65,7 +115,7 @@ export class ProductCrudComponent implements OnInit {
     //   return price2 - price1;
     // })
     // Sort Based on price is number
-    this.pizza.sort((a,b)=>{return b.price - a.price});
+    this.pizza.sort((a, b) => { return b.price - a.price });
   }
   sortLToH() {
     // Sort Based on price is string
@@ -75,7 +125,7 @@ export class ProductCrudComponent implements OnInit {
     //   return price1 - price2;
     // })
     // Sort Based on price is number
-    this.pizza.sort((a,b)=>{return a.price - b.price});
+    this.pizza.sort((a, b) => { return a.price - b.price });
   }
   // <<<<<<< (Filter Based on Size) >>>>>>>>>
   Default() {

@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductCardComponent implements OnInit,OnChanges {
 @Input() user?:any
-@Input() updateQuantity:any
+@Input() updateQuantity:any   // comming from small cart
 @Output() qunatityArr=new EventEmitter();
 qunatity?:any
 qunatity_Arr: any
@@ -37,34 +37,39 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
 
 }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.updateQuantity+"from on Change in product card")
-    if(this.updateQuantity?.quantity==0){
-      this.itemQuantity=0;
-    }
-    this.cartService.getItemById(this.user.id).subscribe(
-      {
-        next:(data:Cart)=>
+    // console.log(this.updateQuantity)
+    // if(this.updateQuantity?.quantity==0){
+    //   this.itemQuantity=0;
+    //   console.log("inside if")
+    // }
+    if(this.updateQuantity){
+      this.cartService.getItemById(this.updateQuantity[0].id).subscribe(
         {
-          this.item=data
-          this.itemQuantity=this.item.quantity;
-          // console.log(this.item+"from on Change in product card"+this.itemQuantity)
+          next:(data:any)=>
+          {
+            this.item=data
+            this.itemQuantity=this.item.quantity;
+            // console.log(this.item+"from on Change in product card"+this.itemQuantity)
+          },
+          error:()=>{console.log("000")}
         }
-  
-      }
-    )
+      )
+
+    }
+    
   }
   ngOnInit(): void {
-
-    this.cartService.getItemById(this.user.id).subscribe(
-      {
-        next:(data:Cart)=>
-        {
-          this.item=data
-          this.itemQuantity=this.item.quantity;
-        }
+    // console.log("init")
+    // this.cartService.getItemById(this.user.id).subscribe(
+    //   {
+    //     next:(data:Cart)=>
+    //     {
+    //       this.item=data
+    //       this.itemQuantity=this.item.quantity;
+    //     }
   
-      }
-    )
+    //   }
+    // )
     // this.dataService.fetchData();
   }
 
@@ -79,10 +84,18 @@ Increament()
     this.cartService.saveCartItems({...this.user,size,quantity:this.itemQuantity}).subscribe()
     // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
     
-    this.cartService.getItems().subscribe({
-      next:(data)=>{this.qunatity=data
-        console.log(this.qunatity[0].quantity)
-        this.qunatityArr.emit(this.qunatity[0])
+    // this.cartService.getItems().subscribe({
+    //   next:(data)=>{this.qunatity=data
+    //     // console.log(this.qunatity[0].quantity)
+    //     this.qunatityArr.emit(this.qunatity[0])
+    //   }
+    // })
+    this.cartService.getItemById(this.user?.id).subscribe({
+      next:(data)=>{
+        this.qunatity=data;
+        // console.log(this.qunatity)
+        // console.log(this.qunatity.quantity)
+        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
       }
     })
   
@@ -90,38 +103,65 @@ Increament()
   else{
      this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
     //  this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
-    console.log(this.cartService.getItems().subscribe({
-      next:(data)=>{this.qunatity=data
-        // console.log(this.qunatity[0].quantity)
-        this.qunatityArr.emit(this.qunatity[0])
+    // this.cartService.getItems().subscribe({
+    //   next:(data)=>{this.qunatity=data
+    //     // console.log(this.qunatity[0].quantity)
+    //     this.qunatityArr.emit(this.qunatity[0])
+    //   }
+    // })
+    this.cartService.getItemById(this.user.id).subscribe({
+      next:(data)=>{
+        this.qunatity=data;
+        // console.log(this.qunatity)
+        // console.log(this.qunatity.quantity)
+        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
       }
-    }));
+    })
   }
 }
 Decreament()
 {
   if(this.itemQuantity>1)
   {
-    console.log(this.itemQuantity)
+    // console.log(this.itemQuantity)
     this.itemQuantity--;
     this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
     // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
-    this.cartService.getItems().subscribe({
-      next:(data)=>{this.qunatity=data
-        // console.log(this.qunatity[0].quantity)
-        this.qunatityArr.emit(this.qunatity[0])
+    // this.cartService.getItems().subscribe({
+    //   next:(data)=>{this.qunatity=data
+    //     console.log(this.qunatity)
+    //     console.log(this.qunatity[0].quantity)
+        
+    //     this.qunatityArr.emit(this.qunatity[0])
+    //   }
+    // })
+    this.cartService.getItemById(this.user.id).subscribe({
+      next:(data)=>{
+        this.qunatity=data;
+        // console.log(this.qunatity)
+        // console.log(this.qunatity.quantity)
+        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
       }
     })
   }
   else if(this.itemQuantity==1) {
-    this.cartService.getItems().subscribe({
-      next:(data)=>{this.qunatity=data
-        console.log(this.qunatity[0].quantity)
-        this.qunatityArr.emit(this.qunatity[0])
+    // this.cartService.getItems().subscribe({
+    //   next:(data)=>{
+    //     this.qunatity=data
+    //     console.log("this.quantity[0]= "+this.qunatity[0])
+    //     this.qunatityArr.emit(this.qunatity[0])
+    //   }
+    // })
+    this.cartService.getItemById(this.user.id).subscribe({
+      next:(data)=>{
+        this.qunatity=data;
+        // console.log(this.qunatity)
+        // console.log(this.qunatity.quantity)
+        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
       }
     })
-  this.itemQuantity--;
-  this.cartService.removeItemFromOrder(this.item.id).subscribe()
+    this.itemQuantity--;
+    this.cartService.removeItemFromOrder(this.user.id).subscribe()
   // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
 
   }

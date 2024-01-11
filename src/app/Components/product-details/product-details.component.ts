@@ -16,7 +16,7 @@ export class ProductDetailsComponent {
   selectedItem?: any;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any ,private dialogref:MatDialogRef<ProductDetailsComponent>) {
     this.selectedItem = data;
-    console.log(this.selectedItem);
+    // console.log(this.selectedItem);
   }
 
 

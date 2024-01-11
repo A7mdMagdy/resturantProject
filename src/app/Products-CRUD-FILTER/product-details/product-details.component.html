@@ -49,7 +49,7 @@
   </table>
 </div>  -->
 
-<div class="container-fluid h-75 pt-3" style="background-color:rgb(97, 97, 97);"><!--style="margin: 7rem 0px;"-->
+<div class="container-fluid h-100 pt-3" style="background-color:rgb(97, 97, 97);"><!--style="margin: 7rem 0px;"-->
 
 <div class="card w-50 border-0 mx-auto text-center rounded-4" style="margin-top: 100px;">
 
@@ -62,9 +62,9 @@
   
   <ul class="list-group-flush">
     <li class="list-group-item fs-5">{{onePizza?.Sizes}}</li>
-    @if(onePizza?.smallPrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Small = {{onePizza?.smallPrice}}</li>}
-    @if(onePizza?.mediumPrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Medium = {{onePizza?.mediumPrice}}</li>}
-    @if(onePizza?.largePrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Large = {{onePizza?.largePrice}}</li>}
+    @if(onePizza?.smallPrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Small = {{+(onePizza?.smallPrice)|currency:'EGP '}}</li>}
+    @if(onePizza?.mediumPrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Medium = {{+(onePizza?.mediumPrice) | currency:'EGP '}}</li>}
+    @if(onePizza?.largePrice){<li class="list-group-item text-white bg-success mt-2  p-2 mx-auto rounded-3" style="width: fit-content;">Large =  {{+(onePizza?.largePrice) | currency:'EGP '}}</li>}
 
     <!-- <li class="list-group-item">{{onePizza.}}</li> -->
   </ul>

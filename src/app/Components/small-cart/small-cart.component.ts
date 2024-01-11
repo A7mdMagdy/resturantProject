@@ -47,6 +47,7 @@ export class SmallCartComponent implements OnInit,OnChanges{
   
   }
   
+  // &&&&&&&&&&&&&&&&&&&&
   ngOnInit(): void {
     this.cartService.getItems().subscribe(
       {
@@ -58,6 +59,9 @@ export class SmallCartComponent implements OnInit,OnChanges{
       }
     )
   }
+
+  // &&&&&&&&&&&&&&&&&&&&
+
   toggleButton(item: any) {
     this.decrementItem(item);
   }
@@ -72,9 +76,15 @@ export class SmallCartComponent implements OnInit,OnChanges{
     this.cartService.updateCartItemQuantity(item.id,newQ).subscribe();
     // Add any logic to update the total price, etc.
     // this.calculateTotalAmount();
-    this.cartService.getItems().subscribe({
-      next:(data)=>{this.updateQuantityEmit=data
-        this.qunatityArr.emit(this.updateQuantityEmit[0])
+    // this.cartService.getItems().subscribe({
+    //   next:(data)=>{this.updateQuantityEmit=data
+    //     this.qunatityArr.emit(this.updateQuantityEmit[0])
+    //   }
+    // })
+    this.cartService.getItemById(item.id).subscribe({
+      next:(data)=>{
+        this.updateQuantityEmit=data
+        this.qunatityArr.emit(this.updateQuantityEmit)
       }
     })
   }
@@ -86,9 +96,10 @@ export class SmallCartComponent implements OnInit,OnChanges{
     {
       let newQ=--item.quantity;
       this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
-      this.cartService.getItems().subscribe({
-        next:(data)=>{this.updateQuantityEmit=data
-          this.qunatityArr.emit(this.updateQuantityEmit[0])
+      this.cartService.getItemById(item.id).subscribe({
+        next:(data)=>{
+          this.updateQuantityEmit=data
+          this.qunatityArr.emit(this.updateQuantityEmit)
         }
       })
 
@@ -96,11 +107,16 @@ export class SmallCartComponent implements OnInit,OnChanges{
     else if(item.quantity==1){
       let newQ=--item.quantity;
       this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
-      this.cartService.getItems().subscribe({
-        next:(data)=>{this.updateQuantityEmit=data
-          console.log(this.updateQuantityEmit[0].quantity+"from item.quantity==1 and decrementItem")
-          this.qunatityArr.emit(this.updateQuantityEmit[0])
-          // console.log(this.updateQuantityEmit[0].quantity+"from item.quantity==1 and decrementItem")
+      // this.cartService.getItems().subscribe({
+      //   next:(data)=>{
+      //     this.updateQuantityEmit=data
+      //     this.qunatityArr.emit(this.updateQuantityEmit[0])
+      //   }
+      // })
+      this.cartService.getItemById(item.id).subscribe({
+        next:(data)=>{
+          this.updateQuantityEmit=data
+          this.qunatityArr.emit(this.updateQuantityEmit)
         }
       })
       this.cartService.removeItemFromOrder(item.id).subscribe()

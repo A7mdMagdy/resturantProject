@@ -21,7 +21,7 @@ export class PizzaPgaeComponent implements OnInit{
 // allPizzProducts:any
 @Input()getUpdateQuantity:any
 @Input() getQuantity(quan:any){
-  console.log(quan.quantity+"  from getQuantity new")
+  // console.log(quan.quantity+"  from getQuantity new")
   this.getUpdateQuantity=quan
 }
 allPizzProducts:any[];

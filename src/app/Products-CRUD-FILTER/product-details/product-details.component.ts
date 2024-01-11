@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   
   ngOnInit(): void {
     this.service.getPizzaByID(this.Id).subscribe({
-      next:(data)=>{this.onePizza = data; console.log(this.onePizza)}
+      next:(data)=>{this.onePizza = data;}
     })
   }
 

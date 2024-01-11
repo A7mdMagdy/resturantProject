@@ -48,7 +48,7 @@ export class AddProductComponent{
 
 
   Add(){
-    console.log(this.addProductForm.value['price']);
+    // console.log(this.addProductForm.value['price']);
     if(this.validName){
       this.pizza["Name"]        = this.addProductForm.value['Name'];
       this.pizza["Description"] = this.addProductForm.value['Description'];
