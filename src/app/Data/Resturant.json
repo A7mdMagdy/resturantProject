@@ -9,6 +9,7 @@
       "smallPrice": "155",
       "mediumPrice": "180",
       "largePrice": "",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Original Chicken.png"
     },
     {
@@ -20,6 +21,7 @@
       "smallPrice": "",
       "mediumPrice": "195 ",
       "largePrice": "200 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Vegetarian.png"
     },
     {
@@ -31,6 +33,7 @@
       "smallPrice": "154",
       "mediumPrice": "",
       "largePrice": "200 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Chicken BBQ.png"
     },
     {
@@ -42,6 +45,7 @@
       "smallPrice": "175 ",
       "mediumPrice": "195",
       "largePrice": "",
+      "quantity": 0,
       "Image": "/assets/Images/Pizza/Pepperoni Supreme.png"
     },
     {
@@ -53,6 +57,7 @@
       "smallPrice": "EGP 154.00",
       "mediumPrice": "",
       "largePrice": "EGP 200.00 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Meat Lover.png"
     },
     {
@@ -64,6 +69,7 @@
       "smallPrice": "",
       "mediumPrice": "EGP 195.00 ",
       "largePrice": "EGP 210.00 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/BBQ Chicken Ranch.png"
     },
     {
@@ -75,6 +81,7 @@
       "smallPrice": "EGP 175.00 ",
       "mediumPrice": "EGP 195.00 ",
       "largePrice": "",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Margherita.png"
     },
     {
@@ -86,6 +93,7 @@
       "smallPrice": "120",
       "mediumPrice": "",
       "largePrice": "200.00 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Super Supreme.png"
     },
     {
@@ -97,6 +105,7 @@
       "smallPrice": "",
       "mediumPrice": "EGP 195.00 ",
       "largePrice": "EGP 210.00 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Classic Pepperoni.png"
     },
     {
@@ -108,6 +117,7 @@
       "smallPrice": "EGP 154.00",
       "mediumPrice": "",
       "largePrice": "EGP 200.00 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Cheese Lovers.png"
     },
     {
@@ -119,6 +129,7 @@
       "smallPrice": "EGP 175.00 ",
       "mediumPrice": "EGP 195.00 ",
       "largePrice": "",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Chicken Supreme.png"
     },
     {
@@ -130,6 +141,7 @@
       "smallPrice": "EGP 154.00",
       "mediumPrice": "",
       "largePrice": "EGP 200.00 ",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Vegetarian Supreme.png"
     },
     {
@@ -143,6 +155,7 @@
       "largePrice": "",
       "Deallarge": "",
       "largeDeal": "",
+      "quantity": 0,
       "Image": "assets/Images/Pizza/Spicy Chicken Ranch.png"
     }
   ],
@@ -292,6 +305,19 @@
   ],
   "cartItems": [
     {
+      "id": "3",
+      "Name": "Chicken BBQ",
+      "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
+      "Sizes": "Small | Large",
+      "price": 154,
+      "smallPrice": "154",
+      "mediumPrice": "",
+      "largePrice": "200 ",
+      "quantity": 3,
+      "Image": "assets/Images/Pizza/Chicken BBQ.png",
+      "size": "Small"
+    },
+    {
       "id": "2",
       "Name": " Vegetarian",
       "Description": "Green Pepper, Fresh Tomato, Onions Loaded On",
@@ -300,9 +326,9 @@
       "smallPrice": "",
       "mediumPrice": "195 ",
       "largePrice": "200 ",
+      "quantity": 2,
       "Image": "assets/Images/Pizza/Vegetarian.png",
-      "size": "Medium",
-      "quantity": 1
+      "size": "Medium"
     }
   ]
 }

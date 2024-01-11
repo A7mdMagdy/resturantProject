@@ -18,9 +18,9 @@ import { OperationService } from '../../Service/operation.service';
 export class SmallCartComponent implements OnInit,OnChanges{
   cartItems: Cart[]
   totalAmount: number = 0;
-  @Input() updateQuantity:any
-  updateQuantityEmit:any
-  @Output() qunatityArr=new EventEmitter();
+  @Input() receiveDataFromParent:any
+  getItemFromData:any
+  @Output() objectFromEventEmitter=new EventEmitter();
   receive:any
   qunatity_Arr: any
   id:any
@@ -33,7 +33,7 @@ export class SmallCartComponent implements OnInit,OnChanges{
     
   }
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log(this.updateQuantity)
+    // console.log(this.receiveDataFromParent)
     this.cartService.getItems().subscribe(
       {
         next:(data:any)=>
@@ -77,14 +77,14 @@ export class SmallCartComponent implements OnInit,OnChanges{
     // Add any logic to update the total price, etc.
     // this.calculateTotalAmount();
     // this.cartService.getItems().subscribe({
-    //   next:(data)=>{this.updateQuantityEmit=data
-    //     this.qunatityArr.emit(this.updateQuantityEmit[0])
+    //   next:(data)=>{this.getItemFromData=data
+    //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
     //   }
     // })
     this.cartService.getItemById(item.id).subscribe({
       next:(data)=>{
-        this.updateQuantityEmit=data
-        this.qunatityArr.emit(this.updateQuantityEmit)
+        this.getItemFromData=data
+        this.objectFromEventEmitter.emit(this.getItemFromData)
       }
     })
   }
@@ -98,8 +98,8 @@ export class SmallCartComponent implements OnInit,OnChanges{
       this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
       this.cartService.getItemById(item.id).subscribe({
         next:(data)=>{
-          this.updateQuantityEmit=data
-          this.qunatityArr.emit(this.updateQuantityEmit)
+          this.getItemFromData=data
+          this.objectFromEventEmitter.emit(this.getItemFromData)
         }
       })
 
@@ -109,14 +109,14 @@ export class SmallCartComponent implements OnInit,OnChanges{
       this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
       // this.cartService.getItems().subscribe({
       //   next:(data)=>{
-      //     this.updateQuantityEmit=data
-      //     this.qunatityArr.emit(this.updateQuantityEmit[0])
+      //     this.getItemFromData=data
+      //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
       //   }
       // })
       this.cartService.getItemById(item.id).subscribe({
         next:(data)=>{
-          this.updateQuantityEmit=data
-          this.qunatityArr.emit(this.updateQuantityEmit)
+          this.getItemFromData=data
+          this.objectFromEventEmitter.emit(this.getItemFromData)
         }
       })
       this.cartService.removeItemFromOrder(item.id).subscribe()

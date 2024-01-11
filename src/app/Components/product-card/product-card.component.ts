@@ -20,10 +20,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductCardComponent implements OnInit,OnChanges {
 @Input() user?:any
-@Input() updateQuantity:any   // comming from small cart
-@Output() qunatityArr=new EventEmitter();
-qunatity?:any
-qunatity_Arr: any
+@Input() receiveDataFromParent:any   // comming from small cart
+@Output() objectFromEventEmitter=new EventEmitter();
+getItemFromData?:any
 id:any
 newquantity:any
 
@@ -36,128 +35,167 @@ constructor(private cartService:CartService,private operationService:OperationSe
 this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""}
 
 }
-  ngOnChanges(changes: SimpleChanges): void {
-    // console.log(this.updateQuantity)
-    // if(this.updateQuantity?.quantity==0){
-    //   this.itemQuantity=0;
-    //   console.log("inside if")
-    // }
-    if(this.updateQuantity){
-      this.cartService.getItemById(this.updateQuantity[0].id).subscribe(
-        {
-          next:(data:any)=>
-          {
-            this.item=data
-            this.itemQuantity=this.item.quantity;
-            // console.log(this.item+"from on Change in product card"+this.itemQuantity)
-          },
-          error:()=>{console.log("000")}
-        }
-      )
+  ngOnChanges(): void {
+    console.log("this.receiveDataFromParent")
 
+    if(this.receiveDataFromParent?.quantity==0){
+      this.itemQuantity=0;
+      console.log("inside if")
+    }
+    if(this.receiveDataFromParent){
+      this.getItemFromdat();
     }
     
   }
+
+  private getItemFromdat(){
+    this.cartService.getItems().subscribe(
+      {
+        next:(data:any)=>
+        {
+          // console.log(data)
+          //   console.log(this.receiveDataFromParent.id)
+          //   console.log(this.receiveDataFromParent)
+          if(this.user.id==this.receiveDataFromParent.id){
+            // console.log("inside getitemfromdata")
+            this.item=data
+            this.user.quantity = this.receiveDataFromParent.quantity;
+            // console.log(this.receiveDataFromParent.quantity)
+          }
+          
+          // console.log(this.item+"from on Change in product card"+this.itemQuantity)
+        },
+        error:()=>{console.log("000")}
+      }
+    )
+  }
+
+
   ngOnInit(): void {
-    // console.log("init")
-    // this.cartService.getItemById(this.user.id).subscribe(
-    //   {
-    //     next:(data:Cart)=>
-    //     {
-    //       this.item=data
-    //       this.itemQuantity=this.item.quantity;
-    //     }
-  
-    //   }
-    // )
+    console.log("init")
+    this.cartService.getItems().subscribe(
+      {
+        next:(data:any)=>
+        {
+          // if(data.id==this.receiveDataFromParent?.id){
+            // console.log(data)
+            // console.log(this.receiveDataFromParent.id)
+            // console.log(this.receiveDataFromParent)
+            this.itemQuantity=this.item.quantity;
+            this.newquantity=data
+            this.item=data
+            // console.log(this.item)
+            // console.log(data[0])
+            // console.log(data[1])
+            
+            for(var x=0;x<data.length;x++){
+              if(this.user.id==data[x].id)
+                 this.user.quantity=data[x].quantity
+            }
+            // console.log(data.length)
+            // console.log(this.newquantity[0])
+            // if(this.item.quantity){
+            //   console.log(data.quantity)
+            //   console.log("data.quantity")
+            // }
+            
+          // }
+          // console.log(this.item+"from on Change in product card"+this.itemQuantity)
+        },
+        error:()=>{console.log("000")}
+      }
+    )
     // this.dataService.fetchData();
   }
 
 Increament()
 {
-  this.itemQuantity++;
-  if(this.itemQuantity==1){
+  // this.itemQuantity++;
+  // console.log(this.user.Quantity)
+  if(this.user.quantity==0){
+    this.user.quantity++;
     let size=""
     if(this.user.smallPrice) size="Small"
     else if(this.user.mediumPrice) size="Medium"
     else size="Large"
-    this.cartService.saveCartItems({...this.user,size,quantity:this.itemQuantity}).subscribe()
+    this.cartService.saveCartItems({...this.user,size,quantity:this.user.quantity}).subscribe()
     // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
-    
-    // this.cartService.getItems().subscribe({
-    //   next:(data)=>{this.qunatity=data
-    //     // console.log(this.qunatity[0].quantity)
-    //     this.qunatityArr.emit(this.qunatity[0])
-    //   }
-    // })
     this.cartService.getItemById(this.user?.id).subscribe({
       next:(data)=>{
-        this.qunatity=data;
-        // console.log(this.qunatity)
-        // console.log(this.qunatity.quantity)
-        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
+        this.getItemFromData=data;
+        // console.log(this.getItemFromData)
+        // console.log(this.getItemFromData.quantity)
+        
+        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
   
   }
   else{
-     this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
+    this.user.quantity++;
+     this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     //  this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
     // this.cartService.getItems().subscribe({
-    //   next:(data)=>{this.qunatity=data
-    //     // console.log(this.qunatity[0].quantity)
-    //     this.qunatityArr.emit(this.qunatity[0])
+    //   next:(data)=>{this.getItemFromData=data
+    //     // console.log(this.getItemFromData[0].quantity)
+    //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
     //   }
     // })
     this.cartService.getItemById(this.user.id).subscribe({
       next:(data)=>{
-        this.qunatity=data;
-        // console.log(this.qunatity)
-        // console.log(this.qunatity.quantity)
-        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
+        this.getItemFromData=data;
+        // console.log(this.getItemFromData)
+        // console.log(this.getItemFromData.quantity)
+        
+        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
   }
 }
 Decreament()
 {
-  if(this.itemQuantity>1)
+  if(this.user.quantity>1)
   {
     // console.log(this.itemQuantity)
     this.itemQuantity--;
-    this.cartService.updateCartItemQuantity(this.user.id,this.itemQuantity).subscribe()
+    this.user.quantity--;
+    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
     // this.cartService.getItems().subscribe({
-    //   next:(data)=>{this.qunatity=data
-    //     console.log(this.qunatity)
-    //     console.log(this.qunatity[0].quantity)
+    //   next:(data)=>{this.getItemFromData=data
+    //     console.log(this.getItemFromData)
+    //     console.log(this.getItemFromData[0].quantity)
         
-    //     this.qunatityArr.emit(this.qunatity[0])
+    //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
     //   }
     // })
     this.cartService.getItemById(this.user.id).subscribe({
       next:(data)=>{
-        this.qunatity=data;
-        // console.log(this.qunatity)
-        // console.log(this.qunatity.quantity)
-        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
+        this.getItemFromData=data;
+        // console.log(this.getItemFromData)
+        // console.log(this.getItemFromData.quantity)
+        
+        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
   }
-  else if(this.itemQuantity==1) {
+  else if(this.user.quantity==1) {
     // this.cartService.getItems().subscribe({
     //   next:(data)=>{
-    //     this.qunatity=data
-    //     console.log("this.quantity[0]= "+this.qunatity[0])
-    //     this.qunatityArr.emit(this.qunatity[0])
+    //     this.getItemFromData=data
+    //     console.log("this.quantity[0]= "+this.getItemFromData[0])
+    //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
     //   }
     // })
+    this.user.quantity--;
+    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     this.cartService.getItemById(this.user.id).subscribe({
       next:(data)=>{
-        this.qunatity=data;
-        // console.log(this.qunatity)
-        // console.log(this.qunatity.quantity)
-        this.qunatityArr.emit(this.qunatity);   // sort of emit fire
+        this.getItemFromData=data;
+        // console.log(this.getItemFromData)
+        // console.log(this.getItemFromData.quantity)
+        
+        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
     this.itemQuantity--;

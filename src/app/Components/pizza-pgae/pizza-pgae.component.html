@@ -104,11 +104,11 @@
       <div class="row justify-content-around">
        <div class="col-8 d-flex flex-wrap justify-content-evenly">
         @for (pizza of allPizzProducts|filter:searchText; track pizza.id) {
-          <app-product-card [user]="pizza" (qunatityArr)="getQuantity($event)" [updateQuantity]="getUpdateQuantity"  class="col-lg-3 col-md-5 mb-4 mx-2"></app-product-card>
+          <app-product-card [user]="pizza" (objectFromEventEmitter)="receiveDataFromChild($event)" [receiveDataFromParent]="sendDataFromParent"  class="col-lg-3 col-md-5 mb-4 mx-2"></app-product-card>
         }
        </div>
        <div class="col-sm-12 col-lg-4">
-        <app-small-cart [updateQuantity]="getUpdateQuantity" (qunatityArr)="getQuantity($event)"></app-small-cart>
+        <app-small-cart [receiveDataFromParent]="sendDataFromParent" (objectFromEventEmitter)="receiveDataFromChild($event)"></app-small-cart>
       </div>
       </div>
        </div>

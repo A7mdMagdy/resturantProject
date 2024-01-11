@@ -19,10 +19,10 @@ import { SmallCartComponent } from '../small-cart/small-cart.component';
 })
 export class PizzaPgaeComponent implements OnInit{
 // allPizzProducts:any
-@Input()getUpdateQuantity:any
-@Input() getQuantity(quan:any){
+@Input()sendDataFromParent:any
+@Input() receiveDataFromChild(quan:any){
   // console.log(quan.quantity+"  from getQuantity new")
-  this.getUpdateQuantity=quan
+  this.sendDataFromParent=quan
 }
 allPizzProducts:any[];
 filteredpizza: any[];
