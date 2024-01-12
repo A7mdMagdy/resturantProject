@@ -36,15 +36,21 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
 
 }
   ngOnChanges(): void {
-    console.log("this.receiveDataFromParent")
+    // console.log("this.receiveDataFromParent")
 
-    if(this.receiveDataFromParent?.quantity==0){
-      this.itemQuantity=0;
-      console.log("inside if")
+    // if(this.receiveDataFromParent?.quantity==0){
+    //   this.itemQuantity=0;
+    //   console.log("inside if")
+    // }
+    if(this.user.id==this.receiveDataFromParent?.id){
+      // console.log("inside getitemfromdata")
+      // this.item=data
+      this.user.quantity = this.receiveDataFromParent.quantity;
+      // console.log(this.receiveDataFromParent.quantity)
     }
-    if(this.receiveDataFromParent){
-      this.getItemFromdat();
-    }
+    // if(this.receiveDataFromParent){
+    //   this.getItemFromdat();
+    // }
     
   }
 
@@ -56,12 +62,7 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
           // console.log(data)
           //   console.log(this.receiveDataFromParent.id)
           //   console.log(this.receiveDataFromParent)
-          if(this.user.id==this.receiveDataFromParent.id){
-            // console.log("inside getitemfromdata")
-            this.item=data
-            this.user.quantity = this.receiveDataFromParent.quantity;
-            // console.log(this.receiveDataFromParent.quantity)
-          }
+         
           
           // console.log(this.item+"from on Change in product card"+this.itemQuantity)
         },
@@ -81,9 +82,9 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
             // console.log(data)
             // console.log(this.receiveDataFromParent.id)
             // console.log(this.receiveDataFromParent)
-            this.itemQuantity=this.item.quantity;
-            this.newquantity=data
-            this.item=data
+            // this.itemQuantity=this.item.quantity;
+            // this.newquantity=data
+            // this.item=data
             // console.log(this.item)
             // console.log(data[0])
             // console.log(data[1])
@@ -113,7 +114,7 @@ Increament()
   // this.itemQuantity++;
   // console.log(this.user.Quantity)
   if(this.user.quantity==0){
-    this.user.quantity++;
+    this.user.quantity=this.user.quantity+1;
     let size=""
     if(this.user.smallPrice) size="Small"
     else if(this.user.mediumPrice) size="Medium"
@@ -129,10 +130,12 @@ Increament()
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
+    console.log("inside if increament")
+    console.log(this.user)
   
   }
   else{
-    this.user.quantity++;
+    this.user.quantity=this.user.quantity+1;
      this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     //  this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
     // this.cartService.getItems().subscribe({
@@ -141,15 +144,19 @@ Increament()
     //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
     //   }
     // })
+    // console.log(this.user.quantity)
     this.cartService.getItemById(this.user.id).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
         // console.log(this.getItemFromData)
         // console.log(this.getItemFromData.quantity)
-        
+        // console.log(this.user)
+        // console.log(this.item)
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
+    console.log("inside else increament")
+    console.log(this.user)
   }
 }
 Decreament()
@@ -157,7 +164,7 @@ Decreament()
   if(this.user.quantity>1)
   {
     // console.log(this.itemQuantity)
-    this.itemQuantity--;
+    // this.itemQuantity--;
     this.user.quantity--;
     this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
@@ -198,7 +205,7 @@ Decreament()
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
-    this.itemQuantity--;
+    // this.itemQuantity--;
     this.cartService.removeItemFromOrder(this.user.id).subscribe()
   // this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
 

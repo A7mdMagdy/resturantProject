@@ -303,32 +303,5 @@
       "Image": "assets/Images/Starters/Trio.jpg"
     }
   ],
-  "cartItems": [
-    {
-      "id": "3",
-      "Name": "Chicken BBQ",
-      "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
-      "Sizes": "Small | Large",
-      "price": 154,
-      "smallPrice": "154",
-      "mediumPrice": "",
-      "largePrice": "200 ",
-      "quantity": 3,
-      "Image": "assets/Images/Pizza/Chicken BBQ.png",
-      "size": "Small"
-    },
-    {
-      "id": "2",
-      "Name": " Vegetarian",
-      "Description": "Green Pepper, Fresh Tomato, Onions Loaded On",
-      "Sizes": "Medium | Large",
-      "price": 200,
-      "smallPrice": "",
-      "mediumPrice": "195 ",
-      "largePrice": "200 ",
-      "quantity": 2,
-      "Image": "assets/Images/Pizza/Vegetarian.png",
-      "size": "Medium"
-    }
-  ]
+  "cartItems": []
 }
