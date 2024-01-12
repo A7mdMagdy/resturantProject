@@ -2,6 +2,21 @@ nav{
   background-color: #393838;
 }
 
+.logodiv{
+  width: 60px;
+  margin-inline: 20px;
+}
+
+.logo{
+  width: 100%;
+  border-radius: 50%;
+}
+
+.logodiv{
+  cursor: pointer
+}
+
+
 @media (max-width:989px) {
     body {
       margin: 0;

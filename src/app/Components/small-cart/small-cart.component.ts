@@ -27,10 +27,20 @@ export class SmallCartComponent implements OnInit,OnChanges{
   newquantity:any
   //receive data from behaviorSubject
   receivedData: any[] = [];
+
+  // data from starters 
+  @Input() receiveDataFromStarters:any
+
+        //===================================================================================>>>>>>>
+        //============================================================================================
+
+
+
+
+
   constructor(private cartService: CartService,private operationService:OperationService)
   {
-    this.cartItems=[]
-    
+    this.cartItems=[];
   }
   ngOnChanges(changes: SimpleChanges): void {
     // console.log(this.receiveDataFromParent)
@@ -39,8 +49,9 @@ export class SmallCartComponent implements OnInit,OnChanges{
         next:(data:any)=>
         {
           // console.log(data+"ngOnChangesssssss")
-          this.cartItems=data
+          this.cartItems=data;
           this.calculateTotalAmount();
+          console.log(this.cartItems);
         }
       }
     )
@@ -85,6 +96,8 @@ export class SmallCartComponent implements OnInit,OnChanges{
       next:(data)=>{
         this.getItemFromData=data
         this.objectFromEventEmitter.emit(this.getItemFromData)
+        //===================================================================================>>>>>>>
+        //============================================================================================
       }
     })
   }

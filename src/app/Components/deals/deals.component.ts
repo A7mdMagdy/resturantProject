@@ -6,21 +6,12 @@ import { PizzaService } from '../../Service/pizza.service';
 @Component({
   selector: 'app-deals',
   standalone: true,
-  imports: [RouterModule,ProductCardComponent],
-  providers:[PizzaService],
+  imports: [
+    RouterModule,
+  ],
+  providers:[],
   templateUrl: './deals.component.html',
   styleUrl: './deals.component.css'
 })
 export class DealsComponent {
-  oneproduct:IPizza;
-  constructor(private service:PizzaService){
-   this.oneproduct = { id:0, Name: "", Description: "", Sizes: "", price: 0, Image: "" };
-  }
-   ngOnInit(): void {
-     this.service.getPizzaByID(5).subscribe({
-       next:(data)=>{
-         this.oneproduct = data as IPizza;
-       }
-     })
-   }
 }

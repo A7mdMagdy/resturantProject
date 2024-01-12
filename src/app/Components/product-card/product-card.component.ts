@@ -81,8 +81,8 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
             // console.log(data)
             // console.log(this.receiveDataFromParent.id)
             // console.log(this.receiveDataFromParent)
-            this.itemQuantity=this.item.quantity;
-            this.newquantity=data
+            // this.itemQuantity=this.item.quantity;
+            // this.newquantity=data
             this.item=data
             // console.log(this.item)
             // console.log(data[0])
@@ -112,8 +112,10 @@ Increament()
 {
   // this.itemQuantity++;
   // console.log(this.user.Quantity)
+  console.log("before if condition");
+  console.log(this.user.quantity);
   if(this.user.quantity==0){
-    this.user.quantity++;
+    this.user.quantity=this.user.quantity+1;
     let size=""
     if(this.user.smallPrice) size="Small"
     else if(this.user.mediumPrice) size="Medium"
@@ -125,14 +127,16 @@ Increament()
         this.getItemFromData=data;
         // console.log(this.getItemFromData)
         // console.log(this.getItemFromData.quantity)
-        
+        console.log(this.user.quantity);
+        console.log(this.item);
+        console.log("ay hagaaa");
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
   
   }
   else{
-    this.user.quantity++;
+    this.user.quantity=this.user.quantity+1;
      this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     //  this.dataSharingService.updateSharedData({...this.user,quantity:this.itemQuantity});
     // this.cartService.getItems().subscribe({
@@ -146,7 +150,9 @@ Increament()
         this.getItemFromData=data;
         // console.log(this.getItemFromData)
         // console.log(this.getItemFromData.quantity)
-        
+        console.log(this.user.quantity);
+        console.log(this.item);
+        console.log("else");
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })

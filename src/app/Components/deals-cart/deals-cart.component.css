@@ -1,0 +1,19 @@
+.mycard{
+    border: none;
+    box-shadow: -3px 4px 5px rgba(0, 0, 0, 0.45);
+}
+
+.child
+{
+transition: all 1.1s;
+}
+.parent:hover .child
+{
+    transform: scale(1.2);
+}
+
+
+.model-btn{
+    background-color: transparent;
+    border: none;
+}

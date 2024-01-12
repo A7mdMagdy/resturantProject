@@ -16,7 +16,15 @@
       'sidebar': isSidebarOpen
     }" flex="" id="navbarNav"> -->
   <div class=" collapse navbar-collapse tabs-nav-head sidebar" flex="" id="navbarNav">
+
       <button class="btn btn-secondary d-lg-none menu-button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">X </button>
+      
+      <div class="logodiv" >
+        <a routerLink="/home">
+          <img class=" logo"  src="../../../assets/Images/Pizza-logo-design-template-Vector-PNG.png" alt="logo">
+        </a>
+      </div>
+      
       <div class="ion-text-center single-menu-item melts"> 
         <a class="a-tags" routerLink="/home" routerLinkActive="selected">Home</a>
       </div>
@@ -24,13 +32,13 @@
         <a class="a-tags">Melts</a>
       </div>
       <div class="ion-text-center single-menu-item deals">
-        <a class="a-tags">Deals</a>
+        <a routerLink="/deals" class="a-tags">Deals</a>
       </div>
       <div class="ion-text-center single-menu-item pizza">
         <a routerLink="/pizza" class="a-tags" routerLinkActive="selected">Pizza</a>
       </div>
       <div class="ion-text-center single-menu-item starters">
-        <a class="a-tags">Starters</a>
+        <a class="a-tags" routerLink="/starters">Starters</a>
       </div>
     <div class="dropdown">
         <!-- <div class="ion-text-center single-menu-item more-option"> 

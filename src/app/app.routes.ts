@@ -8,18 +8,22 @@ import { UpdateProductComponent } from './Products-CRUD-FILTER/update-product/up
 import { MyCartComponent } from './Components/my_cart/my-cart.component';
 import { ProductDetailsComponent } from './Products-CRUD-FILTER/product-details/product-details.component';
 import { ProductCrudComponent } from './Products-CRUD-FILTER/product-crud/product-crud.component';
+import { StartersComponent } from './Components/starters/starters.component';
+import { DealsPageComponent } from './Components/deals-page/deals-page.component';
 
 export const routes: Routes = 
 [
-    {path: '', component:HomeComponent},
-    {path: 'home', component:HomeComponent},
-    {path: 'about-us', component:AboutUsComponent},
-    {path: 'viewAll', component:AboutUsComponent},
-    {path: 'profile',component:ProfileComponent},
+    {path:'', component:HomeComponent},
+    {path:'home', component:HomeComponent},
+    {path:'about-us', component:AboutUsComponent},
+    {path:'viewAll', component:AboutUsComponent},
+    {path:'profile',component:ProfileComponent},
     {path:'pizza',component:PizzaPgaeComponent},
     {path:'pizza/addpizza',component:AddProductComponent},
     {path:'pizza/updatepizza/:id',component:UpdateProductComponent},
     {path:'mycart',component:MyCartComponent},
     {path:'admin',component:ProductCrudComponent},    // Admin product details
-    {path:'admin/ProductDetails/:id',component:ProductDetailsComponent} // Admin Product Details
+    {path:'admin/ProductDetails/:id',component:ProductDetailsComponent}, // Admin Product Details
+    {path:'starters',component:StartersComponent},
+    {path:'deals',component:DealsPageComponent} // Starters
 ];

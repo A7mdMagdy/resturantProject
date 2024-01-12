@@ -12,7 +12,15 @@ import { SmallCartComponent } from '../small-cart/small-cart.component';
 @Component({
   selector: 'app-pizza-pgae',
   standalone: true,
-  imports: [ProductCardComponent,HttpClientModule,FormsModule,CommonModule,FilterPipe,RouterModule,SmallCartComponent],
+  imports: [
+    ProductCardComponent,
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    FilterPipe,
+    RouterModule,
+    SmallCartComponent
+  ],
   providers:[PizzaService],
   templateUrl: './pizza-pgae.component.html',
   styleUrl: './pizza-pgae.component.css'

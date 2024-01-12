@@ -53,3 +53,8 @@ h2{
 /* .mycard{
     border: none;
 } */
+
+.mycard{
+    border: none;
+    box-shadow: -3px 4px 5px rgba(0, 0, 0, 0.45);
+}
