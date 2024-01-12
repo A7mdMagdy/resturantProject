@@ -95,7 +95,10 @@ export class SmallCartComponent implements OnInit,OnChanges{
     this.cartService.getItemById(item.id).subscribe({
       next:(data)=>{
         this.getItemFromData=data
+        console.log("increament")
+        console.log(this.getItemFromData)
         this.objectFromEventEmitter.emit(this.getItemFromData)
+
         //===================================================================================>>>>>>>
         //============================================================================================
       }

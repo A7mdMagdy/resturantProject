@@ -2,7 +2,7 @@
     <div class="row m-auto p-5 justify-content-around ">
         <div class="col-8 d-flex flex-wrap justify-content-evenly">
             @for (starter of allProducts; track starter.id){
-                <app-onestarter class="col-lg-4 col-md-12 col-12 m-5" [onestart]="starter"></app-onestarter>
+                <app-onestarter class="col-lg-4 col-md-12 col-12 m-5"(objectFromEventEmitter)="receiveDataFromOnestarter($event)" [onestart]="starter" [receiveDataFromStarters]="sendDataFromStarters"></app-onestarter>
             }
         </div>
         <div class="col-sm-12 col-lg-4">

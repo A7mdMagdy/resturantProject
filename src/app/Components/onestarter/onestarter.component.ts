@@ -27,9 +27,16 @@ export class OnestarterComponent {
   }
   ngOnChanges(): void {
 
-    if(this.receiveDataFromStarters?.quantity==0){
-      this.itemQuantity=0;
-    }
+    
+    console.log("Onchange")
+    console.log(this.item)
+    // if(this.user.id==this.receiveDataFromStarters?.id){
+      // console.log("inside getitemfromdata")
+      // this.item=data
+      // this.user.quantity = this.receiveDataFromStarters.quantity;
+      // console.log(this.receiveDataFromStarters.quantity)
+      // console.log("this.user.id==this.receiveDataFromParent?.id")
+    // }
     if(this.receiveDataFromStarters){
       this.getItemFromdat();
     }

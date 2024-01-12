@@ -372,25 +372,7 @@
       "price": " EGP 99.00 ",
       "size": "Small",
       "Image": "assets/Images/Starters/Buffalo Chicken Wings.png",
-      "quantity": 2
-    },
-    {
-      "id": "23",
-      "Name": "Buffalo Wings 6 Pcs",
-      "Description": "Buffalo Wings",
-      "price": " EGP 99.00 ",
-      "size": "Small",
-      "Image": "assets/Images/Starters/Buffalo Chicken Wings.png",
-      "quantity": 1
-    },
-    {
-      "id": "26",
-      "Name": "Honey Mustard Sauce",
-      "Description": "Sauce",
-      "price": " EGP 10.00 ",
-      "size": "Small",
-      "Image": "assets/Images/Starters/Honey Mustard.jpeg",
-      "quantity": 2
+      "quantity": 7
     }
   ]
 }
