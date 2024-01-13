@@ -14,7 +14,8 @@ import { OperationService } from './Service/operation.service';
       CommonModule, 
       RouterOutlet,
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      
   ],
   providers:[OperationService],
   templateUrl: './app.component.html',

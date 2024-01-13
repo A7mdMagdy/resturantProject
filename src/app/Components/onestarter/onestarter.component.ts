@@ -3,11 +3,24 @@ import { StartersService } from '../../Service/starters.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from '../../Service/cart.service';
 import { Cart } from '../../Interface/cart';
+import { CommonModule } from '@angular/common';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+// import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-onestarter',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule,CommonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    FormsModule
+  ],
   providers:[StartersService,CartService],
   templateUrl: './onestarter.component.html',
   styleUrl: './onestarter.component.css'
@@ -22,9 +35,21 @@ export class OnestarterComponent {
   dataquantity:any;
   itemQuantity:number=0;
   item:Cart;
-  constructor(private myApis:StartersService , private cartService:CartService){
-    this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""}
+
+  // private modalService: NgbModal 
+  constructor(private myApis:StartersService , private cartService:CartService, private snackBar: MatSnackBar)
+  {
+    this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""};
   }
+  
+//   openSnackBar()
+//   {
+//     this.Increament();
+//     this.snackBar.open('Pizza party', 'Close', {
+//       duration: this.durationInSeconds * 1000, // Convert seconds to milliseconds
+//     });
+// }
+  
   ngOnChanges(): void {
 
     
@@ -69,7 +94,7 @@ export class OnestarterComponent {
       
             for(var x=0;x<data.length;x++){
               if(this.onestart.id==data[x].id)
-                 this.onestart.quantity=data[x].quantity
+                this.onestart.quantity=data[x].quantity
             }
         },
         error:()=>{console.log("000")}
@@ -79,6 +104,13 @@ export class OnestarterComponent {
 
   Increament()
   {
+    // this.snackBar.open('add to Cart ', '🍕', {
+    //   duration:1000,
+    //   verticalPosition:'bottom',
+    //   horizontalPosition:'center',
+    //   panelClass: ['inline-snackbar'], // Convert seconds to milliseconds
+    // });
+
     if(this.onestart.quantity==0){
       this.onestart.quantity++;
       console.log(this.onestart);

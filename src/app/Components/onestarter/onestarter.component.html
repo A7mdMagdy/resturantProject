@@ -12,13 +12,36 @@
         <!-- Card Details -->
         <p class="card-title fs-5 fw-medium">{{onestart.Name}}</p>
         <p class="fs-6">{{onestart.Description}}</p>
-        <p class="mb-3">{{onestart.price}}</p>
+        <p class="mb-3">{{onestart.price | currency:'EGP '}}</p>
         <!-- </button> -->
         <!-- Card Buttons -->
         <div class="d-flex justify-content-around">
             <div><button class="btn btn-danger" (click)="Decreament()"><i class="fa-solid fa-trash-can"></i></button></div>
             <p class="fs-4">{{onestart.quantity}}</p>
-            <div><button class="btn btn-success" (click)="Increament()"><i class="fa-solid fa-plus"></i></button></div>
+            <div class="overflow-hidden">
+                <!-- <button class="btn btn-success" (click)="Increament()"><i class="fa-solid fa-plus"></i></button> -->
+                
+                <!-- <mat-form-field>
+                    <mat-label>Snack bar duration (seconds)</mat-label>
+                    <input type="number" [(ngModel)]="durationInSeconds" matInput>
+                </mat-form-field> -->
+                <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Increament()" aria-label="Show an example snack-bar">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+
+                <div class="modal fade fade-in" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+
+                        <div class="modal-body snackbar">
+                            <p>add to Cart  🍕</p>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+            </div>
+              
         </div>
     </div>
 </div>

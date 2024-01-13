@@ -2,10 +2,9 @@ html, body{
     overflow-x: hidden; 
   }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 .cdk-global-overlay-wrapper{
   background-color: #2F2F2F;
 } 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

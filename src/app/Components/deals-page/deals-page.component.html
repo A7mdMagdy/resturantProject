@@ -1,8 +1,8 @@
 <div class="first-div p-4 text-center">
     <div class="row m-auto p-5 justify-content-around">
         <div class="col-8 d-flex flex-wrap justify-content-evenly">
-            @for (deal of alldelas; track deal.id){
-                <app-deals-cart class="col-lg-4 col-md-12 col-12 m-5" [deals]="deal"></app-deals-cart>
+            @for (deal of alldeals; track deal.id){
+                <app-deals-cart class="col-lg-4 col-md-12 col-12 m-5" [receiveDataFromParent]="sendDataFromParent" [deals]="deal" (objectFromEventEmitter)="receiveDataFromChild($event)"></app-deals-cart>
             }
         </div>
         <div class="col-sm-12 col-lg-4">

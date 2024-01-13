@@ -16,17 +16,20 @@
             <p class="fs-6">{{deals.Description}}</p>
             @if(deals.dealsmallPrice)
             {
-                <p class="mb-3"><del>{{deals.smallPrice}}</del></p>
-                <p class="mb-3">{{deals.dealsmallPrice}}</p>
+                <div class="mb-4 justify-content-around ">
+                    <span class="mx-5 "><del class="delet">{{deals.smallPrice}}</del></span>
+                    <span class="">{{deals.dealsmallPrice}}</span>
+                </div>
             }
             @if(deals.dealmediumPrice)
             {
-                <p class="mb-3"><del>{{deals.mediumPrice}}</del></p>
+                <!-- =============================================================================== -->
+                <p class="mb-3"><del class="delet">{{deals.mediumPrice}}</del></p>
                 <p class="mb-3">{{deals.dealmediumPrice}}</p>
             }
             @if(deals.deallargePrice){
-                <p class="mb-3"><del>{{deals.largePrice}}</del></p>
-                <p class="mb-3">{{deals.deallargePrice}}</p>
+                <span class="mb-3"><del class="delet">{{deals.largePrice}}</del></span>
+                <span class="mb-3">{{deals.deallargePrice}}</span>
             }
             <!-- </button> -->
             <!-- Card Buttons -->

@@ -364,22 +364,5 @@
       "quantity": 0
     }
   ],
-  "cartItems": [
-    {
-      "id": "3",
-      "Name": "Chicken BBQ",
-      "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
-      "Sizes": "Small | Large",
-      "price": 154,
-      "smallPrice": "154",
-      "mediumPrice": "",
-      "largePrice": "200 ",
-      "dealsmallPrice": "",
-      "dealmediumPrice": "",
-      "deallargePrice": "",
-      "quantity": 0,
-      "Image": "assets/Images/Pizza/Chicken BBQ.png",
-      "size": "Small"
-    }
-  ]
+  "cartItems": []
 }

@@ -17,3 +17,7 @@ transition: all 1.1s;
     background-color: transparent;
     border: none;
 }
+
+.delet{
+    color: red;
+}

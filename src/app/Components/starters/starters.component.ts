@@ -1,7 +1,7 @@
-import { Component,Input,OnInit,  } from '@angular/core';
+import { Component,Input,OnInit  } from '@angular/core';
 import { StartersService } from '../../Service/starters.service';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+// import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { OnestarterComponent } from '../onestarter/onestarter.component';
 import { SmallCartComponent } from '../small-cart/small-cart.component';
@@ -11,7 +11,6 @@ import { SmallCartComponent } from '../small-cart/small-cart.component';
   standalone: true,
   imports: [
     HttpClientModule,
-    RouterModule,
     CommonModule,
     OnestarterComponent,
     SmallCartComponent
@@ -25,7 +24,6 @@ export class StartersComponent implements OnInit{
 allProducts:any;
 @Input()sendDataFromStarters:any
 @Input() receiveDataFromOnestarter(quan:any){
-  // console.log(quan.quantity+"  from getQuantity new")
   this.sendDataFromStarters=quan
 }
 constructor(private myApis:StartersService){}
