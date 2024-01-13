@@ -43,15 +43,12 @@ export class SmallCartComponent implements OnInit,OnChanges{
     this.cartItems=[];
   }
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log(this.receiveDataFromParent)
     this.cartService.getItems().subscribe(
       {
         next:(data:any)=>
         {
-          // console.log(data+"ngOnChangesssssss")
           this.cartItems=data;
           this.calculateTotalAmount();
-          console.log(this.cartItems);
         }
       }
     )
@@ -85,22 +82,10 @@ export class SmallCartComponent implements OnInit,OnChanges{
   incrementItem(item: any): void {
     let newQ=++item.quantity;
     this.cartService.updateCartItemQuantity(item.id,newQ).subscribe();
-    // Add any logic to update the total price, etc.
-    // this.calculateTotalAmount();
-    // this.cartService.getItems().subscribe({
-    //   next:(data)=>{this.getItemFromData=data
-    //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
-    //   }
-    // })
     this.cartService.getItemById(item.id).subscribe({
       next:(data)=>{
         this.getItemFromData=data
-        console.log("increament")
-        console.log(this.getItemFromData)
         this.objectFromEventEmitter.emit(this.getItemFromData)
-
-        //===================================================================================>>>>>>>
-        //============================================================================================
       }
     })
   }
@@ -123,12 +108,6 @@ export class SmallCartComponent implements OnInit,OnChanges{
     else if(item.quantity==1){
       let newQ=--item.quantity;
       this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
-      // this.cartService.getItems().subscribe({
-      //   next:(data)=>{
-      //     this.getItemFromData=data
-      //     this.objectFromEventEmitter.emit(this.getItemFromData[0])
-      //   }
-      // })
       this.cartService.getItemById(item.id).subscribe({
         next:(data)=>{
           this.getItemFromData=data

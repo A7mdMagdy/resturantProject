@@ -26,43 +26,20 @@ export class DealsCartComponent {
   }
   ngOnChanges(): void {
 
-    if(this.receiveDataFromParent?.quantity==0){
-      this.itemQuantity=0;
-    }
-    if(this.receiveDataFromParent){
-      this.getItemFromdat();
-    }
+    if(this.deals.id==this.receiveDataFromParent?.id){
+      this.deals.quantity = this.receiveDataFromParent.quantity;
   }
-
-  private getItemFromdat(){
-    this.cartService.getItems().subscribe(
-      {
-        next:(data:any)=>
-        {
-          if(this.deals.id==this.receiveDataFromParent.id){
-            this.item=data
-            this.deals.quantity = this.receiveDataFromParent.quantity;
-          }
-        },
-        error:()=>{console.log("000")}
-      }
-    )
-  }
-
+}
   ngOnInit(): void {
-    console.log("init")
     this.cartService.getItems().subscribe(
       {
         next:(data:any)=>
         {
-            this.itemQuantity=this.item.quantity;
-            this.newquantity=data
-            this.item=data
-      
-            for(var x=0;x<data.length;x++){
-              if(this.deals.id==data[x].id)
-                 this.deals.quantity=data[x].quantity
-            }
+
+          for(var x=0;x<data.length;x++){
+            if(this.deals.id==data[x].id)
+                this.deals.quantity=data[x].quantity
+          }
         },
         error:()=>{console.log("000")}
       }
@@ -99,14 +76,12 @@ Decreament()
 {
   if(this.deals.quantity>1)
   {
-    this.itemQuantity--;
     this.deals.quantity--;
     this.cartService.updateCartItemQuantity(this.deals.id,this.deals.quantity).subscribe()
 
     this.cartService.getItemById(this.deals.id).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
-        
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
@@ -122,7 +97,6 @@ Decreament()
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
-    this.itemQuantity--;
     this.cartService.removeItemFromOrder(this.deals.id).subscribe()
   }
 }

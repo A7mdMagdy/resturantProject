@@ -62,40 +62,21 @@ export class OnestarterComponent {
       // console.log(this.receiveDataFromStarters.quantity)
       // console.log("this.user.id==this.receiveDataFromParent?.id")
     // }
-    if(this.receiveDataFromStarters){
-      this.getItemFromdat();
+    if(this.onestart.id==this.receiveDataFromStarters?.id){
+      this.onestart.quantity = this.receiveDataFromStarters.quantity;
     }
-  }
-
-  private getItemFromdat(){
-    this.cartService.getItems().subscribe(
-      {
-        next:(data:any)=>
-        {
-          if(this.onestart.id==this.receiveDataFromStarters.id){
-            this.item=data
-            this.onestart.quantity = this.receiveDataFromStarters.quantity;
-          }
-        },
-        error:()=>{console.log("000")}
-      }
-    )
+   
   }
 
   ngOnInit(): void {
-    console.log("init")
     this.cartService.getItems().subscribe(
       {
         next:(data:any)=>
         {
-            this.itemQuantity=this.item.quantity;
-            this.newquantity=data
-            this.item=data
-      
-            for(var x=0;x<data.length;x++){
-              if(this.onestart.id==data[x].id)
-                this.onestart.quantity=data[x].quantity
-            }
+          for(var x=0;x<data.length;x++){
+            if(this.onestart.id==data[x].id)
+              this.onestart.quantity=data[x].quantity
+          }
         },
         error:()=>{console.log("000")}
       }
@@ -147,7 +128,6 @@ Decreament()
     this.cartService.getItemById(this.onestart.id).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
-        
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
