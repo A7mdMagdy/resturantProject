@@ -1,6 +1,6 @@
-<div  class="container">
+<div class="container">
   <div class="row">
-    <div class=" mx-auto custom-container "  >
+    <div class=" mx-auto custom-container"  >
       <h3 class="heading col-12" style="margin-top: 50px;">MY CART</h3>
       @for (item of orderItems; track item.id)
       {
@@ -22,10 +22,10 @@
                   </div>
                 </div>
                 <p style="margin-bottom: 10px; margin-left: 2px;font-size: medium;"><strong>Size:</strong> {{item.size}}</p>
-                <p>{{item.price}}</p>
+                <!-- <p>{{item.price}}</p> -->
                 <div>
                   <div class="col-md-6" >
-                    <button type="button" (click)="customizeItem(item.id)" class="btn btn-success btn-custom demo" style="font-size: medium;"
+                    <button type="button" (click)="customizeItem(item.id)" class="btn btn-success btn-custom demo" 
                       data-bs-toggle="modal" data-bs-target="#customizeModal">
                       Customize
                     </button>
@@ -46,7 +46,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="modal-body" >
+                          <div class="modal-body">
                             <label
                               style="color: black; font-size: 25px;font-weight: bold; margin-left: 15px;">Size : </label>
                               <form id="sizeForm" class="text-center py-3"  style="border-radius: 10px;"  (change)="updateSizeAndPrice()" >
@@ -67,13 +67,13 @@
                             <div class="total-price" >
                               <span style="color: black; font-size: large; font-weight: bold;">Price:</span>
                               
-                                @if (selectedradio=="small"){
+                                @if (selectedradio=="Small"){
                                 <span class="price"> {{selectedItem.smallPrice}}</span>
                                 }
-                                @if (selectedradio=="medium"){
+                                @if (selectedradio=="Medium"){
                                   <span class="price"> {{selectedItem.mediumPrice}}</span>
                                 }
-                                @if (selectedradio=="large"){
+                                @if (selectedradio=="Large"){
                                     <span class="price"> {{selectedItem.largePrice}}</span>
                                 }
                                 @else{

@@ -81,13 +81,18 @@ export class SmallCartComponent implements OnInit,OnChanges{
   // Function to increment the quantity of an item
   incrementItem(item: any): void {
     let newQ=++item.quantity;
-    this.cartService.updateCartItemQuantity(item.id,newQ).subscribe();
-    this.cartService.getItemById(item.id).subscribe({
+    this.cartService.updateCartItemQuantity(item.id,newQ).subscribe({
       next:(data)=>{
         this.getItemFromData=data
         this.objectFromEventEmitter.emit(this.getItemFromData)
       }
-    })
+    });
+    // this.cartService.getItemById(item.id).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data
+    //     this.objectFromEventEmitter.emit(this.getItemFromData)
+    //   }
+    // })
   }
 
   // Function to decrement the quantity of an item
@@ -96,24 +101,34 @@ export class SmallCartComponent implements OnInit,OnChanges{
     if(item.quantity>1)
     {
       let newQ=--item.quantity;
-      this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
-      this.cartService.getItemById(item.id).subscribe({
+      this.cartService.updateCartItemQuantity(item.id,newQ).subscribe({
         next:(data)=>{
           this.getItemFromData=data
           this.objectFromEventEmitter.emit(this.getItemFromData)
         }
       })
+      // this.cartService.getItemById(item.id).subscribe({
+      //   next:(data)=>{
+      //     this.getItemFromData=data
+      //     this.objectFromEventEmitter.emit(this.getItemFromData)
+      //   }
+      // })
 
     }
     else if(item.quantity==1){
       let newQ=--item.quantity;
-      this.cartService.updateCartItemQuantity(item.id,newQ).subscribe()
-      this.cartService.getItemById(item.id).subscribe({
+      this.cartService.updateCartItemQuantity(item.id,newQ).subscribe({
         next:(data)=>{
           this.getItemFromData=data
           this.objectFromEventEmitter.emit(this.getItemFromData)
         }
       })
+      // this.cartService.getItemById(item.id).subscribe({
+      //   next:(data)=>{
+      //     this.getItemFromData=data
+      //     this.objectFromEventEmitter.emit(this.getItemFromData)
+      //   }
+      // })
       this.cartService.removeItemFromOrder(item.id).subscribe()
      
       this.cartItems = this.cartItems.filter(cartItem => cartItem.id !== item.id);

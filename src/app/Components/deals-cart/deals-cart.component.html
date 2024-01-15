@@ -1,11 +1,13 @@
 @if(deals.dealsmallPrice || deals.dealmediumPrice || deals.deallargePrice)
 {
-<div class="mycard card">
-        <div class="parent text-center"> <!-- Added text-center -->
-            <img src="{{deals.Image}}" class="w-75 child" />
+<div class="mycard card child">
+        <div class="parent text-center "> <!-- Added text-center -->
+            <div class="overflow-hidden p-4">
+                 <img src="{{deals.Image}}" class="w-75" />
+            </div>
             <div>
                 <div class="d-flex justify-content-start align-items-end h-100">
-                    <h5><span class="badge bg-primary ms-2">New</span></h5>
+                    <h5><span class="badge bg-danger ms-2 w-100 py-1 ">New</span></h5>
                 </div>
             </div>
         </div>
@@ -16,27 +18,51 @@
             <p class="fs-6">{{deals.Description}}</p>
             @if(deals.dealsmallPrice)
             {
-                <div class="mb-4 justify-content-around ">
-                    <span class="mx-5 "><del class="delet">{{deals.smallPrice}}</del></span>
-                    <span class="">{{deals.dealsmallPrice}}</span>
+                <p>Small Size</p>
+                <div class="mb-4 justify-content-around row">
+                    <p class="col-6"><span calss="w-25 ">was : </span> <del class="delet">{{deals.smallPrice | currency:'EGP '}}</del></p>
+                    <p class="col-6 fs-5">{{deals.dealsmallPrice | currency:'EGP '}}</p>
                 </div>
             }
             @if(deals.dealmediumPrice)
             {
-                <!-- =============================================================================== -->
-                <p class="mb-3"><del class="delet">{{deals.mediumPrice}}</del></p>
-                <p class="mb-3">{{deals.dealmediumPrice}}</p>
+                <p>Medium Size</p>
+                <div class="mb-4 justify-content-around row">
+                    <p class="col-6"><span calss="w-25 ">was : </span>  <del class="delet">{{deals.mediumPrice | currency:'EGP '}}</del></p>
+                    <p class="col-6 fs-5">{{deals.dealmediumPrice | currency:'EGP '}}</p>
+                </div>
             }
             @if(deals.deallargePrice){
-                <span class="mb-3"><del class="delet">{{deals.largePrice}}</del></span>
-                <span class="mb-3">{{deals.deallargePrice}}</span>
+                <p>Large Size</p>
+                <div class="mb-4 justify-content-around row">
+                    <span class="col-6"><span calss="w-25 ">was : </span> <del class="delet">{{deals.largePrice | currency:'EGP '}}</del></span>
+                    <span class="col-6 fs-5 ">{{deals.deallargePrice | currency:'EGP '}}</span>
+                </div>
             }
             <!-- </button> -->
             <!-- Card Buttons -->
             <div class="d-flex justify-content-around">
                 <div><button class="btn btn-danger" (click)="Decreament()"><i class="fa-solid fa-trash-can"></i></button></div>
                 <p class="fs-4">{{deals.quantity}}</p>
-                <div><button class="btn btn-success" (click)="Increament()"><i class="fa-solid fa-plus"></i></button></div>
+                <div>
+                    <!-- <button class="btn btn-success" (click)="Increament()"><i class="fa-solid fa-plus"></i></button> -->
+
+                    <button (click)="Increament()" type="button " class="btn button btn-success" id="liveToastBtn"> <i class="fa-solid fa-plus"></i></button> 
+ 
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <!-- <div class="toast-header"> 
+                    <img src="..." class="rounded me-2" alt="...">
+                    <strong class="me-auto">Bootstrap</strong> 
+                    <small>11 mins ago</small> 
+                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div> -->
+                    <div class="toast-body">
+                     Add to cart 🍕
+                    </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
 </div>

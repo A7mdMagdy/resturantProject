@@ -58,3 +58,12 @@ h2{
     border: none;
     box-shadow: -3px 4px 5px rgba(0, 0, 0, 0.45);
 }
+
+.child
+{
+transition: all 1.1s;
+}
+.child:hover 
+{
+    transform: scale(1.1);
+}

@@ -121,17 +121,20 @@ export class MyCartComponent implements OnInit {
         );
       }
     }
-    calculatePriceBySize(size: string): string {
+    calculatePriceBySize(size: string): number {
       const item = this.selectedItem;
-      
-      if (size === 'Small') {
-        return item.smallPrice;
-      } else if (size === 'Medium') {
-        return item.mediumPrice;
-      } else if (size === 'Large') {
-        return item.largeprice;
+      console.log(size);
+      console.log( +item.smallPrice)
+      console.log( +item.mediumPrice)
+      console.log( +item.largePrice)
+      if (size === 'small') {
+        return +item.smallPrice;
+      } else if (size === 'medium') {
+        return +item.mediumPrice;
+      } else if (size === 'large') {
+        return +item.largePrice;
       } else {
-        return ""; 
+        return 0; 
       }
     }
     closeAndNavigateHome(): void {
@@ -167,4 +170,6 @@ export class MyCartComponent implements OnInit {
 
     
 }
+
+
 

@@ -1,0 +1,292 @@
+{
+    "Piza": [
+        {
+            "id": "1",
+            "Name": "الدجاج الأصلي رانش",
+            "Description": "صلصة رانش مع دجاج مشوي، فطر",
+            "Sizes": "وسط | صغير",
+            "price": 145,
+            "smallPrice": "ج.م 175.00 ",
+            "mediumPrice": "ج.م 190.00 ",
+            "largePrice": "",
+            "Image": "assets/Images/Pizza/Original Chicken.png"
+        },
+        {
+            "id": "2",
+            "Name": "نباتي",
+            "Description": "فلفل أخضر، طماطم طازجة، بصل على الوجه",
+            "Sizes": "وسط | كبير",
+            "price": 195,
+            "smallPrice": "",
+            "mediumPrice": "ج.م 195.00 ",
+            "largePrice": "ج.م 210.00 ",
+            "Image": "assets/Images/Pizza/Vegetarian.png"
+        },
+        {
+            "id": "3",
+            "Name": "دجاج باربيكيو",
+            "Description": "دجاج مشوي وبصل على قاعدة باربيكيو",
+            "Sizes": "صغير | كبير",
+            "price": 154,
+            "smallPrice": "ج.م 154.00",
+            "mediumPrice": "",
+            "largePrice": "ج.م 200.00 ",
+            "Image": "assets/Images/Pizza/Chicken BBQ.png"
+        },
+        {
+            "id": "4",
+            "Name": "سوبريم بيبروني",
+            "Description": "إحدى تخصصاتنا الكلاسيكية. وجبة لحمية",
+            "Sizes": "وسط | صغير",
+            "price": 175,
+            "smallPrice": "ج.م 175.00 ",
+            "mediumPrice": "ج.م 195.00 ",
+            "largePrice": "",
+            "Image": "/assets/Images/Pizza/Pepperoni Supreme.png"
+        },
+        {
+            "id": "5",
+            "Name": "محبي اللحم",
+            "Description": "بيبروني، لحم بنكهة الطماطم وجبن مذاب",
+            "Sizes": "صغير | كبير",
+            "price": 154,
+            "smallPrice": "ج.م 154.00",
+            "mediumPrice": "",
+            "largePrice": "ج.م 200.00 ",
+            "Image": "assets/Images/Pizza/Meat Lover.png"
+        },
+        {
+            "id": "6",
+            "Name": "رانش دجاج باربيكيو",
+            "Description": "صلصة رانش مع قطع دجاج مشوي، فطر",
+            "Sizes": "وسط | كبير",
+            "price": 195,
+            "smallPrice": "",
+            "mediumPrice": "ج.م 195.00 ",
+            "largePrice": "ج.م 210.00 ",
+            "Image": "assets/Images/Pizza/BBQ Chicken Ranch.png"
+        },
+        {
+            "id": "7",
+            "Name": "مارغريتا",
+            "Description": "عد إلى حيث بدأت كل شيء مع البيتزا الكلاسيكية",
+            "Sizes": "وسط | صغير",
+            "price": 175,
+            "smallPrice": "ج.م 175.00 ",
+            "mediumPrice": "ج.م 195.00 ",
+            "largePrice": "",
+            "Image": "assets/Images/Pizza/Margherita.png"
+        },
+        {
+            "id": "8",
+            "Name": "سوبر سوبريم",
+            "Description": "مزيجنا الشهير من بيبروني لحم البقر اللذيذ،",
+            "Sizes": "صغير | كبير",
+            "price": 154,
+            "smallPrice": "ج.م 154.00",
+            "mediumPrice": "",
+            "largePrice": "ج.م 200.00 ",
+            "Image": "assets/Images/Pizza/Super Supreme.png"
+        },
+        {
+            "id": "9",
+            "Name": "كلاسيك بيبروني",
+            "Description": "بيبروني، زيتون أسود وفطر مع قاعدة طماطم",
+            "Sizes": "وسط | كبير",
+            "price": 195,
+            "smallPrice": "",
+            "mediumPrice": "ج.م 195.00 ",
+            "largePrice": "ج.م 210.00 ",
+            "Image": "assets/Images/Pizza/Classic Pepperoni.png"
+        },
+        {
+            "id": "10",
+            "Name": "عشاق الجبن",
+            "Description": "مزيج ثلاثي خاص من الجبن مع أي اثنين من",
+            "Sizes": "صغير | كبير",
+            "price": 154,
+            "smallPrice": "ج.م 154.00",
+            "mediumPrice": "",
+            "largePrice": "ج.م 200.00 ",
+            "Image": "assets/Images/Pizza/Cheese Lovers.png"
+        },
+        {
+            "id": "11",
+            "Name": "الدجاج الفاخر",
+            "Description": "المزيج النهائي بين الدجاج والفطر",
+            "Sizes": "وسط | صغير",
+            "price": 175,
+            "smallPrice": "ج.م 175.00 ",
+            "mediumPrice": "ج.م 195.00 ",
+            "largePrice": "",
+            "Image": "assets/Images/Pizza/Chicken Supreme.png"
+        },
+        {
+            "id": "12",
+            "Name": "نباتي سوبريم",
+            "Description": "فطر، فلفل أخضر، طماطم طازجة، بصل",
+            "Sizes": "صغير | كبير",
+            "price": 154,
+            "smallPrice": "ج.م 154.00",
+            "mediumPrice": "",
+            "largePrice": "ج.م 200.00 ",
+            "Image": "assets/Images/Pizza/Vegetarian Supreme.png"
+        },
+        {
+            "id": "13",
+            "Name": "دجاج حار رانش",
+            "Description": "دجاج مشوي، طماطم، فطر، وفلفل حار",
+            "Sizes": "وسط | صغير",
+            "price": 175,
+            "smallPrice": "ج.م 175.00 ",
+            "mediumPrice": "ج.م 195.00 ",
+            "largePrice": "",
+            "Image": "assets/Images/Pizza/Spicy Chicken Ranch.png"
+        }
+    ],
+    "Deals": [
+        {
+            "id": "1",
+            "Name": "صندوقي",
+            "Description": "بيتزا مربعة + 2 جانب",
+            "Price": "ج.م 145.00",
+            "Image": "assets/Images/Deals/My box.jpg"
+        },
+        {
+            "id": "2",
+            "Name": "صندوقي المحترف الخضراوات",
+            "Description": "بيتزا مربعة + مكرونة ألفريدو بالخضروات + جانب واحد",
+            "Price": "ج.م 185.00",
+            "Image": "assets/Images/Deals/My Box Pro.jpg"
+        },
+        {
+            "id": "3",
+            "Name": "صندوقي المحترف الدجاج",
+            "Description": "بيتزا صقلية + مكرونة ألفريدو بالدجاج + جانب واحد (خبز الثوم / د)",
+            "Price": "ج.م 195.00",
+            "Image": "assets/Images/Deals/My Box Pro.jpg"
+        },
+        {
+            "id": "4",
+            "Name": "صندوقي الميلتس",
+            "Description": "ميلتس + 2 جوانب",
+            "Price": "ج.م 165.00",
+            "Image": "assets/Images/Deals/My Mealts Box.jpg"
+        },
+        {
+            "id": "5",
+            "Name": "صندوقي الرانش",
+            "Description": "احصل على كل شيء في صندوق الرانش الجديد: رانش متوسط + بان متوسط+ قطع",
+            "Price": "ج.م 389.99",
+            "Image": "assets/Images/Deals/Ranch Box.jpeg"
+        },
+        {
+            "id": "6",
+            "Name": "صندوق الحفلة",
+            "Description": "3 بيتزا متوسطة + قطع بطاطا + سلطة سوبريم + بيبسي 1 لتر",
+            "Price": "ج.م 515.00",
+            "Image": "assets/Images/Deals/Party Box.jpg"
+        },
+        {
+            "id": "7",
+            "Name": "وجبة العائلة",
+            "Description": "2 بيتزا متوسطة + قطع بطاطا + سلطة سوبريم + بيبسي 1 لتر",
+            "Price": "ج.م 395.00",
+            "Image": "assets/Images/Deals/Family Meal.jpg"
+        },
+        {
+            "id": "8",
+            "Name": "صفقة الرئيس",
+            "Description": "بيتزا مربعة + بيبسي",
+            "Price": "ج.م 89.00",
+            "Image": "assets/Images/Deals/Boss.jpeg"
+        },
+        {
+            "id": "9",
+            "Name": "عرض بيتزا بان هت سيفرز",
+            "Description": "2 بيتزا متوسطة من اختيارك (بان، رفيعة، أو كلاسيك). هذا العرض",
+            "Price": "ج.م 265.00",
+            "Image": "assets/Images/Deals/Hut Savers Pan Pizza.jpg"
+        }
+    ],
+    "Starters": [
+        {
+            "id": "1",
+            "Name": "أجنحة الدجاج بوفالو 6 قطع",
+            "Description": "",
+            "Price": "ج.م 99.00",
+            "Image": "assets/Images/Starters/Buffalo Chicken Wings.png"
+        },
+        {
+            "id": "2",
+            "Name": "أجنحة الدجاج الحارة 6 قطع",
+            "Description": "",
+            "Price": "ج.م 99.00",
+            "Image": "assets/Images/Starters/Buffalo Chicken Wings.png"
+        },
+        {
+            "id": "3",
+            "Name": "صلصة الجبن المهروس",
+            "Description": "",
+            "Price": "ج.م 11.00",
+            "Image": "assets/Images/Starters/Cheese Fondue.png"
+        },
+        {
+            "id": "4",
+            "Name": "صلصة الخردل بالعسل",
+            "Description": "",
+            "Price": "ج.م 10.00",
+            "Image": "assets/Images/Starters/Honey Mustard.jpeg"
+        },
+        {
+            "id": "5",
+            "Name": "صلصة تايلاندية حارة",
+            "Description": "",
+            "Price": "ج.م 10.00",
+            "Image": "assets/Images/Starters/Thai Chili.jpeg"
+        },
+        {
+            "id": "6",
+            "Name": "صلصة الرانش",
+            "Description": "",
+            "Price": "ج.م 10.00",
+            "Image": "assets/Images/Starters/Creamy Ranch.jpeg"
+        },
+        {
+            "id": "7",
+            "Name": "قطع بطاطا",
+            "Description": "",
+            "Price": "ج.م 65.00",
+            "Image": "assets/Images/Starters/Potato Wedges.jpg"
+        },
+        {
+            "id": "8",
+            "Name": "خبز الثوم السوبريم",
+            "Description": "خبز فرنسي طازج مع زبدة الثوم",
+            "Price": "ج.م 65.00",
+            "Image": "assets/Images/Starters/GB Supreme.png"
+        },
+        {
+            "id": "9",
+            "Name": "لفائف الدجاج بالباربيكيو",
+            "Description": "",
+            "Price": "ج.م 85.00",
+            "Image": "assets/Images/Starters/BBQ Spin Rolls.jpg"
+        },
+        {
+            "id": "10",
+            "Name": "خبز الثوم السوبر سوبريم",
+            "Description": "خبز فرنسي طازج مع زبدة الثوم",
+            "Price": "ج.م 82.00",
+            "Image": "assets/Images/Starters/GB Super Supreme.png"
+        },
+        {
+            "id": "11",
+            "Name": "ثلاثي",
+            "Description": "لفائف الدجاج بالباربيكيو، أجنحة الدجاج الأصلية",
+            "Price": "ج.م 185.00",
+            "Image": "assets/Images/Starters/Trio.jpg"
+        }
+    ],
+    "cartItems": []
+}

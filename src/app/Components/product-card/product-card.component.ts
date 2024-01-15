@@ -9,7 +9,7 @@ import { OperationService } from '../../Service/operation.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { CommonModule } from '@angular/common';
-
+declare var bootstrap: any;
 @Component({
   selector: 'app-product-card',
   standalone: true,
@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent implements OnInit,OnChanges {
+private liveToast: any;
 @Input() user?:any
 @Input() receiveDataFromParent:any   // comming from small cart
 @Output() objectFromEventEmitter=new EventEmitter();
@@ -35,6 +36,19 @@ constructor(private cartService:CartService,private operationService:OperationSe
 this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""}
 
 }
+closeToast() {
+  this.liveToast.hide();
+}
+
+showToast() {
+  this.liveToast.show();
+}
+
+ngAfterViewInit() {
+  // Initialize the toast after the view has been initialized
+  this.liveToast = new bootstrap.Toast(document.getElementById('liveToast'));
+}
+
   ngOnChanges(): void {
     if(this.user.id==this.receiveDataFromParent?.id){
       this.user.quantity = this.receiveDataFromParent.quantity;
@@ -58,32 +72,52 @@ this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediu
 
 Increament()
 {
-  
+  this.liveToast.show();
   if(this.user.quantity==0){
     this.user.quantity=this.user.quantity+1;
     let size=""
     if(this.user.smallPrice) size="Small"
     else if(this.user.mediumPrice) size="Medium"
     else size="Large"
-    this.cartService.saveCartItems({...this.user,size,quantity:this.user.quantity}).subscribe()
-    this.cartService.getItemById(this.user?.id).subscribe({
+
+    this.cartService.saveCartItems({...this.user,size,quantity:this.user.quantity}).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
-      
+        // console.log(this.getItemFromData)
+        // console.log(this.getItemFromData.quantity)
+        console.log(this.user.quantity)
+        console.log("2")
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
+    // this.cartService.saveCartItems({...this.user,size,quantity:this.user.quantity}).subscribe()
+    // this.cartService.getItemById(this.user?.id).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+      
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    // })
   
   }
   else{
     this.user.quantity=this.user.quantity+1;
-     this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
-    this.cartService.getItemById(this.user.id).subscribe({
+    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
+        console.log(data)
+        console.log("updateCartItem")
+        console.log(this.user.quantity)
+        console.log("4")
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
-    })
+     })
+    //  this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
+    // this.cartService.getItemById(this.user.id).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    // })
   }
 }
 Decreament()
@@ -92,27 +126,50 @@ Decreament()
   {
     this.itemQuantity--;
     this.user.quantity--;
-    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
-
-    this.cartService.getItemById(this.user.id).subscribe({
+    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
-        
+        console.log(data)
+        console.log("updateCartItem")
+        console.log(this.user.quantity)
+        console.log("4")
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
-    })
+     })
+
+
+    // this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
+
+    // this.cartService.getItemById(this.user.id).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+        
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    // })
   }
   else if(this.user.quantity==1) {
   
     this.user.quantity--;
-    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
-    this.cartService.getItemById(this.user.id).subscribe({
+    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
+        console.log(data)
+        console.log("updateCartItem")
+        console.log(this.user.quantity)
+        console.log("4")
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
-    })
-    this.itemQuantity--;
+     })
+
+    // this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
+    // this.cartService.getItemById(this.user.id).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    // })
+    // this.itemQuantity--;
     this.cartService.removeItemFromOrder(this.user.id).subscribe()
 
   }

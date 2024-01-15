@@ -1,10 +1,11 @@
-<div class="mycard card">
+<div class=" mycard card child">
+    <!-- <select name="" id="">
+        <option value="en">english</option>
+        <option value="ar">arabic</option>
+    </select> -->
     <div class="parent text-center"> <!-- Added text-center -->
-        <img src="{{onestart.Image}}" class="w-75 child" />
-        <div>
-            <div class="d-flex justify-content-start align-items-end h-100">
-                <!-- <h5><span class="badge bg-primary ms-2">New</span></h5> -->
-            </div>
+        <div class="overflow-hidden p-4">
+            <img src="{{onestart.Image}}" class="w-75"/>
         </div>
     </div>
         
@@ -25,21 +26,41 @@
                     <mat-label>Snack bar duration (seconds)</mat-label>
                     <input type="number" [(ngModel)]="durationInSeconds" matInput>
                 </mat-form-field> -->
-                <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Increament()" aria-label="Show an example snack-bar">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
 
-                <div class="modal fade fade-in" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <!-- <button  class="button btn" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Increament()" aria-label="Show an example snack-bar">
+                    <i class="fa-solid fa-plus"></i>
+                </button> 
+
+                 <div class="modal fade fade-in snackbar" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
 
-                        <div class="modal-body snackbar">
+                        <div class="modal-body snackbarbody">
                             <p>add to Cart  🍕</p>
                         </div>
 
                       </div>
                     </div>
+                  </div>  -->
+
+                   <button (click)="Increament()" type="button" class="btn button" id="liveToastBtn"> <i class="fa-solid fa-plus"></i></button> 
+ 
+                  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                  <!-- <div class="toast-header"> 
+                  <img src="..." class="rounded me-2" alt="...">
+                  <strong class="me-auto">Bootstrap</strong> 
+                  <small>11 mins ago</small> 
+                   <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div> -->
+                  <div class="toast-body">
+                   Add to cart 🍕
                   </div>
+                  </div>
+                  </div>
+
+
+
             </div>
               
         </div>

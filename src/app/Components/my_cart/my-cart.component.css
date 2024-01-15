@@ -3,9 +3,9 @@
   color: #ffffff; /* Your desired text color */
   border-radius: 15px; /* Your desired border-radius */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Your desired box shadow */
-  width:38%;
+  width:55%;
   border:none;
-  font-size: x-large;
+  font-size: 18px;
   font-weight: bolder;
   transition: background-color 0.3s ease;
   margin-top: 5px;

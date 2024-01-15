@@ -5,10 +5,9 @@
                 <app-onestarter class="col-lg-4 col-md-12 col-12 m-5" (objectFromEventEmitter)="receiveDataFromOnestarter($event)" [onestart]="starter" [receiveDataFromStarters]="sendDataFromStarters"></app-onestarter>
             }
         </div>
-        <div class="col-sm-12 col-lg-4">
-            <app-small-cart  [receiveDataFromStarters]="sendDataFromStarters" (objectFromEventEmitter)="receiveDataFromOnestarter($event)"></app-small-cart>
+        <div class="col-sm-12 col-lg-4 py-4">
+            <app-small-cart [receiveDataFromStarters]="sendDataFromStarters" (objectFromEventEmitter)="receiveDataFromOnestarter($event)"></app-small-cart>
         </div>
-
     </div>
 </div>
 
