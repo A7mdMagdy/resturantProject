@@ -1,0 +1,10 @@
+.container-fluid{
+    background-image:url("/assets/Images/form.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+    background-color: rgba(139, 139, 139, 0.6);
+}

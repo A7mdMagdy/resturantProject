@@ -1,7 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ProductCRUDService } from '../../Service/product-crud.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { Router, RouterModule } from '@angular/router';
@@ -23,13 +23,15 @@ export class ProductCrudComponent implements OnInit {
   DiscountedPizza?: any;
   DiscountedPrice: string;
   DiscountedSize: string;
-  OldPrice: number;
+  counter:number;
+  checked:string;
   constructor(private service: PizzaService, private nav: Router) {
     this.pizza = [];
     this.filteredpizza = [];
     this.DiscountedPrice = '';
     this.DiscountedSize = '';
-    this.OldPrice = 0;
+    this.counter=0;
+    this.checked='';
   }
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class ProductCrudComponent implements OnInit {
         this.filteredpizza = data as any[];
       },
       error(err) { },
-      complete() { }
+      complete() {}
     });
   }
 
@@ -58,44 +60,54 @@ export class ProductCrudComponent implements OnInit {
   }
   // &&&&&&&&&&&&&&&&&&&&&&&&&&
   // &&&&&&&&&&&&&&&&&&&&&&&&&&
-  check(e: any, id: string) {
+  check(e:any, id: string) {
     if (e.target.checked) {
-      e.target.defaultValue = id;
-      // console.log("checked with id:"+id);
-      document.getElementById(id)?.setAttribute('style', 'display:block;')
+      this.counter+=1;
+      if(this.counter == 1){
+        this.checked = e.target.id;
+        document.getElementById(id)?.setAttribute('style', 'display:block;')
+      }
     }
     else {
-      // console.log("UNchecked with id:"+id)
+      this.counter--;
       document.getElementById(id)?.setAttribute('style', 'display:none;')
     }
   }
 // ******************
   setDiscountedSize(e: any, id: string) {
-    if (e.target.name) {
-      document.getElementById("DiscountInput+"+id)?.setAttribute('style', 'display:block')
-      this.DiscountedSize = e.target.name;
-      let selectedPizza = this.pizza.find((pizza: any) => pizza.id == id);
-      this.DiscountedPrice = selectedPizza[this.DiscountedSize];
-    }
-    else {
-      document.getElementById("DiscountInput+"+id)?.setAttribute('style', 'display:none')
-    }
+      if (e.target.name) {
+        document.getElementById("DiscountInput+"+id)?.setAttribute('style', 'display:block')
+        this.DiscountedSize = e.target.name;
+        let selectedPizza = this.pizza.find((pizza: any) => pizza.id == id);
+        console.log(this.DiscountedSize.includes('smallPrice') && selectedPizza['dealsmallPrice'])
+        if (this.DiscountedSize.includes('smallPrice') && selectedPizza['dealsmallPrice']) {
+          this.DiscountedPrice = selectedPizza['dealsmallPrice'];
+        }
+        else if (this.DiscountedSize.includes('mediumPrice') && selectedPizza['dealmediumPrice']) {
+          this.DiscountedPrice = selectedPizza['dealmediumPrice'];
+        }
+        else if(this.DiscountedSize.includes('largePrice') && selectedPizza['deallargePrice']){
+          this.DiscountedPrice = selectedPizza['deallargePrice'];
+        }
+        else{ this.DiscountedPrice = selectedPizza[this.DiscountedSize]; }
+      
+      }
+      else {
+        document.getElementById("DiscountInput+"+id)?.setAttribute('style', 'display:none')
+      }
   }
 // ******************
-  setDiscountedPrice(id: number) {
+  setDiscountedPrice(e:any,id: number) {
     this.DiscountedPizza = this.pizza.find((pizza: any) => pizza.id == id);
-    this.OldPrice = this.DiscountedPizza['price'];
-    this.DiscountedPizza[this.DiscountedSize] = this.DiscountedPrice;
-    if (this.DiscountedPizza['smallPrice']) {
-      this.DiscountedPizza['price'] = +this.DiscountedPizza['smallPrice'];
+    if (this.DiscountedSize.includes('smallPrice')) {
+      this.DiscountedPizza['dealsmallPrice'] = this.DiscountedPrice;
     }
-    else if (this.DiscountedPizza['MediumPrice']) {
-      this.DiscountedPizza['price'] = +this.DiscountedPizza['mediumPrice'];
+    else if (this.DiscountedSize.includes('mediumPrice')) {
+      this.DiscountedPizza['dealmediumPrice'] = this.DiscountedPrice;
     }
-    else {
-      this.DiscountedPizza['price'] = +this.DiscountedPizza['largePrice'];
+    else if(this.DiscountedSize.includes('largePrice')){
+      this.DiscountedPizza['deallargePrice'] = this.DiscountedPrice;
     }
-    // console.log(this.DiscountedPizza);
     this.service.updatePizza(id, this.DiscountedPizza).subscribe({
       complete: () => { }
     })

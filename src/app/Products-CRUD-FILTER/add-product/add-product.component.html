@@ -1,54 +1,97 @@
 <!-- <div class="container my-5 rounded-5 w-50"> -->
-  <div class="container-fluid h-100 mt-5 p-0">
-    <div class="overlay w-100 h-100 pt-5">
-<!-- ********* -->
-<a class="dropdown-item text-start mx-4 mt-3 " routerLink="/admin"><i class="fa-solid fa-less-than fa-2xl" style="color: white;"></i></a>
+<div class="container-fluid h-100 p-0">
+  <div class="overlay w-100 h-100 py-5 mt-5">
+    <!-- ********* -->
+    <a class="dropdown-item text-start mx-4" routerLink="/admin"><i class="fa-solid fa-less-than fa-2xl"
+        style="color: white;"></i></a>
 
-<form (ngSubmit)="Add()" class="col-lg-6 mx-lg-auto col-md-10 col-sm-11 p-4 rounded-5 text-light fs-4" [formGroup]="addProductForm">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input type="text" class="form-control" formControlName="Name" aria-describedby="emailHelp">
+    <form (ngSubmit)="Add()" class="col-lg-6 mx-auto my-5 col-md-10 col-sm-11 p-4 rounded-5 text-light fs-4"
+      [formGroup]="addProductForm">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="Name" aria-describedby="emailHelp">
+        @if(!validName){<p class="text-danger mt-2 fs-6">Letters only, at least 3 letters (Required)</p>}
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Description</label>
+        <input type="text" class="form-control" formControlName="Description">
+        @if(!validDescription){<p class="text-danger mt-2 fs-6">Letters or , & and at least 3 letters (Required)</p>}
+      </div>
+      <!-- Size -->
+      <div class="mb-3 mt-5">
+        <!--<input type="text" class="form-control" formControlName="Sizes"> -->
+        <label for="exampleInputPassword1" class="form-label">Size:</label>
+        @if(!sizelist.length){<p class="text-danger fs-6">choose at least one size</p>}
+        <div class="checkboxes d-lg-flex d-md-flex justify-content-around">
+          <div class="d-lg-flex align-items-end col-lg-3 col-md-3 col-sm-12">
+            <input class="form-check-input me-3" type="checkbox" id="Small" value="Small"
+              (change)="FilteredBySize($event)">
+            <label class="form-check-label txt" for="Small">Small</label>
+          </div>
+
+          <div class="d-lg-flex align-items-end col-lg-3 col-md-3 col-sm-12">
+            <input class="form-check-input me-3" type="checkbox" id="Medium" value="Medium"
+              (change)="FilteredBySize($event)">
+            <label class="form-check-label txt" for="Medium">Medium</label>
+          </div>
+
+          <div class="d-lg-flex align-items-end col-lg-3 col-md-3 col-sm-12"> <!-- form-check-inline -->
+            <input class="form-check-input me-3" type="checkbox" id="Large" value="Large"
+              (change)="FilteredBySize($event)">
+            <label class="form-check-label txt" for="Large">Large</label>
+          </div>
+        </div>
+      </div>
+      <!-- <p>{{addProductForm.value| json}}</p> -->
+      <!-- Price -->
+      <div class="mb-3 mt-5">
+        <label for="exampleInputPassword1" class="form-label">Price:</label>
+        <div class="checkboxes d-lg-flex justify-content-around mt-1">
+          <div class="mb-3 col-lg-3 col-md-6 col-sm-12">
+            <label class="form-label fs-5">Small Price</label>
+            @if(sizelist.includes('Small')){
+              <input type="text" class="form-control" formControlName="smallPrice">
+            @if(!addProductForm.controls['smallPrice'].value){<p class="text-danger fs-6 mt-2">Must have value</p>}
+            }
+            @else{<input readonly type="text" class="form-control" formControlName="smallPrice">}
+            @if(!validsmallPrice){<p class="text-danger fs-6 mt-2">Not a valid price</p>}
+          </div>
+
+          <div class="mb-3 col-lg-3 col-md-6 col-sm-12">
+            <label class="form-label fs-5">Medium Price</label>
+            @if(sizelist.includes('Medium')){
+              <input type="text" class="form-control" formControlName="mediumPrice">
+              @if(!addProductForm.controls['mediumPrice'].value){<p class="text-danger fs-6 mt-2">Must have value</p>}
+            }
+            @else{<input readonly type="text" class="form-control" formControlName="mediumPrice">}
+            @if(!validmediumPrice){<p class="text-danger fs-6 mt-2">Not a valid price</p>}
+          </div>
+
+          <div class="mb-3 col-lg-3 col-md-6 col-sm-12">
+            <label class="form-label fs-5">Large Price</label>
+            @if(sizelist.includes('Large')){
+              <input type="text" class="form-control" formControlName="largePrice">
+              @if(!addProductForm.controls['largePrice'].value){<p class="text-danger fs-6 mt-2">Must have value</p>}
+            }
+            @else{<input readonly type="text" class="form-control" formControlName="largePrice">}
+            @if(!validlargePrice){<p class="text-danger fs-6 mt-2">Not a valid price</p>}
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <input type="file" class="form-control w-50 mx-lg-auto mt-4" formControlName="Image">
+        @if(!validImage){<p class="text-danger text-center fs-6 mt-2">(Required)</p>}
+      </div>
+
+      @if(validName && validDescription && validImage && sizelist.length)
+      {
+        <button type="submit" class="btn btn-primary mx-auto">Add Item</button>
+      }
+      @else{<button title="Admin Operation" disabled type="submit" class="btn btn-primary mx-auto">Add Item</button>}
+    </form>
+
+    <!-- ********* -->
   </div>
-
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Description</label>
-    <input type="text" class="form-control" formControlName="Description">
-  </div>
-
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Sizes</label>
-    <input type="text" class="form-control" formControlName="Sizes">
-  </div>
-
-  <!-- <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Price</label>
-    <input type="text" class="form-control"  formControlName="price">
-  </div> -->
-
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Small Price</label>
-    <input type="text" class="form-control"  formControlName="smallPrice">
-  </div>
-
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Medium Price</label>
-    <input type="text" class="form-control"  formControlName="mediumPrice">
-  </div>
-
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Large Price</label>
-    <input type="text" class="form-control"  formControlName="largePrice">
-  </div>
-
-
-  <div class="mb-3">
-    <input type="file" class="form-control w-50 mx-lg-auto mt-4" formControlName="Image">
-  </div>
-
-  <button type="submit" class="btn btn-primary mx-auto">Add Item</button>
-</form>
-
-<!-- ********* -->
 </div>
-</div>
-
