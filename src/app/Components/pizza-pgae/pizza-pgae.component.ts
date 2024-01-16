@@ -8,6 +8,7 @@ import { PizzaService } from '../../Service/pizza.service';
 import { IPizza } from '../../Interface/ipizza';
 import { RouterModule } from '@angular/router';
 import { SmallCartComponent } from '../small-cart/small-cart.component';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pizza-pgae',
@@ -45,8 +46,10 @@ constructor(private myApis:PizzaService){
     )
   }
 
-  
-  
+  // &&&&&&&&&&&&&&&&&&&
+  // showSuccess() {
+  //   this.toastr.success('Hello world!', 'Toastr fun!');
+  // }
   // &&&&&&&&&&&&&&&&&&&
   // <<<<<<< (Filter Based on Sorting) >>>>>>>>>
 sortId() {

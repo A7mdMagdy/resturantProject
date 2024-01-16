@@ -155,8 +155,8 @@ Increament()
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
-    console.log("inside else increament")
-    console.log(this.user)
+    // console.log("inside else increament")
+    // console.log(this.user)
   }
 }
 Decreament()
