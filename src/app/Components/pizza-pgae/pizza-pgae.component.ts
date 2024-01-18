@@ -70,6 +70,7 @@ sortHToL() {
   // })
   // sort based on price is number
   this.allPizzProducts.sort((a,b)=>{return b.price - a.price})
+  console.log(this.allPizzProducts)
 
 }
 sortLToH() {

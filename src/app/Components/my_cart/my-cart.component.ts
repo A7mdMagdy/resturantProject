@@ -22,6 +22,7 @@ export class MyCartComponent implements OnInit {
   totalAmount: number = 0;
   selectedItem: any={};
   selectedradio:any
+  orignalCartItems: Cart[]
   constructor(private router: Router,private route: ActivatedRoute,private orderService:CartService) {
     this.orderItems=[]
     this.route.queryParams.subscribe(params => {
@@ -30,6 +31,7 @@ export class MyCartComponent implements OnInit {
         console.log('Page should be refreshed');
       }
     });
+    this.orignalCartItems=[]
 
   }
 
@@ -41,7 +43,9 @@ export class MyCartComponent implements OnInit {
       next:(order:any)=>
       {
       console.log('Received order items:', order);
-      this.orderItems = order
+      this.orderItems = order as any[];
+      this.orignalCartItems=order as any[]
+      this.orderItems=this.orderItems.filter(order => order.id!=0)
       this.calculateTotalAmount();
       }
       
@@ -74,7 +78,15 @@ export class MyCartComponent implements OnInit {
 
     incrementItem(item: any): void {
       let newQ=++item.quantity;
-      this.orderService.updateCartItemQuantity(item.id,newQ).subscribe();
+      for(let i=0;i<this.orignalCartItems.length;i++){
+
+        if(this.orignalCartItems[i].id==item.id){
+         this.orderService.saveCartItems2((i).toString(),{...item,size:this.orignalCartItems[i].size,quantity:newQ}).subscribe()
+          break;
+        }
+  
+     }
+      // this.orderService.updateCartItemQuantity(item.id,newQ).subscribe();
       // Add any logic to update the total price, etc.
       this.calculateTotalAmount();
     }
@@ -83,11 +95,32 @@ export class MyCartComponent implements OnInit {
       if(item.quantity>1)
     {
       let newQ=--item.quantity;
-      this.orderService.updateCartItemQuantity(item.id,newQ).subscribe();
+      for(let i=0;i<this.orignalCartItems.length;i++){
+    
+        if(this.orignalCartItems[i].id==item.id){
+          console.log("foundeddd")
+         this.orderService.saveCartItems2((i).toString(),{...item,size:this.orignalCartItems[i].size,quantity:newQ}).subscribe()
+          break;
+        }
+  
+     }
+      // this.orderService.updateCartItemQuantity(item.id,newQ).subscribe();
     }
-    else if(item.quantity=1){
-      this.orderService.removeItemFromOrder(item.id).subscribe()
-      this.orderItems = this.orderItems.filter(Item => Item.id !== item.id);
+    else if(item.quantity==1){
+      let newQ=--item.quantity;
+      for(let i=0;i<this.orignalCartItems.length;i++){
+
+        if(this.orignalCartItems[i].id==item.id){
+          this.orignalCartItems=this.orignalCartItems.filter(item=>item.id!= this.orignalCartItems[i].id)
+          console.log("yoooooooooooooooooooo",this.orignalCartItems)
+          this.orderService.afterDeleteItem(this.orignalCartItems).subscribe()
+          this.orderItems = this.orderItems.filter(Item => Item.id != item.id);
+            //  this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+          break;
+        }
+      }
+      // this.orderService.removeItemFromOrder(item.id).subscribe()
+      // this.orderItems = this.orderItems.filter(Item => Item.id !== item.id);
     }
     this.calculateTotalAmount();
     }
@@ -97,10 +130,24 @@ export class MyCartComponent implements OnInit {
     }
     customizeItem(itemId: number): void {
       // Load the selected item when entering customization
-      this.orderService.getItemById(itemId).subscribe((item: any) => {
-        this.selectedItem = item;
-        console.log(item);
-       });
+      // this.orderService.getItemById(itemId).subscribe((item: any) => {
+      //   this.selectedItem = item;
+      //   console.log(item);
+      //  });
+      for(let i = 0; i < this.orderItems.length; i++)
+      {
+        if(itemId==this.orderItems[i].id)
+        {
+          this.selectedItem = this.orderItems[i];
+          
+          break;
+        }
+      }
+    }
+    sizeChange(e:any)
+    {
+       console.log(e.target.defaultValue);
+       this.selectedradio = e.target.defaultValue;
     }
     updateSizeAndPrice() {
       const selectedSize = (document.querySelector('input[name="size"]:checked') as HTMLInputElement)?.value;
@@ -109,16 +156,25 @@ export class MyCartComponent implements OnInit {
         const item = this.selectedItem;
         item.size = selectedSize;
         item.price = this.calculatePriceBySize(selectedSize);
-  
-        this.orderService.updateCartItem(this.selectedItem.id, item).subscribe(
-          response => {
-            console.log('Update successful:', response);
-            location.reload();
-          },
-          error => {
-            console.error('Update failed:', error);
+        for(let i = 0; i < this.orderItems.length; i++)
+        {
+          if(item.id==this.orderItems[i].id)
+          {
+            this.orderService.saveCartItems2((i+1).toString(),item).subscribe()
+            break;
           }
-        );
+        }
+  
+        // this.orderService.updateCartItem(this.selectedItem.id, item).subscribe(
+        //   response => {
+        //     console.log('Update successful:', response);
+        //     location.reload();
+        //   },
+        //   error => {
+        //     console.error('Update failed:', error);
+        //   }
+        // );
+        this.calculateTotalAmount();
       }
     }
     calculatePriceBySize(size: string): number {
@@ -127,22 +183,41 @@ export class MyCartComponent implements OnInit {
       console.log( +item.smallPrice)
       console.log( +item.mediumPrice)
       console.log( +item.largePrice)
-      if (size === 'small') {
+      if (size === 'small' && item.deals && item.dealsmallPrice) {
+        return +item.dealsmallPrice;
+      }
+      if (size === 'small' && item.deals && !item.dealsmallPrice) {
         return +item.smallPrice;
-      } else if (size === 'medium') {
+      }
+      else if (size === 'small' && !item.deals) {
+        return +item.smallPrice;
+      }
+       else if (size === 'medium' && item.deals && item.dealmediumPrice) {
+        return +item.dealmediumPrice;
+      } 
+      else if (size === 'medium' && item.deals && !item.dealmediumPrice) {
         return +item.mediumPrice;
-      } else if (size === 'large') {
+      }
+      else if (size === 'medium' && !item.deals) {
+        return +item.mediumPrice;
+      }
+      else if (size === 'large' && item.deals && item.deallargePrice) {
+        return +item.deallargePrice;
+      }
+      else if (size === 'large' && item.deals && !item.deallargePrice) {
         return +item.largePrice;
-      } else {
+      }
+      else if (size === 'large' && !item.deals) {
+        return +item.largePrice;
+      }
+       else {
         return 0; 
       }
     }
     closeAndNavigateHome(): void {
       // this.deleteSelectedItems();
-      for(let i =0;i<this.orderItems.length;i++)
-      {
-        this.orderService.removeItemFromOrder(this.orderItems[i].id).subscribe();
-      }
+      this.orignalCartItems= this.orignalCartItems.filter(item => item.id==0)
+      this.orderService.afterDeleteItem(this.orignalCartItems).subscribe()
       // this.navigateToHome();
     }
   

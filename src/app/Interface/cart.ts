@@ -7,5 +7,9 @@ export interface Cart {
     size:string,
     smallPrice:string,
     mediumPrice:string,
-    largePrice:string
+    largePrice:string,
+    dealsmallPrice: string,
+    dealmediumPrice: string,
+    deallargePrice: string,
+    deals:boolean
 }

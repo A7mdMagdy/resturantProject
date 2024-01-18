@@ -68,6 +68,7 @@ export class OnestarterComponent {
   dataquantity:any;
   itemQuantity:number=0;
   item:Cart;
+  cartItems:any[];
   showToast() {
     this.liveToast.show();
   }
@@ -84,13 +85,14 @@ export class OnestarterComponent {
   constructor(private myApis:StartersService , private cartService:CartService, private snackBar: MatSnackBar)
   {
     // private translate: TranslateService
-    this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""};
+    this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:"", dealsmallPrice: "",dealmediumPrice: "",deallargePrice: "",deals:false};
     // this.translate.addLangs(['en', 'ar']);
     // this.translate.setDefaultLang('en');
 
     // const browserLang = this.translate.getBrowserLang();
     // const languageToUse = (browserLang && browserLang.match(/en|ar/)) ? browserLang : 'en';
     // this.translate.use(languageToUse);
+    this.cartItems=[]
     
   }
   // showSuccess() {
@@ -110,14 +112,11 @@ export class OnestarterComponent {
     if(this.onestart.id==this.receiveDataFromStarters?.id){
       this.onestart.quantity = this.receiveDataFromStarters.quantity;
     }
-   
-  }
-
-  ngOnInit(): void {
     this.cartService.getItems().subscribe(
       {
         next:(data:any)=>
         {
+          this.cartItems = data;
           for(var x=0;x<data.length;x++){
             if(this.onestart.id==data[x].id)
               this.onestart.quantity=data[x].quantity
@@ -126,6 +125,22 @@ export class OnestarterComponent {
         error:()=>{console.log("000")}
       }
     )
+   
+  }
+
+  ngOnInit(): void {
+    // this.cartService.getItems().subscribe(
+    //   {
+    //     next:(data:any)=>
+    //     {
+    //       for(var x=0;x<data.length;x++){
+    //         if(this.onestart.id==data[x].id)
+    //           this.onestart.quantity=data[x].quantity
+    //       }
+    //     },
+    //     error:()=>{console.log("000")}
+    //   }
+    // )
   }
 
   Increament()
@@ -140,16 +155,27 @@ export class OnestarterComponent {
 
     if(this.onestart.quantity==0){
       this.onestart.quantity++;
-      this.cartService.saveCartItems({...this.onestart,quantity:this.onestart.quantity}).subscribe({
+      let size=this.onestart.size
+      this.cartService.saveCartItems2(this.cartItems.length.toString(),{...this.onestart,size,quantity:this.onestart.quantity}).subscribe({
         next:(data)=>{
           this.getItemFromData=data;
           // console.log(this.getItemFromData)
           // console.log(this.getItemFromData.quantity)
-          console.log(this.onestart.quantity)
-          console.log("2")
+          // console.log(this.user.quantity)
+          // console.log("2")
           this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
         }
       })
+      // this.cartService.saveCartItems({...this.onestart,quantity:this.onestart.quantity}).subscribe({
+      //   next:(data)=>{
+      //     this.getItemFromData=data;
+      //     // console.log(this.getItemFromData)
+      //     // console.log(this.getItemFromData.quantity)
+      //     console.log(this.onestart.quantity)
+      //     console.log("2")
+      //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+      //   }
+      // })
 
       // console.log(this.onestart);
       // this.cartService.saveCartItems({...this.onestart,quantity:this.onestart.quantity}).subscribe()
@@ -163,16 +189,34 @@ export class OnestarterComponent {
     }
     else{
       this.onestart.quantity++;
-      this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe({
-        next:(data)=>{
-          this.getItemFromData=data;
-          console.log(data)
-          console.log("updateCartItem")
-          console.log(this.onestart.quantity)
-          console.log("4")
-          this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+
+      for(let i=0;i<this.cartItems.length;i++){
+
+        if(this.cartItems[i].id==this.onestart.id){
+         this.cartService.saveCartItems2((i).toString(),{...this.onestart,size:this.cartItems[i].size,quantity:this.onestart.quantity}).subscribe({
+           next:(data)=>{
+             this.getItemFromData=data;
+             // console.log(this.getItemFromData)
+             // console.log(this.getItemFromData.quantity)
+            //  console.log(this.user.quantity)
+             console.log("2")
+             this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+           }
+         })
+          break;
         }
-       })
+ 
+     }
+      // this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe({
+      //   next:(data)=>{
+      //     this.getItemFromData=data;
+      //     console.log(data)
+      //     console.log("updateCartItem")
+      //     console.log(this.onestart.quantity)
+      //     console.log("4")
+      //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+      //   }
+      //  })
 
       // this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe()
       // this.cartService.getItemById(this.onestart.id).subscribe({
@@ -190,17 +234,34 @@ Decreament()
   {
     this.itemQuantity--;
     this.onestart.quantity--;
+    for(let i=0;i<this.cartItems.length;i++){
 
-    this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe({
-      next:(data)=>{
-        this.getItemFromData=data;
-        console.log(data)
-        console.log("updateCartItem")
-        console.log(this.onestart.quantity)
-        console.log("4")
-        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+      if(this.cartItems[i].id==this.onestart.id){
+       this.cartService.saveCartItems2((i).toString(),{...this.onestart,size:this.cartItems[i].size,quantity:this.onestart.quantity}).subscribe({
+         next:(data)=>{
+           this.getItemFromData=data;
+           // console.log(this.getItemFromData)
+           // console.log(this.getItemFromData.quantity)
+          //  console.log(this.user.quantity)
+           console.log("2")
+           this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+         }
+       })
+        break;
       }
-     })
+
+   }
+
+    // this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+    //     console.log(data)
+    //     console.log("updateCartItem")
+    //     console.log(this.onestart.quantity)
+    //     console.log("4")
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    //  })
 
     // this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe()
     // this.cartService.getItemById(this.onestart.id).subscribe({
@@ -212,16 +273,47 @@ Decreament()
   }
   else if(this.onestart.quantity==1) {
     this.onestart.quantity--;
-    this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe({
-      next:(data)=>{
-        this.getItemFromData=data;
-        console.log(data)
-        console.log("updateCartItem")
-        console.log(this.onestart.quantity)
-        console.log("4")
-        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+
+    for(var i=0;i<this.cartItems.length;i++){
+
+      if(this.cartItems[i].id==this.onestart.id){
+       this.cartService.saveCartItems2((i).toString(),{...this.onestart,size:this.cartItems[i].size,quantity:this.onestart.quantity}).subscribe({
+         next:(data)=>{
+           this.getItemFromData=data;
+           // console.log(this.getItemFromData)
+           // console.log(this.getItemFromData.quantity)
+          //  console.log(this.user.quantity)
+           console.log("2")
+           const filterItems=this.cartItems.filter(item=>item.id!= this.cartItems[i].id)
+          console.log(filterItems)
+          this.cartService.afterDeleteItem(filterItems).subscribe(
+            {
+              complete: ()=>{this.objectFromEventEmitter.emit(this.getItemFromData);}
+            }
+          )
+          //  this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+         },
+        //  complete: ()=>
+        //  {
+        //   const filterItems=this.cartItems.filter(item=>item.id!= this.cartItems[i].id)
+        //   console.log(filterItems)
+        //   this.cartService.afterDeleteItem(filterItems).subscribe()
+        //  }
+       })
+        break;
       }
-     })
+
+   }
+    // this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+    //     console.log(data)
+    //     console.log("updateCartItem")
+    //     console.log(this.onestart.quantity)
+    //     console.log("4")
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    //  })
 
     // this.cartService.updateCartItemQuantity(this.onestart.id,this.onestart.quantity).subscribe()
     // this.cartService.getItemById(this.onestart.id).subscribe({
@@ -231,7 +323,7 @@ Decreament()
     //   }
     // })
     // this.itemQuantity--;
-    this.cartService.removeItemFromOrder(this.onestart.id).subscribe()
+    // this.cartService.removeItemFromOrder(this.onestart.id).subscribe()
   }
 }
 }

@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
 
-  private apiUrl = 'http://localhost:3000/cartItems';
+  private apiUrl = 'https://pizza-34619-default-rtdb.firebaseio.com/Admin.json';
+  private baseUrl = 'https://pizza-34619-default-rtdb.firebaseio.com/Admin';
 
   constructor(private http: HttpClient) { }
   
@@ -60,4 +61,31 @@ updateCartItem(itemId: number, updatedItem: any): Observable<any> {
   removeAllData(): Observable<void> {
     return this.http.delete<void>(this.apiUrl);
   }
+
+  saveCartItems2(key:string,cartItems: any){
+
+    //   const orderId = new Date().getTime().toString();
+    // const orderData = {
+    //   id: orderId,
+    //   Products: cartItems,
+    // };
+      //return this.http.post(this.apiUrl, {cartItems});
+      return this.http.patch(this.baseUrl+'/'+key+'.json', cartItems);
+  }
+  afterDeleteItem(cartItems: any[]){
+
+    //   const orderId = new Date().getTime().toString();
+    // const orderData = {
+    //   id: orderId,
+    //   Products: cartItems,
+    // };
+      //return this.http.post(this.apiUrl, {cartItems});
+      return this.http.put(this.apiUrl, cartItems);
+  }
+
+  removeItemFromOrder2(key:string){
+    
+    return this.http.delete(this.baseUrl+'/'+key+'.json');
+  }
+  
 }

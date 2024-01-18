@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class StartersService {
 
   constructor(private starters:HttpClient) {}
-  starters_URL="http://localhost:3000/Starters";
+  starters_URL="https://pizza-34619-default-rtdb.firebaseio.com/Starters.json";
 
   getAllStarters()
   {

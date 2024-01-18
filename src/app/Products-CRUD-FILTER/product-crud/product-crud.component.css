@@ -43,3 +43,12 @@ span{
     background-color: #393838;
     color: white;
 }
+
+
+/*  */
+@media screen and (max-width: 500px) {
+    .discount-column
+    {
+      display: none;
+    }
+}

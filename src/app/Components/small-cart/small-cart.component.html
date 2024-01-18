@@ -17,9 +17,9 @@
     </div>
 
     <div class="cart-items" [ngClass]="{'scrollable': cartItems.length > 1}">
-      <div *ngFor="let item of cartItems" class="cart-item" style="border: none;">
+      <div *ngFor="let item of cartItems" class="cart-item flex-lg-row flex-column" style="border: none;">
         <div class="item-details">
-          <img class="circularimg" src="{{ item.Image}}" alt="Product Image">
+          <img class="circularimg mx-auto" src="{{ item.Image}}" alt="Product Image">
           <div >
             <h4>{{ item.Name }}</h4>
             <pre style="font-size: larger; font-weight: bolder;">{{item.size }}    {{item.price | currency: 'EGP ' }}</pre>
@@ -27,7 +27,7 @@
         </div>
         
         <!-- Counter and buttons -->
-        <div class="counter-buttons">
+        <div class="counter-buttons my-lg-0 my-sm-2">
           <button class="btn btn-danger" (click)="toggleButton(item)">
             <i class="fa-solid fa-trash-can"></i>
           </button>
@@ -49,7 +49,8 @@
 
 
     <!-- Continue button -->
-    <button class="continue-button  btn btn-success" (click)="continueShopping()" routerLink="/mycart">Continue</button>    
+    <!-- <button class="continue-button  btn btn-success" (click)="continueShopping()" routerLink="/mycart">Continue</button>     -->
+    <button class="continue-button  btn btn-success" routerLink="/mycart">Continue</button>  
   </div>
 </div>
 

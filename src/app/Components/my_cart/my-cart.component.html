@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class=" mx-auto custom-container"  >
+<div class="container pt-5">
+  <div class="row py-5">
+    <div class=" mx-auto custom-container mt-5"  >
       <h3 class="heading col-12" style="margin-top: 50px;">MY CART</h3>
       @for (item of orderItems; track item.id)
       {
@@ -50,18 +50,30 @@
                             <label
                               style="color: black; font-size: 25px;font-weight: bold; margin-left: 15px;">Size : </label>
                               <form id="sizeForm" class="text-center py-3"  style="border-radius: 10px;"  (change)="updateSizeAndPrice()" >
-                               @if (selectedItem.smallPrice){
-                                 <input id="s" [(ngModel)]="selectedradio"   type="radio" name="size" value="small"> 
-                                 <label for="s" >Small</label>
-                                }
-                                @if (selectedItem.mediumPrice){
-                                  <input  id="m" [(ngModel)]="selectedradio" type="radio" name="size" value="medium"> 
-                                  <label for="m">Medium</label>
-                                }
-                                @if (selectedItem.largePrice){
-                                  <input id="l" [(ngModel)]="selectedradio" type="radio" name="size" value="large"> 
-                                  <label for="l">Large</label> 
-                                }
+                                @if (selectedItem.smallPrice){
+                                  <input id="s" checked (change)="sizeChange($event)" type="radio" name="size" value="small"> 
+                                  <label for="s" >Small</label>
+                                 }
+                                 @if (selectedItem.mediumPrice){
+                                  @if (selectedItem.smallPrice){
+                                   <input  id="m" (change)="sizeChange($event)" type="radio" name="size" value="medium"> 
+                                   <label for="m">Medium</label>
+                                  }
+                                  @else{
+                                    <input  id="m" checked (change)="sizeChange($event)" type="radio" name="size" value="medium"> 
+                                   <label for="m">Medium</label>
+                                  }
+                                 }
+                                 @if (selectedItem.largePrice){
+                                  @if (selectedItem.smallPrice || selectedItem.mediumPrice){
+                                   <input id="l" (change)="sizeChange($event)" type="radio" name="size" value="large"> 
+                                   <label for="l">Large</label> 
+                                  }
+                                  @else{
+                                    <input id="l" checked (change)="sizeChange($event)" type="radio" name="size" value="large"> 
+                                   <label for="l">Large</label> 
+                                  }
+                                 }
                             
                               </form>
                             <div class="total-price" >

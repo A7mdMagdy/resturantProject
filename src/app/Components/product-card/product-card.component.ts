@@ -31,10 +31,11 @@ newquantity:any
 dataquantity:any
 itemQuantity:number=0;
 item:Cart
+cartItems:any[];
 constructor(private cartService:CartService,private operationService:OperationService,private dialog:MatDialog)
 {
-this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:""}
-
+this.item={ id:0,Name:"",price:0,Image:"",quantity:0,size:"",smallPrice:"",mediumPrice:"",largePrice:"", dealsmallPrice: "",dealmediumPrice: "",deallargePrice: "",deals:false}
+this.cartItems=[];
 }
 closeToast() {
   this.liveToast.hide();
@@ -53,13 +54,11 @@ ngAfterViewInit() {
     if(this.user.id==this.receiveDataFromParent?.id){
       this.user.quantity = this.receiveDataFromParent.quantity;
     }
-  }
-  ngOnInit(): void {
-    console.log("init")
     this.cartService.getItems().subscribe(
       {
         next:(data:any)=>
         {
+          this.cartItems = data;
             for(var x=0;x<data.length;x++){
               if(this.user.id==data[x].id)
                  this.user.quantity=data[x].quantity
@@ -68,6 +67,22 @@ ngAfterViewInit() {
         error:()=>{console.log("000")}
       }
     )
+  }
+  ngOnInit(): void {
+    console.log("init")
+    // this.cartService.getItems().subscribe(
+    //   {
+    //     next:(data:any)=>
+    //     {
+    //       this.cartItems = data;
+    //         for(var x=0;x<data.length;x++){
+    //           if(this.user.id==data[x].id)
+    //              this.user.quantity=data[x].quantity
+    //         }
+    //     },
+    //     error:()=>{console.log("000")}
+    //   }
+    // )
   }
 
 Increament()
@@ -79,14 +94,14 @@ Increament()
     if(this.user.smallPrice) size="Small"
     else if(this.user.mediumPrice) size="Medium"
     else size="Large"
-
-    this.cartService.saveCartItems({...this.user,size,quantity:this.user.quantity}).subscribe({
+console.log("yoooooooooooooooooo",this.cartItems.length)
+    this.cartService.saveCartItems2(this.cartItems.length.toString(),{...this.user,size,quantity:this.user.quantity}).subscribe({
       next:(data)=>{
         this.getItemFromData=data;
         // console.log(this.getItemFromData)
         // console.log(this.getItemFromData.quantity)
         console.log(this.user.quantity)
-        console.log("2")
+        // console.log("2")
         this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
       }
     })
@@ -102,16 +117,33 @@ Increament()
   }
   else{
     this.user.quantity=this.user.quantity+1;
-    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
-      next:(data)=>{
-        this.getItemFromData=data;
-        console.log(data)
-        console.log("updateCartItem")
-        console.log(this.user.quantity)
-        console.log("4")
-        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
-      }
-     })
+    for(let i=0;i<this.cartItems.length;i++){
+
+       if(this.cartItems[i].id==this.user.id){
+        this.cartService.saveCartItems2((i).toString(),{...this.user,size:this.cartItems[i].size,quantity:this.user.quantity}).subscribe({
+          next:(data)=>{
+            this.getItemFromData=data;
+            // console.log(this.getItemFromData)
+            // console.log(this.getItemFromData.quantity)
+            console.log(this.user.quantity)
+            console.log("2")
+            this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+          }
+        })
+         break;
+       }
+
+    }
+    // this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+    //     console.log(data)
+    //     console.log("updateCartItem")
+    //     console.log(this.user.quantity)
+    //     console.log("4")
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    //  })
     //  this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     // this.cartService.getItemById(this.user.id).subscribe({
     //   next:(data)=>{
@@ -126,16 +158,33 @@ Decreament()
   {
     this.itemQuantity--;
     this.user.quantity--;
-    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
-      next:(data)=>{
-        this.getItemFromData=data;
-        console.log(data)
-        console.log("updateCartItem")
-        console.log(this.user.quantity)
-        console.log("4")
-        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    for(let i=0;i<this.cartItems.length;i++){
+
+      if(this.cartItems[i].id==this.user.id){
+       this.cartService.saveCartItems2((i).toString(),{...this.user,size:this.cartItems[i].size,quantity:this.user.quantity}).subscribe({
+         next:(data)=>{
+           this.getItemFromData=data;
+           // console.log(this.getItemFromData)
+           // console.log(this.getItemFromData.quantity)
+           console.log(this.user.quantity)
+           console.log("2")
+           this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+         }
+       })
+        break;
       }
-     })
+
+   }
+    // this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+    //     console.log(data)
+    //     console.log("updateCartItem")
+    //     console.log(this.user.quantity)
+    //     console.log("4")
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    //  })
 
 
     // this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
@@ -151,16 +200,46 @@ Decreament()
   else if(this.user.quantity==1) {
   
     this.user.quantity--;
-    this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
-      next:(data)=>{
-        this.getItemFromData=data;
-        console.log(data)
-        console.log("updateCartItem")
-        console.log(this.user.quantity)
-        console.log("4")
-        this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    for(var i=0;i<this.cartItems.length;i++){
+
+      if(this.cartItems[i].id==this.user.id){
+       this.cartService.saveCartItems2((i).toString(),{...this.user,size:this.cartItems[i].size,quantity:this.user.quantity}).subscribe({
+         next:(data)=>{
+           this.getItemFromData=data;
+           // console.log(this.getItemFromData)
+           // console.log(this.getItemFromData.quantity)
+           console.log(this.user.quantity)
+           console.log("2")
+           const filterItems=this.cartItems.filter(item=>item.id!= this.cartItems[i].id)
+          console.log(filterItems)
+          this.cartService.afterDeleteItem(filterItems).subscribe(
+            {
+              complete: ()=>{this.objectFromEventEmitter.emit(this.getItemFromData);}
+            }
+          )
+          //  this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+         },
+        //  complete: ()=>
+        //  {
+        //   const filterItems=this.cartItems.filter(item=>item.id!= this.cartItems[i].id)
+        //   console.log(filterItems)
+        //   this.cartService.afterDeleteItem(filterItems).subscribe()
+        //  }
+       })
+        break;
       }
-     })
+
+   }
+    // this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe({
+    //   next:(data)=>{
+    //     this.getItemFromData=data;
+    //     console.log(data)
+    //     console.log("updateCartItem")
+    //     console.log(this.user.quantity)
+    //     console.log("4")
+    //     this.objectFromEventEmitter.emit(this.getItemFromData);   // sort of emit fire
+    //   }
+    //  })
 
     // this.cartService.updateCartItemQuantity(this.user.id,this.user.quantity).subscribe()
     // this.cartService.getItemById(this.user.id).subscribe({
@@ -170,8 +249,8 @@ Decreament()
     //   }
     // })
     // this.itemQuantity--;
-    this.cartService.removeItemFromOrder(this.user.id).subscribe()
-
+    // this.cartService.removeItemFromOrder(this.user.id).subscribe()
+    // this.cartService.removeItemFromOrder2(i.toString()).subscribe()
   }
 }
 

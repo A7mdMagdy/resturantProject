@@ -13,17 +13,20 @@ import { PizzaService } from '../../Service/pizza.service';
   styleUrl: './deals-page.component.css'
 })
 export class DealsPageComponent implements OnInit{
-  alldeals:any;
+  alldeals:any[];
   @Input()sendDataFromParent:any
   @Input() receiveDataFromChild(quan:any){
     this.sendDataFromParent=quan
   }
-  constructor(private myApis:PizzaService){}
+  constructor(private myApis:PizzaService){
+    this.alldeals = [];
+  }
   ngOnInit(){
     this.myApis.getAllPizza().subscribe(
       {
         next:(data)=> {
-          this.alldeals= data;
+          this.alldeals= data as any[];
+          this.alldeals = this.alldeals.filter((deal) => deal.deals);
         },
         error:()=>console.log('Something went wrong')
       }

@@ -1,7 +1,7 @@
 {
   "Piza": [
     {
-      "id": "1",
+      "id": 1,
       "Name": "Original Chicken Ranch",
       "Description": "Ranch base sauce with grilled chicken, mushro",
       "Sizes": "Medium | Small",
@@ -13,14 +13,15 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Original Chicken.png"
+      "Image": "assets/Images/Pizza/Original Chicken.png",
+      "deals":true
     },
     {
-      "id": "2",
+      "id": 2,
       "Name": " Vegetarian",
       "Description": "Green Pepper, Fresh Tomato, Onions Loaded On",
       "Sizes": "Medium | Large",
-      "price": 200,
+      "price": 195,
       "smallPrice": "",
       "mediumPrice": "195 ",
       "largePrice": "200 ",
@@ -28,10 +29,11 @@
       "dealmediumPrice": "175",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Vegetarian.png"
+      "Image": "assets/Images/Pizza/Vegetarian.png",
+      "deals":true
     },
     {
-      "id": "3",
+      "id": 3,
       "Name": "Chicken BBQ",
       "Description": "Grilled Chicken & Onions Loaded On BBQ Base &",
       "Sizes": "Small | Large",
@@ -43,10 +45,11 @@
       "dealmediumPrice": "",
       "deallargePrice": "170",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Chicken BBQ.png"
+      "Image": "assets/Images/Pizza/Chicken BBQ.png",
+      "deals":true
     },
     {
-      "id": "4",
+      "id":4,
       "Name": " Pepperoni Supreme ",
       "Description": "One Of Our All-time Specialties. A Meaty Feas",
       "Sizes": "Medium | Small",
@@ -58,14 +61,15 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "/assets/Images/Pizza/Pepperoni Supreme.png"
+      "Image": "/assets/Images/Pizza/Pepperoni Supreme.png",
+      "deals":false
     },
     {
-      "id": "5",
+      "id": 5,
       "Name": "Meat Lover",
       "Description": "Pepperoni, Beef With Tomato Base & Melting Mo",
       "Sizes": "Small | Large",
-      "price": 195,
+      "price": 154,
       "smallPrice": "154",
       "mediumPrice": "",
       "largePrice": "200",
@@ -73,10 +77,11 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Meat Lover.png"
+      "Image": "assets/Images/Pizza/Meat Lover.png",
+      "deals":false
     },
     {
-      "id": "6",
+      "id": 6,
       "Name": "BBQ Chicken Ranch",
       "Description": "Ranch base sauce with grilled chicken pieces,",
       "Sizes": "Medium | Large",
@@ -88,10 +93,11 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/BBQ Chicken Ranch.png"
+      "Image": "assets/Images/Pizza/BBQ Chicken Ranch.png",
+      "deals":false
     },
     {
-      "id": "7",
+      "id": 7,
       "Name": "Margherita",
       "Description": "Go Back to where it all began with the classi",
       "Sizes": "Medium | Small",
@@ -103,10 +109,11 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Margherita.png"
+      "Image": "assets/Images/Pizza/Margherita.png",
+      "deals":false
     },
     {
-      "id": "8",
+      "id": 8,
       "Name": "Super Supreme",
       "Description": "Our famous combination of Beef Pepperoni, jui",
       "Sizes": "Small | Large",
@@ -118,10 +125,11 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Super Supreme.png"
+      "Image": "assets/Images/Pizza/Super Supreme.png",
+      "deals":false
     },
     {
-      "id": "9",
+      "id": 9,
       "Name": "Classic Pepperoni",
       "Description": "Pepperoni, Black Olive & Mushroom With Tomato",
       "Sizes": "Medium | Large",
@@ -133,10 +141,11 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Classic Pepperoni.png"
+      "Image": "assets/Images/Pizza/Classic Pepperoni.png",
+      "deals":false
     },
     {
-      "id": "10",
+      "id": 10,
       "Name": "Cheese Lovers",
       "Description": "A special triple blend of cheese with any two",
       "Sizes": "Small | Large",
@@ -148,25 +157,27 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Cheese Lovers.png"
+      "Image": "assets/Images/Pizza/Cheese Lovers.png",
+      "deals":false
     },
     {
-      "id": "11",
+      "id": 11,
       "Name": "Chicken Supreme",
       "Description": "The ultimate mix of Chicken together with Mus",
       "Sizes": "Medium | Small",
       "price": 175,
       "smallPrice": "175",
-      "mediumPrice": "95",
+      "mediumPrice": "195",
       "largePrice": "",
       "dealsmallPrice": "",
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Chicken Supreme.png"
+      "Image": "assets/Images/Pizza/Chicken Supreme.png",
+      "deals":false
     },
     {
-      "id": "12",
+      "id": 12,
       "Name": "Vegetarian Supreme",
       "Description": "Mushrooms, Green peppers, Fresh Tomatoes, Oni",
       "Sizes": "Small | Large",
@@ -178,10 +189,11 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Vegetarian Supreme.png"
+      "Image": "assets/Images/Pizza/Vegetarian Supreme.png",
+      "deals":false
     },
     {
-      "id": "13",
+      "id": 13,
       "Name": "Spicy Chicken Ranch",
       "Description": "Grilled chicken, tomatoes, mushrooms, and jal",
       "Sizes": "Medium | Small",
@@ -195,77 +207,13 @@
       "dealmediumPrice": "",
       "deallargePrice": "",
       "quantity": 0,
-      "Image": "assets/Images/Pizza/Spicy Chicken Ranch.png"
-    }
-  ],
-  "Deals": [
-    {
-      "id": "14",
-      "Name": "My Box",
-      "Description": "Square Pizza + 2 Side Items",
-      "Price": " EGP 145.00 ",
-      "Image": "assets/Images/Deals/My box.jpg"
-    },
-    {
-      "id": "15",
-      "Name": "My Box Pro Veggie",
-      "Description": "Square Pizza + Veggie Alfredo Pasta + 1 Side Item",
-      "Price": " EGP 185.00 ",
-      "Image": "assets/Images/Deals/My Box Pro.jpg"
-    },
-    {
-      "id": "16",
-      "Name": "My Box Pro Chicken",
-      "Description": "Sicilian Pizza + Chicken Alfredo Pasta + 1 Side (Garlic Bread / W",
-      "Price": " EGP 195.00 ",
-      "Image": "assets/Images/Deals/My Box Pro.jpg"
-    },
-    {
-      "id": "17",
-      "Name": "My Melts Box",
-      "Description": "Melts + 2 Side Items",
-      "Price": " EGP 165.00 ",
-      "Image": "assets/Images/Deals/My Mealts Box.jpg"
-    },
-    {
-      "id": "18",
-      "Name": "Ranch Box",
-      "Description": "Get it all in the New Ranch Box : Medium Ranch + Medium Pan+  Wed",
-      "Price": " EGP 389.99 ",
-      "Image": "assets/Images/Deals/Ranch Box.jpeg"
-    },
-    {
-      "id": "19",
-      "Name": "Party Box",
-      "Description": "3 Medium Pizza + Potato wedges + Supreme Salad + Pepsi 1L",
-      "Price": " EGP 515.00 ",
-      "Image": "assets/Images/Deals/Party Box.jpg"
-    },
-    {
-      "id": "20",
-      "Name": "Family Meal",
-      "Description": "2 Medium Pizza + Potato wedges + Supreme Salad + Pepsi 1L",
-      "Price": " EGP 395.00 ",
-      "Image": "assets/Images/Deals/Family Meal.jpg"
-    },
-    {
-      "id": "21",
-      "Name": "Boss Deal",
-      "Description": "1 Sqaure Pizza + Pepsi",
-      "Price": " EGP 89.00 ",
-      "Image": "assets/Images/Deals/Boss.jpeg"
-    },
-    {
-      "id": "22",
-      "Name": "Hut Savers Pan Pizza Offer",
-      "Description": "2 Medium Pizzas of your choice (Pan,Thin or Classic). This offer",
-      "Price": " EGP 265.00 ",
-      "Image": "assets/Images/Deals/Hut Savers Pan Pizza.jpg"
+      "Image": "assets/Images/Pizza/Spicy Chicken Ranch.png",
+      "deals":false
     }
   ],
   "Starters": [
     {
-      "id": "23",
+      "id": 1,
       "Name": "Buffalo Wings 6 Pcs",
       "Description": "Buffalo Wings",
       "price": 99,
@@ -274,7 +222,7 @@
       "quantity": 0
     },
     {
-      "id": "24",
+      "id": 2,
       "Name": "Fire Wings 6 Pcs",
       "Description": "Fire Wings",
       "price": 99,
@@ -283,7 +231,7 @@
       "quantity": 0
     },
     {
-      "id": "25",
+      "id": 3,
       "Name": "Cheese Fondue Sauce",
       "Description": "Sauce",
       "price": 11,
@@ -292,7 +240,7 @@
       "quantity": 0
     },
     {
-      "id": "26",
+      "id": 4,
       "Name": "Honey Mustard Sauce",
       "Description": "Sauce",
       "price": 10,
@@ -301,7 +249,7 @@
       "quantity": 0
     },
     {
-      "id": "27",
+      "id": 5,
       "Name": "Thai Chili Sauce",
       "Description": "Sauce",
       "price": 10,
@@ -310,7 +258,7 @@
       "quantity": 0
     },
     {
-      "id": "28",
+      "id": 6,
       "Name": "Ranch Sauce",
       "Description": "Sauce",
       "price": 10,
@@ -319,7 +267,7 @@
       "quantity": 0
     },
     {
-      "id": "29",
+      "id": 7,
       "Name": "Potato Wedges",
       "Description": "Potato Wedges",
       "price": 65,
@@ -328,7 +276,7 @@
       "quantity": 0
     },
     {
-      "id": "30",
+      "id": 8,
       "Name": "Garlic Bread Supreme",
       "Description": "Freshly baked French Bread with Garlic butter",
       "price": 65,
@@ -337,7 +285,7 @@
       "quantity": 0
     },
     {
-      "id": "31",
+      "id": 9,
       "Name": "Chicken BBQ Spin Rolls",
       "Description": "Spin Rolls",
       "price": 85,
@@ -346,7 +294,7 @@
       "quantity": 0
     },
     {
-      "id": "32",
+      "id": 10,
       "Name": "Garlic Bread Super Supreme",
       "Description": "Freshly baked French Bread with Garlic butter",
       "price": 82,
@@ -355,7 +303,7 @@
       "quantity": 0
     },
     {
-      "id": "33",
+      "id": 11,
       "Name": "Trio",
       "Description": "Chicken BBQ Spin Rolls, Chicken Wings origina",
       "price": 185,
@@ -364,5 +312,9 @@
       "quantity": 0
     }
   ],
-  "cartItems": []
+  "Admin": [
+   {
+    "id":0
+   }
+  ]
 }
