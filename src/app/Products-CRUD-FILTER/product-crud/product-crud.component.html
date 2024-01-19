@@ -1,15 +1,17 @@
 <div class="main">
   <div class="container">
-
-    <div class="row px-5 py-4 justify-content-sm-center">
-      <!-- Filter DropDown -->
-      <div class="col-6">
+    <!--  div contain (Filters + Add)  -->
+    <div class="row px-5 py-5 justify-content-sm-center">
+      <!-- Add Button (Right) -->
+      <div class="col-lg-6 col-sm-12 align-self-end">
         <button class="btn add" routerLink="/pizza/addpizza"><span><i class="fa-solid fa-plus fa-2xs"></i>
           </span> Add Item</button>
       </div>
+      <!-- (End) Add Button (Right) -->
+      <!-- Filters (Left) -->
+      <div class="row col-lg-6 col-md-6 col-sm-12 justify-content-lg-end mt-3">
 
-      <div class="col-6 row justify-content-lg-end">
-        <div class="dropdown col-lg-2 col-sm-2 m-2">
+        <div class="dropdown col-2 mx-4">
           <button class="btn add3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sort
           </button>
@@ -24,7 +26,7 @@
           </ul>
         </div>
 
-        <div class="dropdown col-lg-2 col-sm-2 m-2">
+        <div class="dropdown col-2 mx-4">
           <button class="btn add3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Size
           </button>
@@ -42,8 +44,9 @@
         </div>
 
       </div>
+      <!-- (End) Filters (Left) -->
     </div>
-
+    <!-- (End) div contain (Filters + Add)  -->
     <div class="table-responsive">
       <table class="table align-middle text-center">
         <thead>
@@ -76,7 +79,8 @@
                     Size
                   </button>
                   <ul class="dropdown-menu text-center">
-                    <li><button class="dropdown-item" (click)="setDiscountedSize($event,prd.id)">Default</button></li>
+                    <li><button class="dropdown-item" (click)="setDiscountedSize($event,prd.id)"
+                        value="Default">Default</button></li>
                     @if(prd.largePrice){<li><button class="dropdown-item" id="{{prd.id}}" name="largePrice"
                         (click)="setDiscountedSize($event,prd.id)">Large</button></li>}
                     @if(prd.mediumPrice){<li><button class="dropdown-item" id="{{prd.id}}" name="mediumPrice"
@@ -86,7 +90,11 @@
                   </ul>
                 </div>
                 <input [(ngModel)]="DiscountedPrice" style="display: none;" id="DiscountInput+{{prd.id}}"
-                  (change)="setDiscountedPrice(prd.id)" type="text" class="mx-auto mt-2 border-0 rounded-2 p-1 w-75">
+                  (change)="setDiscountedPrice(prd.id)" type="text"
+                  class="bg-warning mx-auto mt-2 border-0 rounded-2 p-1 w-75">
+                @if(DiscountedPrice >= prd[DiscountedSize]){
+                <p class="text-danger mt-2 fs-6">That's Not an offer</p>
+                }
               </div>
 
             </td>

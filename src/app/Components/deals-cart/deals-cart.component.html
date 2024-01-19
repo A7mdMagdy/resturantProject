@@ -24,7 +24,7 @@
                     <p class="col-6 fs-5">{{deals.dealsmallPrice | currency:'EGP '}}</p>
                 </div>
             }
-            @if(deals.dealmediumPrice)
+            @else if(deals.dealmediumPrice)
             {
                 <p>Medium Size</p>
                 <div class="mb-4 justify-content-around row">
@@ -32,7 +32,7 @@
                     <p class="col-6 fs-5">{{deals.dealmediumPrice | currency:'EGP '}}</p>
                 </div>
             }
-            @if(deals.deallargePrice){
+            @else if(deals.deallargePrice){
                 <p>Large Size</p>
                 <div class="mb-4 justify-content-around row">
                     <span class="col-6"><span calss="w-25 ">was : </span> <del class="delet">{{deals.largePrice | currency:'EGP '}}</del></span>

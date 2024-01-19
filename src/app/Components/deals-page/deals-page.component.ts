@@ -26,7 +26,7 @@ export class DealsPageComponent implements OnInit{
       {
         next:(data)=> {
           this.alldeals= data as any[];
-          this.alldeals = this.alldeals.filter((deal) => deal.deals);
+          this.alldeals = this.alldeals.filter((deal) => deal.deals && (deal.dealsmallPrice || deal.dealmediumPrice || deal.deallargePrice));
         },
         error:()=>console.log('Something went wrong')
       }
